@@ -1,0 +1,19 @@
+.previews-news-container {
+    display: flex;
+    flex-direction: row;
+    width: 78%;
+    justify-content: center;
+    margin: auto;
+    gap: 3%;
+}
+
+@media screen and (max-width: 1100px) {
+    .previews-news-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 0vh auto auto auto;
+    }
+    
+}

@@ -1,0 +1,62 @@
+.comments-view {
+    width: 65vw;
+    margin-top: 10vh;
+}
+
+.text-gradient {
+    background-color: #00a4aa;
+    background-image: linear-gradient(45deg, #00a4aa, #00073b);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.line {
+    margin-bottom: 3vh;
+}
+
+.username {
+    margin-bottom: 10px;
+}
+
+.comment {
+    margin-bottom: 10px;
+}
+
+.comment-container button {
+    margin-bottom: 10px;
+}
+.input-container {
+    display: block;
+}
+
+.rating {
+    margin-bottom: 2vh;
+}
+
+.username-input-container {
+    margin: 2vh 2vh 2vh 0;
+}
+
+label {
+    display: block;
+    color: #00a4aa;
+}
+
+.username-input {
+    width: 10vw;
+    min-width: 100px;
+}
+
+.comment-input {
+    width: 25vw;
+    min-width: 270px;
+    height: 10vh;
+}
+
+.comment-input::placeholder {
+    color: #498082; /* Colore del testo del placeholder */
+    font-size: 14px; /* Dimensione del testo del placeholder */
+    /* Altri stili desiderati per il placeholder */
+  }
+  

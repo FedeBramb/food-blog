@@ -1,0 +1,60 @@
+.social-bar {
+    background-color: #00a4aa;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 11vw 0 11vw;
+}
+
+.logo-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    width: 31px;
+    height: 31px;
+}
+
+
+@media screen and (max-width: 880px) {
+    .social-bar {
+        justify-content: center;
+    }
+    
+    .icons {
+        display: none;
+    }
+}
+
+.space {
+    width: 10%;
+}
+
+.social-bar-header a {
+    font-size: 1.5em;
+    color: rgb(40, 40, 40);
+}
+
+.social-bar-footer {
+    width: 100%;
+    margin-top: 4%;
+    padding: 1vh 11vw 1vh 11vw;
+}
+
+.social-bar-footer a {
+    font-size: 1.5rem;
+    color: rgb(40, 40, 40);
+}
+
+
+
+
+
+
