@@ -53,7 +53,8 @@ export const LogoBigLink = styled(Link)`
 `
 
 export const LogoSmallView = styled.img`
-    width: 80%;
+    width: 50%;
+    min-width: 222px;
 `
 
 export const DropcaseContainer = styled.div`
