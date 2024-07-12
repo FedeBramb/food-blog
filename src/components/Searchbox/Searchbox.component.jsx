@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 
 import { recipeData } from "../../assets/ricette/Recipes.js";
 
-import './Searchbox.styles.css';
+import { 
+  SearchFormContainer,
+  SearchForm,
+  SearchInput,
+  SearchButton,
+  ResultDropdown,
+  DropdownItemContainer,
+} from './Searchbox.styles.jsx';
 
 /* Barra di ricerca */
 const Searchbox = () => {
@@ -50,9 +57,9 @@ const Searchbox = () => {
   
 
   return (
-    <div className="search-form">
-      <form>
-        <input
+    <SearchFormContainer>
+      <SearchForm>
+        <SearchInput
           type="search"
           placeholder="Cerca ricetta o ingrediente..."
           title="Cerca per nome della ricetta o ingrediente. I risultati includeranno ricette con nomi o ingredienti corrispondenti."
@@ -60,23 +67,23 @@ const Searchbox = () => {
           value={searchInput}
           onChange={handleInputChange}
         />
-        <button type="submit" className="search-button" aria-label="Cerca">
+        <SearchButton type="submit" className="search-button" aria-label="Cerca">
           <img src="https://icongr.am/fontawesome/search.svg?size=25&color=1f1f1f" alt="search-icon" className="search-icon"></img>
-        </button>
-      </form>
+        </SearchButton>
+      </SearchForm>
       {/*Controlliamo se il container è vuoto altrimenti non lo renderizziamo*/}
       {filteredRecipes.length > 0 && (
-        <div className="result-dropdown">
+        <ResultDropdown>
           {filteredRecipes.map((recipe, index) => (
-            <div className="dropdown-item" key={index}>
+            <DropdownItemContainer key={index}>
               <Link to={`/cookbook/${recipe.title.toLowerCase()}`} onClick={handleResultClick}>
                 <p>{recipe.title}</p>
               </Link>
-            </div>
+            </DropdownItemContainer>
           ))}
-        </div>
+        </ResultDropdown>
       )}
-    </div>
+    </SearchFormContainer>
   );
 };
 

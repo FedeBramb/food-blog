@@ -4,18 +4,18 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard.component';
 
 import { recipeImages } from '../../assets/ricette/Recipes.js';
 
-import './RecipesBook.styles.css';
+import { RecipeBookContainer } from './RecipesBook.styles.jsx';
 
 const Cookbook = () => {
     const recipes = recipeImages();
   return (
-    <div className='cookbook-container'>
+    <RecipeBookContainer>
         {recipes.map(({ title, imagesCookBook }, index) => {
             return (
                 <RecipeCard key={index} title={title} image={imagesCookBook} />
             );
         })}
-    </div>
+    </RecipeBookContainer>
   )
 }
 

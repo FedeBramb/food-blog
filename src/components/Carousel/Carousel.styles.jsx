@@ -80,7 +80,7 @@ export const MySwiper = styled(Swiper)`
 export const ExploreContainer = styled.div`
     display: none;
     opacity: 0;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
     position: relative;
 `
 
@@ -152,7 +152,6 @@ export const SlideButton = styled.button`
     }
 `
 
-
 const moveIcon = keyframes`
     0% {
         transform: translate(-50%, -50%) translateX(0);
@@ -173,7 +172,7 @@ const moveIcon = keyframes`
 
 export const OverlayContainer = styled.div`
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
@@ -182,9 +181,9 @@ export const OverlayContainer = styled.div`
     text-align: center;
 
     span {
-    color: #ffffff;
-    font-size: 2em;
-    display: block;
+        color: #ffffff;
+        font-size: 2em;
+        display: block;
     }
 
     img {

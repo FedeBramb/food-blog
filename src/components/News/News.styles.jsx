@@ -1,4 +1,6 @@
-.news-container {
+import styled from "styled-components";
+
+export const NewsContainer = styled.div`
     width: 55%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -10,19 +12,8 @@
     top: 52.04px;
     margin-left: 1vw;
     font-family: "Open Sans", sans-serif;
-}
-  
-.news-title {
-    grid-column: 1 / span 2;
-    margin: auto;
-}
 
-.news-title .margin {
-    margin-bottom: 2vh;
-}
-
-@media screen and (max-width: 1100px) {
-    .news-container {
+    @media screen and (max-width: 1100px) {
         width: 78vw;
         position: relative;
         grid-template-columns: repeat(3, 1fr);
@@ -33,13 +24,7 @@
         margin-top: 2vh;
     }
 
-    .news-title {
-        grid-column: 1 / span 3;
-    }
-}
-
-@media screen and (max-width: 780px) {
-    .news-container {
+    @media screen and (max-width: 780px) {
         width: 78vw;
         position: relative;
         grid-template-columns: repeat(2, 1fr);
@@ -50,38 +35,52 @@
         margin-top: 2vh;
     }
 
-    .news-title {
+    & a {
+        width: 100%;
+        text-decoration: none;
+    }
+`
+
+export const NewsTitle = styled.div`
+    grid-column: 1 / span 2;
+    margin: auto;
+
+    &.margin {
+        margin-bottom: 2vh;
+    }
+
+    & hr {
+        display: block;
+        background: #00a4aa;
+        height:  0.25rem;
+        width: 5.25rem;
+        border: none;
+        margin-bottom: 3vh;
+        margin-left: 1%;
+    }
+
+    @media screen and (max-width: 1100px) {
+        grid-column: 1 / span 3;
+    }
+
+    @media screen and (max-width: 780px) {
         grid-column: 1 / span 2;
     }
-}
+`
 
-.news-container hr {
-    display: block;
-    background: #00a4aa;
-    height:  0.25rem;
-    width: 5.25rem;
-    border: none;
-    margin-bottom: 3vh;
-    margin-left: 1%;
-}
- 
-.image-link {
-    width: 100%;
-    text-decoration: none;
-}
-  
-.image-container {
+export const ImgContainer = styled.div`
     position: relative;
     width: auto;
     height: auto;
-}
-  
-.news-image {
-    max-width: 100%;
-    height: auto;
-}
-  
-.overlayDiv {
+
+    & img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+`
+
+export const OverlayContainer = styled.div`
     position: absolute;
     bottom: 2%;
     background: rgba(0, 170, 170, 0.8);
@@ -89,8 +88,8 @@
     width: 100%;
     text-align: center;
     white-space: nowrap;
-}
-  
-.overText {
-    font-size: clamp(12px, 2vw, 16px);
-}
+
+    & span {
+        font-size: clamp(12px, 2vw, 16px);
+    }
+`

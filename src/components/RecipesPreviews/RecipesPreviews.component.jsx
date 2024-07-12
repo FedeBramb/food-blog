@@ -4,16 +4,16 @@ import { recipeImages } from '../../assets/ricette/Recipes.js';
 
 import RecipePreview from '../RecipePreview/RecipePreview.component.jsx';
 
-import './RecipesPreviews.styles.css';
+import { PreviewsContainer, Header } from './RecipesPreviews.styles.jsx';
 
 const RecipesPreviews = () => {
     const data = recipeImages();
   return (
-    <div className='recipes-previews-container'>
-        <div className='header'>
+    <PreviewsContainer>
+        <Header>
             <h2 className='gradient-text margin'>Ricette</h2>
             <hr></hr>
-        </div>
+        </Header>
         {data.map((recipe, index) => {
             if (index <= 4) {
                 return  (
@@ -25,8 +25,7 @@ const RecipesPreviews = () => {
             }
             return null;
         })}
-        
-    </div>
+    </PreviewsContainer>
   )
 }
 

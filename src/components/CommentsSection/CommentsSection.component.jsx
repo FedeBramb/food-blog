@@ -4,7 +4,14 @@ import React, { useState, useEffect } from 'react';
 
 import StarRating from '../StarRating/StarRating.component';
 
-import './CommentsSections.styles.css';
+import {
+    CommentsSectionContainer,
+    AllCommentsTitle,
+    CommentContainer,
+    UsernameInputContainer,
+    UsernameInput,
+    CommentInput
+} from './CommentsSections.styles.jsx';
 
 const CommentsSection = () => {
     /* Imposta quattro states, 1.commento digitato, 2.username, 3.rating, 
@@ -66,36 +73,34 @@ const CommentsSection = () => {
     
     // () => handleDelete(index) altrimenti verrebbe chiamata durante il rendering.
     return (
-        <div className="comments-view">
-            <h2 className='text-gradient'>All Comments</h2>
+        <CommentsSectionContainer>
+            <AllCommentsTitle>Commenti:</AllCommentsTitle>
             <hr className='line'></hr>
             <div className='comments-box'>
                 {comments.map((item, index) => (
-                    <div key={index} className='comment-container'>
+                    <CommentContainer key={index} >
                         <p className='username text-gradient'>{item.username}:</p>
                         <p className='comment'>{item.comment}</p>
                         <div className="rating">
                             {"★".repeat(item.rating) + "☆".repeat(5 - item.rating)}
                         </div>
                         <button onClick={() => handleDelete(index)}>Delete</button>
-                    </div>
+                    </CommentContainer>
                 ))}
             </div>
-            <div className='username-input-container'>
+            <UsernameInputContainer>
                 <label htmlFor="username">User:</label>
-                <input 
-                    type="text" 
-                    className="username-input" 
+                <UsernameInput 
+                    type="text"
                     placeholder="username..." 
                     value={username} 
                     onChange={handleUsernameChange} 
                 />
-            </div>
+            </UsernameInputContainer>
             <div className='comment-input-container'>
                 <label htmlFor="message">Message:</label>
-                <input 
-                    type="text" 
-                    className="comment-input" 
+                <CommentInput 
+                    type="text"
                     placeholder="commento..." 
                     value={inputValue} 
                     onChange={handleInputChange} 
@@ -104,7 +109,7 @@ const CommentsSection = () => {
             {/* handleRatingChange viene passata come prop onRatingChange al componente StarRating */}
             <StarRating onRatingChange={handleRatingChange} />
             <button className="button-input" onClick={handleSubmit}>Invia</button>
-        </div>
+        </CommentsSectionContainer>
     );
     
 }

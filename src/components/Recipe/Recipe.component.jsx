@@ -5,8 +5,19 @@ import { useParams } from 'react-router-dom';
 
 import { recipeData } from '../../assets/ricette/Recipes';
 
-import './Recipe.styles.css';
 import CommentsSection from "../CommentsSection/CommentsSection.component";
+
+import { 
+  RecipeContainer,
+  VideoSectionContainer,
+  IngredientsAndDetails,
+  IngredientsSection,
+  SectionTitle,
+  IngredientsContainer,
+  DetailsContainer,
+  InstructionSection,
+} from './Recipe.styles.jsx';
+
 
 
 
@@ -21,12 +32,12 @@ const Recipe = () => {
   }
 
   return (
-    <div className="recipe">
-      <h1 className="title gradient-text">
+    <RecipeContainer>
+      <SectionTitle className="title gradient-text">
         {recipe.title}
         <hr className="title-hr" />
-      </h1>
-      <div className="video-section">
+      </SectionTitle>
+      <VideoSectionContainer>
         <iframe
           src={recipe.video}
           title="YouTube video player"
@@ -35,37 +46,37 @@ const Recipe = () => {
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
-      </div>
-      <div className="ingredients_and_details">
-        <div className="ingredients_section">
-          <h1 className="recipe_h1">Ingredienti</h1>
-          <div className="ingredients">
+      </VideoSectionContainer>
+      <IngredientsAndDetails>
+        <IngredientsSection>
+          <SectionTitle>Ingredienti</SectionTitle>
+          <IngredientsContainer>
             {recipe.ingredients.map((p, index) => (
               <li key={index} className="ingredients-li">{p}</li>
             ))}
-          </div>
-        </div>
-        <div className="details">
+          </IngredientsContainer>
+        </IngredientsSection>
+        <DetailsContainer>
           <p>Difficoltà: {recipe.difficulty}</p>
           <p>Preparazione: {recipe.prepTime}</p>
           <p>Cottura: {recipe.cookTime}</p>
           <p>Tempo totale: {recipe.totalTime}</p>
           <p>Dosi: {recipe.servings}</p>
-        </div>
-      </div>
-      <div className="instructions-section">
-        <h1 className="recipe_h1">Procedimento</h1>
+        </DetailsContainer>
+      </IngredientsAndDetails>
+      <InstructionSection>
+        <SectionTitle>Procedimento</SectionTitle>
         <div className="miniature-rec">
           <img src={recipe.imagesMiniature} alt={recipe.title} />
         </div>
         <div className="instructions">
           {recipe.instructions.map((p, index) => (
-            <li key={`li-${index}`} className="instructions-p">{p}</li>
+            <li key={`li-${index}`}>{p}</li>
           ))}
         </div>
-      </div>
-      <CommentsSection></CommentsSection>
-    </div>
+      </InstructionSection>
+      <CommentsSection />
+    </RecipeContainer>
   );
 }
 

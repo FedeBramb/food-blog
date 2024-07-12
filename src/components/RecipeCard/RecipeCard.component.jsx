@@ -1,32 +1,36 @@
 import React from 'react';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-import { Link } from 'react-router-dom';
-
-import './RecipeCard.styles.css';
+import {
+  CustomLink,
+  TitleContainer,
+  CardContainer,
+  PosterContainer,
+  PosterLazyImg,
+  TitleContent,
+  ReadButton
+} from './RecipeCard.styles.jsx';
 
 const RecipeCard = ({ title, image, index }) => {
     
   return (
     <>
-      <Link to={`${title.trim().toLowerCase()}`} className='link-custom' key={index}>
-          <div className='card'>
-            <div className='poster-container'>
-              <LazyLoadImage 
-                src={image}
-                alt={`pic-${index}`}
-                className='poster'
-              />
-            </div>
-            <div className='title-container'>
-              <div className='title-content'>
-                <p className='title-card' key={`${index}-p`}>{title}</p>
-                <button className="read-button">Scopri</button>  
-              </div>
-            </div>
-          </div>
-        </Link>
+      <CustomLink to={`${title.trim().toLowerCase()}`} className='CustomLink-custom' key={index}>
+        <CardContainer>
+          <PosterContainer>
+            <PosterLazyImg 
+              src={image}
+              alt={`pic-${index}`}
+              className='poster'
+            />
+          </PosterContainer>
+          <TitleContainer>
+            <TitleContent>
+              <p className='title-card' key={`${index}-p`}>{title}</p>
+              <ReadButton>Scopri</ReadButton>  
+            </TitleContent>
+          </TitleContainer>
+        </CardContainer>
+      </CustomLink>
     </>
   )
 }

@@ -7,7 +7,12 @@ import streetfood from '../../assets/images-news/streetfood.webp';
 import foodprofit from '../../assets/images-news/foodprofit.webp';
 import kinder from '../../assets/images-news/kinder.webp';
 
-import './News.styles.css';
+import {
+  NewsContainer,
+  NewsTitle,
+  ImgContainer,
+  OverlayContainer
+} from './News.styles.jsx';
 
 const newsLinks = [
     {
@@ -44,22 +49,22 @@ const newsLinks = [
 
 const News = () => {
   return (
-    <div id='shorterDiv' className='news-container'>
-        <div className='news-title'>
+    <NewsContainer id='shorterDiv'>
+        <NewsTitle>
             <h2 className='gradient-text margin'>News</h2>
             <hr />
-        </div>
+        </NewsTitle>
         {newsLinks.map((news, index) => (
             <a href={news.url} className="image-link" key={index}>
-            <div className="image-container">
+            <ImgContainer>
                 <img src={news.image} alt={`immagine per ${news.source}`} className="news-image" width='279' height='156'/>
-                <div className="overlayDiv">
-                <span className='overText'>{news.source}</span>
-                </div>
-            </div>
+                <OverlayContainer>
+                  <span className='overText'>{news.source}</span>
+                </OverlayContainer>
+            </ImgContainer>
             </a>
         ))}
-    </div>
+    </NewsContainer>
   )
 }
 

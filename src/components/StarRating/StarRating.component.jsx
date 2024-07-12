@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import './StarRating.styles.css';
-
+import { StarRatingContainer, StarSpan } from './StarRating.styles.jsx';
 
 
 // Gestisce il rating nei commenti
@@ -24,9 +23,9 @@ const StarRating = ({ onRatingChange }) => {
   };
 
   return (
-    <div className="star-rating">
+    <StarRatingContainer>
       {[1, 2, 3, 4, 5].map((num) => (
-        <span
+        <StarSpan
           key={num}
           className={`star ${num <= (hoverRating || rating) ? 'active' : ''}`}
           onClick={() => handleStarClick(num)}
@@ -34,9 +33,9 @@ const StarRating = ({ onRatingChange }) => {
           onMouseLeave={handleMouseLeave}
         >
           &#9733;
-        </span>
+        </StarSpan>
       ))}
-    </div>
+    </StarRatingContainer>
   );
 };
 

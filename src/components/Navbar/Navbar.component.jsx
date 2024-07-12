@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import logo from '../../assets/logo.webp';
 
-import './Navbar.styles.css';
+import { Link } from 'react-router-dom';
+
+import {
+  NavbarContainer,
+  NavItem,
+  LogoBigLink,
+  LogoSmallView,
+  DropcaseContainer,
+  MenuButton,
+  DropdownContent
+} from './Navbar.styles.jsx';
 
 
 function Navbar() {
@@ -34,35 +42,35 @@ function Navbar() {
 
   return (  
     // Renderizza il nav in base alla risoluzione della view  
-    <div className={`navbar ${isSmallScreen && 'smallScreen'}`}>
+    <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
       {!isSmallScreen && (
         <>
-          <Link to="/" className="nav-item">HOME</Link>
-          <Link to="/cookbook" className="nav-item">RICETTE</Link>
-          <Link to="/" className='logo-big-container'><img src={logo} alt='logo'></img></Link>
-          <Link to="/glossario" className="nav-item">GLOSSARIO</Link>
-          <Link to="/contatti" className="nav-item">CONTATTI</Link>
+          <NavItem to="/" >HOME</NavItem>
+          <NavItem to="/cookbook" >RICETTE</NavItem>
+          <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
+          <NavItem to="/glossario" >GLOSSARIO</NavItem>
+          <NavItem to="/contatti" >CONTATTI</NavItem>
         </>
       )}
       {isSmallScreen && (
         <>
-          <img src={logo} className='logo-small-view' alt='logo'></img>
-          <div className="dropcase">
-            <button className="menu-button" onClick={toggleMenu}>
-            <img src="https://icongr.am/fontawesome/bars.svg?size=28&color=00a4aa" alt="icon Facebook"></img>Menu
-            </button>
+          <LogoSmallView src={logo} alt='logo'></LogoSmallView>
+          <DropcaseContainer>
+            <MenuButton  onClick={toggleMenu}>
+              <img src="https://icongr.am/fontawesome/bars.svg?size=28&color=00a4aa" alt="icon Facebook"></img>Menu
+            </MenuButton>
             {isOpen && (
-                <div className="dropdown-content">
+                <DropdownContent>
                   <Link to="/" className="dropItem" onClick={toggleMenu}>HOME</Link>
                   <Link to="/cookbook" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
                   <Link to="/glossario" className="dropItem" onClick={toggleMenu}>GLOSSARIO</Link>
                   <Link to="/contatti" className="dropItem" onClick={toggleMenu}>CONTATTI</Link>
-                </div>
+                </DropdownContent>
             )}
-          </div>
+          </DropcaseContainer>
         </>
       )}
-    </div>
+    </NavbarContainer>
   );
 } 
 

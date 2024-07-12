@@ -3,15 +3,15 @@ import React from 'react';
 import RecipesPreviews from '../RecipesPreviews/RecipesPreviews.component';
 import News from '../News/News.component';
 
-import './RecipePrevsAndNews.styles.css';
+import { PrevAndNewsContainer } from './RecipePrevsAndNews.styles.jsx';
 
 
 const RecipePrevsAndNews = () => {
   return (
-    <div className='previews-news-container'>
-        <RecipesPreviews></RecipesPreviews>
-        <News></News>
-    </div>
+    <PrevAndNewsContainer>
+      <RecipesPreviews></RecipesPreviews>
+      <News></News>
+    </PrevAndNewsContainer>
   )
 }
 
