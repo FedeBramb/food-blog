@@ -53,7 +53,7 @@ export const DetailsContainer = styled.div`
     }
 
     & .span-link {
-        color: #00a4aa;
+        color: #007074;
         font-weight: 650;
 
         & :hover {
