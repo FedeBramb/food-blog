@@ -80,7 +80,7 @@ export const MySwiper = styled(Swiper)`
 export const ExploreContainer = styled.div`
     display: none;
     opacity: 0;
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
     position: relative;
 `
 
