@@ -111,8 +111,7 @@ function Carousel() {
         })}
         {showIcon && (
         <OverlayContainer>
-          <span className='gradient-text'>SWIPE</span>
-          <img src='https://i.ibb.co/8cYKM7n/swipe-icon.png' alt="Icon" />
+          <img src='https://i.ibb.co/PW8zc1V/Swipe-icon.png' alt="Icon" />
         </OverlayContainer>
       )}
       </MySwiper>

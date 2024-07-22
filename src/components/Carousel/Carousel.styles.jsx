@@ -152,21 +152,12 @@ export const SlideButton = styled.button`
     }
 `
 
-const moveIcon = keyframes`
+const rotateHand = keyframes`
     0% {
-        transform: translate(-50%, -50%) translateX(0);
-    }
-    25% {
-        transform: translate(-50%, -50%) translateX(20px);
-    }
-    50% {
-        transform: translate(-50%, -50%) translateX(0);
-    }
-    75% {
-        transform: translate(-50%, -50%) translateX(-20px);
+      transform: rotate(-10deg);
     }
     100% {
-        transform: translate(-50%, -50%) translateX(0);
+      transform: rotate(25deg);
     }
 `
 
@@ -176,18 +167,13 @@ export const OverlayContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    animation: moveIcon 2s infinite ease-in-out;
     z-index: 1000;
     text-align: center;
 
-    span {
-        color: #ffffff;
-        font-size: 2em;
-        display: block;
-    }
-
     img {
         max-width: 150px;
-        opacity: 95%;
+        opacity: 75%;
+        transform-origin: bottom center; // Imposta il punto di perno alla base della mano
+        animation: ${rotateHand} 1s infinite alternate ease-in-out; // Animazione di rotazione
     }
 `
