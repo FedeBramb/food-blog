@@ -26,6 +26,10 @@ export const TitleContainer = styled.div`
     box-shadow: 0 5px 20px 3px ${secondaryColor};
     opacity: 0;
     transition: opacity ${transitionDuration}; 
+
+    @media screen and (max-width: 738px) {
+        opacity: 1;
+    }
 `
 
 export const CardContainer = styled.div`
@@ -34,6 +38,10 @@ export const CardContainer = styled.div`
     margin-top: 35px;
 
     &:hover ${TitleContainer} {
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 738px) {
         opacity: 1;
     }
 
@@ -61,7 +69,7 @@ export const TitleContent = styled.div`
     text-align: center;
 
     & .title-card {
-        font-size: clamp(12px, 3vw, 36px);
+        font-size: clamp(16px, 3vw, 36px);
         margin-bottom: 2%;
         color: ${primaryColor}; 
         text-shadow: 2px 2px 4px ${secondaryColor};

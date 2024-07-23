@@ -4,6 +4,7 @@ export const PrevAndNewsContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 78%;
+    height: 100%;
     justify-content: center;
     margin: auto;
     gap: 3%;

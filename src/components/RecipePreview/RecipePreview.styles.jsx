@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link } from 'react-router-dom';
 
 
 export const PreviewContainer = styled.div`
@@ -12,6 +13,15 @@ export const PreviewContainer = styled.div`
     font-family: "Libre Baskerville", serif;
     font-weight: 200;
     font-style: normal;
+
+    @media (max-width: 738px) {
+        margin: 0;
+        flex-direction: column;
+    }
+`
+
+export const NewsLink = styled(Link)`
+    width: 100%;
 `
 
 export const LazyImg = styled(LazyLoadImage)`
@@ -21,11 +31,22 @@ export const LazyImg = styled(LazyLoadImage)`
     @media screen and (max-width: 1100px) {
         max-width: 165px;
     }
+    
+    @media screen and (max-width: 738px) {
+        margin: auto;
+        min-width: 100%;
+    }
+    
 `
 
 export const DetailsContainer = styled.div`
     margin-left: 20px;
     text-align: left;
+
+    @media screen and (max-width: 738px) {
+        margin: 0;
+        text-align: center;
+    }
 
     & h2 {
         color: #355b5d;
@@ -49,7 +70,8 @@ export const DetailsContainer = styled.div`
     & p {
         font-size: clamp(1rem, 2.5vw, 1.2rem);
         letter-spacing: -1px;
-        opacity: 70%;
+        opacity: 72%;
+
     }
 
     & .span-link {

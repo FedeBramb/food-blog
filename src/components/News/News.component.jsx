@@ -56,12 +56,12 @@ const News = () => {
         </NewsTitle>
         {newsLinks.map((news, index) => (
             <a href={news.url} className="image-link" key={index}>
-            <ImgContainer>
-                <img src={news.image} alt={`immagine per ${news.source}`} className="news-image" width='279' height='156'/>
-                <OverlayContainer>
-                  <span className='overText'>{news.source}</span>
-                </OverlayContainer>
-            </ImgContainer>
+              <ImgContainer>
+                  <img src={news.image} alt={`immagine per ${news.source}`} className="news-image" width='279' height='156'/>
+                  <OverlayContainer>
+                    <span className='overText'>{news.source}</span>
+                  </OverlayContainer>
+              </ImgContainer>
             </a>
         ))}
     </NewsContainer>

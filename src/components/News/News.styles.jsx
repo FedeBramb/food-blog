@@ -5,7 +5,7 @@ export const NewsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 0.7fr 1.1fr 1.1fr 1.1fr;
-    gap: 10px; /* Aggiungi uno spazio tra le colonne */
+    gap: 10px; /* Add spacing between columns */
     height: calc(100vh - 157.73px);
     position: -webkit-sticky;
     position: sticky;
@@ -24,12 +24,11 @@ export const NewsContainer = styled.div`
         margin-top: 2vh;
     }
 
-    @media screen and (max-width: 780px) {
+    @media screen and (max-width: 738px) {
         width: 78vw;
         position: relative;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 0.7fr 1.1fr 1.1fr 1.1fr;
-        margin-left: 0;
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: repeat(7, auto); /* 1 row for text + 6 rows for images */
         height: 100%;
         top: 0;
         margin-top: 2vh;
@@ -63,18 +62,16 @@ export const NewsTitle = styled.div`
         grid-column: 1 / span 3;
     }
 
-    @media screen and (max-width: 780px) {
-        grid-column: 1 / span 2;
+    @media screen and (max-width: 738px) {
+        grid-column: 1 / span 1;
     }
 `
 
 export const ImgContainer = styled.div`
     position: relative;
-    width: auto;
-    height: auto;
 
     & img {
-        max-width: 100%;
+        width: 100%;
         height: auto;
     }
     

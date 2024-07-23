@@ -51,8 +51,8 @@ function Carousel() {
 
   return (
     <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <LazyImageCaffe src={caffe} alt='' className='caffe' />
-      <LazyImageCiambella src={ciambella} alt='' className='ciambella' />
+      <LazyImageCaffe src={caffe} alt='caffe overlay' />
+      <LazyImageCiambella src={ciambella} alt='ciambella overlay'  />
       <div>
         <div>
           <Span>discover</Span>

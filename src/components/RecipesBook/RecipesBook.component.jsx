@@ -6,8 +6,9 @@ import { recipeImages } from '../../assets/ricette/Recipes.js';
 
 import { RecipeBookContainer } from './RecipesBook.styles.jsx';
 
-const Cookbook = () => {
+const RecipeBook = () => {
     const recipes = recipeImages();
+    
   return (
     <RecipeBookContainer>
         {recipes.map(({ title, imagesCookBook }, index) => {
@@ -19,4 +20,4 @@ const Cookbook = () => {
   )
 }
 
-export default Cookbook;
+export default RecipeBook;

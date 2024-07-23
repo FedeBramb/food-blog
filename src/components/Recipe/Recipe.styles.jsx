@@ -10,8 +10,12 @@ export const RecipeContainer = styled.div`
     margin-top: 5vh;
     margin: auto;
 
+    @media (max-width: 738px) {
+        margin: auto;
+    }
+
     & .title {
-        margin-bottom: 6vh;
+        margin: 5% 0;
     }
 
     & .title-hr {
@@ -34,7 +38,7 @@ export const VideoSectionContainer = styled.div`
     height: 0;
     padding-bottom: 56.25%; /* Rapporto d'aspetto 16:9 */
     overflow: hidden;
-    min-width: 470px;
+    min-width: 412px;
     min-height: 250px;
 
     & iframe {
@@ -49,13 +53,14 @@ export const VideoSectionContainer = styled.div`
 export const IngredientsAndDetails = styled.div`
     width: 100%;
     display: flex;
-    padding: 10px;
+    padding-left: 18px;
     background-color: rgb(232, 232, 232);
 
     @media screen and (max-width: 1100px) {
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 0;
     }
 `
   
@@ -64,7 +69,7 @@ export const IngredientsSection = styled.div`
 `
 
 export const SectionTitle = styled.h1`    
-    margin: 0% 0 5% 0;
+    margin: 5% 0 5% 0;
     background-color: #00a4aa;
     background-image: linear-gradient(45deg, #00a4aa, #00073b);
     background-size: 100%;
@@ -94,16 +99,12 @@ export const IngredientsContainer = styled.div`
     
     @media screen and (max-width: 600px) {
         grid-template-columns: 1fr;
-    }
-
-    
+    }  
 `
 
 export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center; /* Centra il testo orizzontalmente */
     width: 100%;
     background-color: cornflowerblue;
@@ -114,8 +115,8 @@ export const DetailsContainer = styled.div`
 
     @media screen and (max-width: 1100px) {
         width: 100%!important;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        padding: 3% 0;
+        margin-top: 10px;
     }
 `
 

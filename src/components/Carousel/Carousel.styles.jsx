@@ -12,10 +12,11 @@ export const CarouselContainer = styled.div`
     padding-block: min(20vh, 3rem);
     border-bottom: 1px solid rgb(164, 164, 164);
 
-    @media screen and (min-width: 48rem) {
+    // Larghezza almeno 768px
+    @media screen and (min-width: 768px) {
         display: flex;
         align-items: center;
-}
+    }
 `
 
 export const LazyImageCaffe = styled(LazyLoadImage)`
@@ -40,6 +41,11 @@ export const LazyImageCiambella = styled(LazyLoadImage)`
     height: 400px; 
     max-width: 100%; 
     object-fit: cover;
+
+    @media screen and (max-width: 738px) {
+        left: 2rem;
+        top: 50rem;
+    }
 `
 
 export const Span = styled.span`
