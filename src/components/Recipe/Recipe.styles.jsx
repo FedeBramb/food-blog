@@ -95,11 +95,12 @@ export const IngredientsContainer = styled.div`
     @media screen and (max-width: 850px) {
         grid-template-columns: 1fr 1fr;
         margin: auto;
+        padding-left: 10px;
     }
     
     @media screen and (max-width: 600px) {
         grid-template-columns: 1fr;
-    }  
+    }
 `
 
 export const DetailsContainer = styled.div`
