@@ -8,6 +8,7 @@ import {
   NavbarContainer,
   NavItem,
   LogoBigLink,
+  LinkSmallLogo,
   LogoSmallView,
   DropcaseContainer,
   MenuButton,
@@ -54,7 +55,9 @@ function Navbar() {
       )}
       {isSmallScreen && (
         <>
-          <LogoSmallView src={logo} alt='logo'></LogoSmallView>
+          <LinkSmallLogo className='link-small-logo'>
+            <LogoSmallView src={logo} alt='logo' />
+          </LinkSmallLogo>
           <DropcaseContainer>
             <MenuButton  onClick={toggleMenu}>
               <img src="https://icongr.am/fontawesome/bars.svg?size=28&color=00a4aa" alt="icon Facebook"></img>Menu

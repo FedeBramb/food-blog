@@ -52,6 +52,10 @@ export const LogoBigLink = styled(Link)`
     }
 `
 
+export const LinkSmallLogo = styled(Link)`
+    text-align: center;
+`
+
 export const LogoSmallView = styled.img`
     width: 50%;
     min-width: 222px;
