@@ -10,8 +10,8 @@ import 'swiper/css/bundle';
 import 'swiper/css/mousewheel';
 import { 
   CarouselContainer, 
-  LazyImageCaffe, 
-  LazyImageCiambella, 
+  Caffe,
+  Ciambella, 
   Span, 
   MainTitle,
   Hr,
@@ -51,8 +51,8 @@ function Carousel() {
 
   return (
     <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <LazyImageCaffe src={caffe} alt='caffe overlay' />
-      <LazyImageCiambella src={ciambella} alt='ciambella overlay'  />
+      <Caffe src={caffe} alt='caffe overlay' />
+      <Ciambella src={ciambella} alt='ciambella overlay'  />
       <div>
         <div>
           <Span>discover</Span>

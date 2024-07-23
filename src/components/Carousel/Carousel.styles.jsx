@@ -1,8 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { LazyLoadImage } from "react-lazy-load-image-component";
-
 export const CarouselContainer = styled.div`
     position: relative;
     width: 78vw;
@@ -19,7 +17,7 @@ export const CarouselContainer = styled.div`
     }
 `
 
-export const LazyImageCaffe = styled(LazyLoadImage)`
+export const Caffe = styled.img`
     position: absolute;
     top: -2rem;
     left: -7rem;
@@ -31,7 +29,7 @@ export const LazyImageCaffe = styled(LazyLoadImage)`
     object-fit: cover;
 `
 
-export const LazyImageCiambella = styled(LazyLoadImage)`
+export const Ciambella = styled.img`
     position: absolute;
     bottom: -4rem;
     right: -9rem;
