@@ -176,7 +176,7 @@ export const OverlayContainer = styled.div`
 
     img {
         max-width: 150px;
-        opacity: 75%;
+        opacity: 100%;
         transform-origin: bottom center; // Imposta il punto di perno alla base della mano
         animation: ${rotateHand} 1s infinite alternate ease-in-out; // Animazione di rotazione
     }

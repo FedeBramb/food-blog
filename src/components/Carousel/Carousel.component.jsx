@@ -121,25 +121,3 @@ function Carousel() {
 }
 
 export default Carousel;
-
-
-
-/* <SwiperSlide 
-          key={recipeName}
-          className='myswiper-slider'
-          >
-              <img src={require(`../../assets${image}`)} alt={"Recipe" + recipeName} />
-              <div>
-                <h2>{title}</h2>
-                <Link to={`/cookbook/${recipeName}`}>
-                  <button className='slider-btn'>Explore</button>
-                </Link>
-              </div>
-          </SwiperSlide>
-        )})}
-      </Swiper>      
-    </div>
-  );
-}
-
-export default Carousel; */
