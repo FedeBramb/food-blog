@@ -18,6 +18,7 @@ function App() {
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
             <Route path='cookbook/*' element={<Cookbook />} />
+            <Route path='register' element={<Cookbook />} />
           </Route>
         </Routes>
     </>
