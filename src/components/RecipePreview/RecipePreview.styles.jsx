@@ -21,7 +21,7 @@ export const PreviewContainer = styled.div`
 `
 
 export const NewsLink = styled(Link)`
-    width: 100%;
+    margin-right: 20px;
 `
 
 export const LazyImg = styled(LazyLoadImage)`
