@@ -31,6 +31,7 @@ export const CommentContainer = styled.div`
         font-optical-sizing: auto;
         font-weight: 700;
         font-style: normal;
+        color: #009a93;
     }
 
     .comment {
@@ -48,15 +49,6 @@ export const CommentContainer = styled.div`
     }
 `
 
-export const UsernameInputContainer = styled.div`
-    margin: 2vh 2vh 2vh 0;
-
-`
-
-export const UsernameInput = styled.input`
-    width: 10vw;
-    min-width: 100px;
-`
 
 export const CommentInput = styled.input`
     width: 25vw;

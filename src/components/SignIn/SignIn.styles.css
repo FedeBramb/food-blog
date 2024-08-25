@@ -1,0 +1,70 @@
+/* Contenitore principale della form */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 250px);
+    flex-direction: column;
+}
+  
+  /* Stile della form */
+.signin-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    width: 320px;
+}
+  
+  /* Stile per le label */
+.signin-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+  
+  /* Stile per gli input */
+.signin-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease;
+}
+  
+  /* Effetto hover sugli input */
+.signin-input:focus {
+    border-color: #00a4aa;
+    outline: none;
+}
+  
+  /* Stile per il bottone */
+.signin-button {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #00a4aa;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+  /* Effetto hover sul bottone */
+.signin-button:hover {
+    background-color: #006569;
+}
+  
+  /* Aggiungere un effetto di errore */
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+  

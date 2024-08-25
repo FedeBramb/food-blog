@@ -6,15 +6,15 @@ import Navbar from '../../components/Navbar/Navbar.component';
 import { Outlet } from 'react-router-dom';
 
 
-const Navigation = () => {
+const Navigation = ({user, resetUser}) => {
   return (
     <>
-      <SocialBar position='header'>
+      <SocialBar position='header' user={user} resetUser={resetUser}>
           <Searchbox />
       </SocialBar>
       <Navbar />
       <Outlet />
-      <SocialBar position='footer' />
+      <SocialBar position='footer'/>
     </>
   )
 }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 
-export const SocialBarContainer = styled.div`
+export const HeadBar = styled.div`
     background-color: #00a4aa;
     width: 100%;
     display: flex;
