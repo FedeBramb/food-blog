@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 export const Bar = styled.div`
     background-color: var(--primary-color);
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 11vw;
+    
 
     @media screen and (max-width: 880px) {
         justify-content: center;
