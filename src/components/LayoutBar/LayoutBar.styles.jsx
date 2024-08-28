@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 
-
-export const SocialBarContainer = styled.div`
-    background-color: #00a4aa;
-    width: 100%;
+export const Bar = styled.div`
+    background-color: var(--primary-color);
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 11vw 0 11vw;
+    padding: 0 11vw;
 
     @media screen and (max-width: 880px) {
         justify-content: center;
@@ -21,11 +20,18 @@ export const SocialBarContainer = styled.div`
 
     &.social-bar-footer {
         height: 60px;
-        margin-top: 20px;
     }
 `
 
+export const AuthButtonsContainer = styled.div`
+    display: flex;
+    gap: 50px;
 
+    @media screen and (max-width: 880px) {
+        justify-content: center;
+        gap: 10px;
+    }
+`
 
 export const IconsContainer = styled.div`
     display: flex;
@@ -34,11 +40,10 @@ export const IconsContainer = styled.div`
     @media screen and (max-width: 880px) {
         display: none;
     }
+`
 
-    & img {
-        width: 31px;
-        height: 31px;
-    }
+export const Span = styled.span`
+    font-size: 14px;
 `
 
 
