@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+
+import blueDonuts from '../../assets/bluDonut.png';
+
+import './SignUp.styles.css';
 
 // Componente per la registrazione
 // Ragruppo tutte le proprietà in un oggetto di stato. 
@@ -17,20 +21,10 @@ const SignUp = ({ loadUser }) => {
     const [ error, setError ] = useState("");
 
     const navigate = useNavigate();
-
-    /* useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('http://localhost:3000');
-            const data = await response.json()
-            console.log(data);
-        }
-        fetchData();
-    }, []) */
-
     // Handler  destruttura le proprietà dall'event.target
     // Settiamo lo state mantenendo i dati precedenti altrimenti
     //  otterremmo un oggetto con singola value-pair
-    const handleInputChange = (event) => {
+    const onChangeHandler = (event) => {
         const { name, value, type, checked} = event.target;
         setFormSignUp((prevData) => ({
             ...prevData,
@@ -86,64 +80,93 @@ const SignUp = ({ loadUser }) => {
     }
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='name'>Nome</label>
-            <input 
-                id='name' 
-                name='name' 
-                type='text' 
-                value={formSignUp.name} 
-                onChange={handleInputChange} 
-                required 
-            />
-            <label htmlFor='surname'>Cognome</label>
-            <input 
-                id='surname' 
-                name='surname' 
-                type='text' 
-                value={formSignUp.surname} 
-                onChange={handleInputChange} 
-                required 
-            />
-            <label htmlFor='password'>Password</label>
-            <input 
-                id='password' 
-                name='password'
-                type='password' 
-                value={formSignUp.password} 
-                onChange={handleInputChange} 
-                required 
-            />
-            <label htmlFor='checkPassword'>Conferma Password</label>
-            <input 
-                id='checkPassword' 
-                name='checkPassword' 
-                type='password' 
-                value={formSignUp.checkPassword} 
-                onChange={handleInputChange} 
-                required 
-            />
-            <label htmlFor='email'>Email</label>
-            <input 
-                id='email' 
-                name='email' 
-                type='email' 
-                value={formSignUp.email} 
-                onChange={handleInputChange}
-                required 
-            />
-            <label htmlFor='marketing'>Accetto di ricevere comunicazioni di marketing</label>
-            <input 
-                id='marketing' 
-                name='marketing' 
-                type='checkbox'
-                value={formSignUp.marketing} 
-                onChange={handleInputChange}
-                required
-            />
-            <button type='submit'>Registrati</button>
-        </form>
+    <div className='signup-container'>
+        <img className='overlay-donut' src={blueDonuts} alt='blu donut' />
+        <div className='welcome-container'>
+            <h1 className='h1-sign-in gradient-text'>Bentornato!</h1>
+            <hr className='hr-sign-in hr-blue' />
+            <p className='p-sign-in'>Se hai già effettuato la registrazione, inserisci la tua email e password!
+            </p>
+        </div>
+        <div className='signup-form-container'>
+            <form className='form-container' onSubmit={handleSubmit}>
+                <label htmlFor='name' className='form-label'>
+                    Nome
+                    <input
+                        className='form-input'
+                        id='name' 
+                        name='name' 
+                        type='text' 
+                        value={formSignUp.name} 
+                        onChange={onChangeHandler} 
+                        required 
+                    />
+                </label>
+                <label htmlFor='surname' className='form-label'>
+                    Cognome
+                    <input
+                        className='form-input'
+                        id='surname' 
+                        name='surname' 
+                        type='text' 
+                        value={formSignUp.surname} 
+                        onChange={onChangeHandler} 
+                        required 
+                    />
+                </label>
+                <label htmlFor='password' className='form-label'>
+                    Password
+                    <input
+                        className='form-input'
+                        id='password' 
+                        name='password'
+                        type='password' 
+                        value={formSignUp.password} 
+                        onChange={onChangeHandler} 
+                        required 
+                    />
+                </label>
+                <label htmlFor='checkPassword' className='form-label'>
+                    Conferma Password
+                    <input
+                        className='form-input'
+                        id='checkPassword' 
+                        name='checkPassword' 
+                        type='password' 
+                        value={formSignUp.checkPassword} 
+                        onChange={onChangeHandler} 
+                        required 
+                    />
+                </label> 
+                <label htmlFor='email' className='form-label'>
+                    Email
+                    <input
+                        className='form-input' 
+                        id='email' 
+                        name='email' 
+                        type='email' 
+                        value={formSignUp.email} 
+                        onChange={onChangeHandler}
+                        required 
+                    />
+                </label>
+                <div className='marketing-container'>
+                    <input
+                        className='form-input last-input' 
+                        id='marketing' 
+                        name='marketing' 
+                        type='checkbox'
+                        value={formSignUp.marketing} 
+                        onChange={onChangeHandler}
+                        required
+                    />
+                    <label htmlFor='marketing' className='form-label'>
+                        Accetto di ricevere comunicazioni di marketing
+                    </label>
+                </div>
+                <button type='submit' className='form-button'>Registrati</button>
+            </form>
+        </div>
     </div>
   )
 }

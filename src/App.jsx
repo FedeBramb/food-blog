@@ -6,8 +6,8 @@ import Navigation from './routes/Navigation/Navigation.route';
 import Home from './routes/Home/Home.route';
 import Cookbook from './routes/Cookbook/Cookbook.route';
 import GoToTop from './components/GoToTop/GoToTop.component';
-import SignUp from './components/SignUp/SignUp.component';
-import SignIn from './components/SignIn/SignIn.component';
+import Signin from './routes/Signin/Signin.route';
+import Register from './routes/Register/Register.route';
 
 import './App.css'
 
@@ -57,8 +57,8 @@ function App() {
           <Route path='/' element={<Navigation user={user} resetUser={resetUser} />} >
             <Route index element={<Home />} />
             <Route path='cookbook/*' element={<Cookbook user={user} />} />
-            <Route path='register' element={<SignUp loadUser={loadUser} />} />
-            <Route path='signin' element={<SignIn loadUser={loadUser} />} />
+            <Route path='register' element={<Register loadUser={loadUser} />} />
+            <Route path='signin' element={<Signin loadUser={loadUser} />} />
           </Route>
         </Routes>
     </>
