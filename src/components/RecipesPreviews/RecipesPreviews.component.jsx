@@ -12,7 +12,7 @@ const RecipesPreviews = () => {
     <PreviewsContainer>
         <Header>
             <h2 className='gradient-text margin'>Ricette</h2>
-            <hr className='hr-blue' />
+            <hr></hr>
         </Header>
         {data.map((recipe, index) => {
             if (index <= 4) {

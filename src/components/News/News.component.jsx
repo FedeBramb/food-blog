@@ -51,8 +51,8 @@ const News = () => {
   return (
     <NewsContainer id='shorterDiv'>
         <NewsTitle>
-            <h2 className='gradient-text'>News</h2>
-            <hr className='hr-blue' />
+            <h2 className='gradient-text margin'>News</h2>
+            <hr />
         </NewsTitle>
         {newsLinks.map((news, index) => (
             <a href={news.url} className="image-link" key={index}>

@@ -10,96 +10,98 @@ export const CarouselContainer = styled.div`
     padding-block: min(20vh, 3rem);
     border-bottom: 1px solid rgb(164, 164, 164);
 
+    // Larghezza almeno 768px
     @media screen and (min-width: 768px) {
         display: flex;
         align-items: center;
     }
-`;
+`
 
-export const Blueberry = styled.img`
+export const Caffe = styled.img`
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -2rem;
+    left: -7rem;
     z-index: -1;
     opacity: 0.3;
-    width: min(450px, 100%);
-    height: 400px;   
+    width: 600px; 
+    height: 400px;  
+    max-width: 100%;  
     object-fit: cover;
-`;
+`
 
-export const Donut = styled.img`
+export const Ciambella = styled.img`
     position: absolute;
     bottom: -4rem;
     right: -9rem;
     z-index: -1;
     opacity: 0.6;
-    width: min(600px, 100%);
+    width: 600px;
     height: 400px; 
+    max-width: 100%; 
     object-fit: cover;
 
     @media screen and (max-width: 738px) {
         left: 2rem;
         top: 50rem;
     }
-`;
+`
 
 export const Span = styled.span`
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 1rem;
     color: #717171;
-`;
+`
 
 export const MainTitle = styled.h1`
-    color: var(--primary-color);
-    text-transform: capitalize;
+text-transform: capitalize;
     letter-spacing: 0.8px;
     font-size: 4rem;
     line-height: 1.1;    
-`;
+`
 
 export const Hr = styled.hr`
     display: block;
-    background: var(--gradient-color);
+    background: #00a4aa;
     height: 0.25rem;
     width: 6.25rem;
     border: none;
     margin: 1.125rem 0 1.875rem 0;
-`;
+`
 
 export const P = styled.p`
     line-height: 1.6;
-    font: 200 normal 1rem "Libre Baskerville", serif;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 200;
+    font-style: normal;
     opacity: 90%;
-`;
+`
 
 export const MySwiper = styled(Swiper)`
     width: 100%;
-`;
+`
 
 export const ExploreContainer = styled.div`
+    display: none;
     opacity: 0;
-    padding-bottom: 10px;
+    padding-bottom: 4rem;
     position: relative;
-`;
+`
 
 export const MySwiperSlide = styled(SwiperSlide)`
     width: 18.75rem;
     height: 28.125rem;
     position: relative;
-    display: grid;
-    justify-items: center;  
-    align-content: end;
 
     &.swiper-slide-active {
         ${ExploreContainer} {
-            display: grid;
-            justify-items: center;
-            align-content: end;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
             opacity: 1;
-            background-color: rgba(255, 255, 255, .6);
-            width: 50%;
-            margin-bottom: 60px;
+            background-color: transparent;
+            height: 100%;
 
             .slider-btn {
                 align-self: flex-start;
@@ -111,42 +113,48 @@ export const MySwiperSlide = styled(SwiperSlide)`
             }
         }
     }
+
     .swiper-pagination-bullet,
     .swiper-pagination-bullet-active {
         background: #fff;
     }
-`;
+`
 
 export const Image = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
-`;
+`
 
 export const Title = styled.h2`
-    color: var(--primary-color);
+    color: #ffffff;
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 1.4;
-`;
+    margin-bottom: 0.625rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+`
 
-export const ExploreButton = styled.div`
+export const SlideButton = styled.button`
     display: inline-block;
-    color: var(--primary-color);
+    color: #717171;
+    background: #fff;
     padding: 0.625rem 1.875rem;
+    margin-top: 2.125rem;
     text-decoration: none;
     text-transform: uppercase;
-    border: 2px solid var(--primary-color);
+    border: 2px solid #c2c2c2;
+    border-radius: 3.125rem;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
-    margin-bottom: 15px;
-    font-size: 14px;
 
     &:hover {
-        background-color: var(--primary-color);
-        color: white;
+        border: 0.12rem solid #00a4aa;
+        color: #00a4aa;
     }
-`;
+`
 
 const rotateHand = keyframes`
     0% {
@@ -155,7 +163,7 @@ const rotateHand = keyframes`
     100% {
       transform: rotate(25deg);
     }
-`;
+`
 
 export const OverlayContainer = styled.div`
     position: absolute;
@@ -169,7 +177,7 @@ export const OverlayContainer = styled.div`
     img {
         max-width: 150px;
         opacity: 100%;
-        transform-origin: bottom center;
-        animation: ${rotateHand} 1s infinite alternate ease-in-out;
+        transform-origin: bottom center; // Imposta il punto di perno alla base della mano
+        animation: ${rotateHand} 1s infinite alternate ease-in-out; // Animazione di rotazione
     }
-`;
+`

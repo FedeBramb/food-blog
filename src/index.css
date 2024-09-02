@@ -2,20 +2,10 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #223b4e;
-  --secondary-color: #ffffff;
-  --hover-color: #526a7f;
-  --gradient-color: linear-gradient(45deg, #4c7ea4, var(--primary-color));
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  font-family: 'Libre Baskerville', serif;
 }
 
 code {
@@ -25,26 +15,16 @@ code {
 
 a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 .gradient-text {
-  background-color: var(--primary-color);
-  background-image: var(--gradient-color);
+  background-color: #00a4aa;
+  background-image: linear-gradient(45deg, #00a4aa, #00073b);
   background-size: 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: "Open Sans", sans-serif;
   font-size: 3em;   
   letter-spacing: 0.8px;
-}
-
-.hr-blue {
-  display: block;
-  background: var(--gradient-color);
-  height:  0.25rem;
-  width: 6.25rem;
-  border: none;
-  margin-bottom: 3vh;
-  margin-left: 1%;
 }

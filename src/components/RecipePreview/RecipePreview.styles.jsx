@@ -22,17 +22,11 @@ export const PreviewContainer = styled.div`
 
 export const NewsLink = styled(Link)`
     margin-right: 20px;
-    
 `
 
 export const LazyImg = styled(LazyLoadImage)`
     max-width: 250px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-    transition: transform 0.3s ease-in-out;
-
-    &:hover {
-        transform: scale(1.05);
-    }
 
     @media screen and (max-width: 1100px) {
         max-width: 165px;

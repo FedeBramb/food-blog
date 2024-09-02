@@ -21,8 +21,6 @@ const Searchbox = () => {
   const [searchInput, setSearchInput] = useState('');
   // Inizializziamo state per le ricette filtrare in base alla ricerca
   const [filteredRecipes, setfilteredRecipes] = useState(dataRecipe); 
-
-  const [isVisible, setIsVisibile] = useState(false);
   const [searchError, setSearchError] = useState('');
   /* Se l'input è vuoto resettiamo lo state searchInput, altrimenti cerchiamo nei dati delle ricette
      se è presente il nome della ricetta o un ingrediente della suddetta.
@@ -56,31 +54,22 @@ const Searchbox = () => {
     setSearchInput('');
     setfilteredRecipes([]);
   };
-
-  const toggleSearchBox =() => {
-    setIsVisibile(!isVisible);
-  }
   
 
   return (
     <SearchFormContainer>
-      <SearchForm className={`${isVisible ? 'visible' : ''}`} >
-        <SearchButton type="submit" className="search-button" aria-label="Cerca">
-          <img src="https://icongr.am/fontawesome/search.svg?size=20&color=ffffff" 
-            alt="search-icon" 
-            className="search-icon"
-            onClick={toggleSearchBox}
-            title='Cerca'
-          />
-        </SearchButton>
+      <SearchForm>
         <SearchInput
           type="search"
           placeholder="Cerca ricetta o ingrediente..."
           title="Cerca per nome della ricetta o ingrediente. I risultati includeranno ricette con nomi o ingredienti corrispondenti."
-          className={`${isVisible ? 'visible' : ''}`}
+          className="search-input"
           value={searchInput}
           onChange={handleInputChange}
         />
+        <SearchButton type="submit" className="search-button" aria-label="Cerca">
+          <img src="https://icongr.am/fontawesome/search.svg?size=25&color=1f1f1f" alt="search-icon" className="search-icon"></img>
+        </SearchButton>
       </SearchForm>
       {/*Controlliamo se il container è vuoto altrimenti non lo renderizziamo*/}
       {filteredRecipes.length > 0 && (

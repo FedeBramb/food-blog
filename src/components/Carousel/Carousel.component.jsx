@@ -4,14 +4,14 @@ import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 import { recipeImages } from '../../assets/ricette/Recipes.js';
-import blueberry from '../../assets/bluberry.webp';
-import donut from '../../assets/ciambella.webp';
+import caffe from '../../assets/caffe.webp';
+import ciambella from '../../assets/ciambella.webp';
 import 'swiper/css/bundle';
 import 'swiper/css/mousewheel';
 import { 
   CarouselContainer, 
-  Blueberry,
-  Donut, 
+  Caffe,
+  Ciambella, 
   Span, 
   MainTitle,
   Hr,
@@ -21,7 +21,7 @@ import {
   MySwiperSlide,
   Image,
   Title,
-  ExploreButton,
+  SlideButton,
   OverlayContainer,
 } from './Carousel.styles.jsx';
 
@@ -51,13 +51,13 @@ function Carousel() {
 
   return (
     <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Blueberry src={blueberry} alt='caffe overlay' />
-      <Donut src={donut} alt='ciambella overlay'  />
+      <Caffe src={caffe} alt='caffe overlay' />
+      <Ciambella src={ciambella} alt='ciambella overlay'  />
       <div>
         <div>
           <Span>discover</Span>
           <MainTitle className='gradient-text'>Home Recipes</MainTitle>
-          <Hr />
+          <Hr className='carousel-hr' />
           <P>La nostra collezione di ricette gourmet, fatte su misura per te. Provale!</P>
         </div>
       </div>
@@ -90,7 +90,10 @@ function Carousel() {
           },
           1024: {
             slidesPerView: 2,
-          }
+          },
+          1500: {
+            slidesPerView: 3,
+          },
         }}
       >
         {recipeData.map(({ title, imageCarousel }, index) => {
@@ -100,7 +103,7 @@ function Carousel() {
               <ExploreContainer>
                 <Title>{title}</Title>
                 <Link to={`/cookbook/${title.toLowerCase()}`}>
-                  <ExploreButton className='slider-btn'>Explore</ExploreButton>
+                  <SlideButton className='slider-btn'>Explore</SlideButton>
                 </Link>
               </ExploreContainer>
             </MySwiperSlide>

@@ -1,20 +1,20 @@
 import React from 'react';
 
-import LayoutBar from '../../components/LayoutBar/LayoutBar.component';
+import SocialBar from '../../components/Socialbar/Socialbar.component';
 import Searchbox from '../../components/Searchbox/Searchbox.component';
 import Navbar from '../../components/Navbar/Navbar.component';
 import { Outlet } from 'react-router-dom';
 
 
-const Navigation = ({user, resetUser}) => {
+const Navigation = () => {
   return (
     <>
-      <LayoutBar position='header' user={user} resetUser={resetUser}>
+      <SocialBar position='header'>
           <Searchbox />
-      </LayoutBar>
+      </SocialBar>
       <Navbar />
       <Outlet />
-      <LayoutBar position='footer'/>
+      <SocialBar position='footer' />
     </>
   )
 }

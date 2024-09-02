@@ -5,7 +5,7 @@ import RecipePrevsAndNews from '../../components/RecipesPrevsAndNews/RecipePrevs
 
 const Home = () => {
   return (
-    <div style={{marginBottom: "20px", height: "100%"}}>
+    <div className='home-container'>
       <Carousel></Carousel>
       <RecipePrevsAndNews></RecipePrevsAndNews>
     </div>

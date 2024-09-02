@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const mainColor = "#223b4e";
+const mainColor = "#00a4aa";
 
 export const SearchFormContainer = styled.div`
     display: flex;
@@ -8,39 +8,21 @@ export const SearchFormContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap; /* Per rendere la barra di ricerca responsive */
     position: relative;
-    margin-top: 5px;
-    height: 38px;
 `
 
 export const SearchForm = styled.form`
     display: flex;
     align-items: center;
-    width: 280px;
-    
-    &.visible {
-        opacity: 1;
-        border: 1px solid #8c8c8c;
-    }
+    width: 100%;
 `
 
-// Utilizza sia opacity che visibility per utilizzare la transition
 export const SearchInput = styled.input`
     flex: 1;
+    padding: 10px;
     font-size: 16px; 
     max-width: 400px; 
     background-color: ${mainColor};
     border: 2px solid ${mainColor};
-    border-bottom: none; 
-    visibility: hidden;
-    opacity: 0;
-    color: #ffffff;
-    transition: opacity 0.5s ease-in-out;
-
-    &.visible {
-        visibility: visible;
-        opacity: 1;
-        transition: opacity 0.5s ease-in-out;
-    }
 
     &:focus {
         outline: none; 
@@ -48,11 +30,11 @@ export const SearchInput = styled.input`
     }
 
     &::-webkit-input-placeholder {
-        color: #8c8c8c;
+        color: #323232;
     }
 
     &:-moz-placeholder {
-        color: #8c8c8c;  
+        color: #323232;  
     }
 
     @media screen and (max-width: 600px) {
@@ -62,10 +44,15 @@ export const SearchInput = styled.input`
 `
   
 export const SearchButton = styled.div`
-    padding: 5px 10px;
+    padding: 10px 20px;
     background-color: ${mainColor};
     border: none;
     cursor: pointer;
+
+    & .search-icon {
+        width: 25px;
+        height: 25px;
+    }
 
     & i {
         color: #323232;
@@ -87,9 +74,9 @@ export const DropdownItemContainer = styled.div`
     cursor: pointer;
     font-size: 1rem; /* Dimensione del font relativa */
     
+
     &:hover {
-        background-color: var(--hover-color);
-        color: white;
+        background-color: rgba(0, 164, 170, 0.3);
     }
 
     & p {

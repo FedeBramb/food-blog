@@ -5,10 +5,15 @@ export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
     width: max(78%, 342px);
     margin: auto;
-    font: 700 1.0em "Montserrat", sans-serif;
+    font-size: 1.0em;
+    font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(59, 65, 71);
     border-bottom: 1px solid rgb(176, 175, 175);
 
     @media screen and (max-width: 800px) {
@@ -19,7 +24,7 @@ export const NavbarContainer = styled.div`
 
 export const NavItem = styled(Link)`
     text-decoration: none;
-    background-color: var(--primary-color);
+    background-color: #00a4aa;
     background-image: linear-gradient(45deg, #00a4aa, #00073b);
     background-size: 100%;
     -webkit-background-clip: text;

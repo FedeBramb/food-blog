@@ -11,9 +11,14 @@ export const PreviewsContainer = styled.div`
 
 export const Header = styled.div`
     & hr {
-        margin-left: 1%;
+        display: block;
+        background: #00a4aa;
+        height:  0.25rem;
+        width: 5.25rem;
+        border: none;
+        margin-bottom: 3vh;
+        margin-left: 0;
     }
-    
 
     & .margin {
         margin-bottom: 2vh;
