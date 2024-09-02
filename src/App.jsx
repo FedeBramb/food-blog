@@ -6,6 +6,7 @@ import Navigation from './routes/Navigation/Navigation.route';
 import Home from './routes/Home/Home.route';
 import Cookbook from './routes/Cookbook/Cookbook.route';
 import GoToTop from './components/GoToTop/GoToTop.component';
+import SignUp from './components/SignUp/SignUp.component';
 
 import './App.css'
 
@@ -18,7 +19,7 @@ function App() {
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
             <Route path='cookbook/*' element={<Cookbook />} />
-            <Route path='register' element={<Cookbook />} />
+            <Route path='signup' element={<SignUp />} />
           </Route>
         </Routes>
     </>

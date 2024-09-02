@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PrevAndNewsContainer = styled.div`
+export const Container = styled.div`
     display: flex;
     flex-direction: row;
     width: 78%;
@@ -14,6 +14,5 @@ export const PrevAndNewsContainer = styled.div`
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        margin: 0vh auto auto auto;
     }  
 `

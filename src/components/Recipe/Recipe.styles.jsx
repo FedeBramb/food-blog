@@ -131,14 +131,11 @@ export const InstructionSection = styled.div`
         }
     }
 
-    & .miniature-rec {
-        float: left;
-        margin-right: 2%;
-
-        @media screen and (max-width: 800px) {
-            margin-bottom: 2vh;
+    & img {
+            max-height: 400px;
+            float: left;
+            margin: 0 15px 15px 0;
         }
-    }
 
     & p {
         margin-bottom: 20px;

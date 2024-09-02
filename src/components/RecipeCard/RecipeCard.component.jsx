@@ -10,22 +10,22 @@ import {
   ReadButton
 } from './RecipeCard.styles.jsx';
 
-const RecipeCard = ({ title, image, index }) => {
-    
+const RecipeCard = ({ title, image, id }) => {
+  console.log(id);
   return (
     <>
-      <CustomLink to={`${title.trim().toLowerCase()}`} className='CustomLink-custom' key={index}>
+      <CustomLink to={`${id}`} className='CustomLink-custom' key={id}>
         <CardContainer>
           <PosterContainer>
             <PosterLazyImg 
               src={image}
-              alt={`pic-${index}`}
+              alt={`pic-${id}`}
               className='poster'
             />
           </PosterContainer>
           <TitleContainer>
             <TitleContent>
-              <p className='title-card' key={`${index}-p`}>{title}</p>
+              <p className='title-card' key={`${id}-p`}>{title}</p>
               <ReadButton>Scopri</ReadButton>  
             </TitleContent>
           </TitleContainer>

@@ -4,14 +4,16 @@ import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
 import { recipeImages } from '../../assets/ricette/Recipes.js';
-import caffe from '../../assets/caffe.webp';
-import ciambella from '../../assets/ciambella.webp';
+
+import blueberry from '../../assets/bluberry.webp';
+import donut from '../../assets/ciambella.webp';
+
 import 'swiper/css/bundle';
 import 'swiper/css/mousewheel';
 import { 
   CarouselContainer, 
-  Caffe,
-  Ciambella, 
+  Blueberry,
+  Donut, 
   Span, 
   MainTitle,
   Hr,
@@ -21,15 +23,19 @@ import {
   MySwiperSlide,
   Image,
   Title,
-  SlideButton,
-  OverlayContainer,
+  ExploreButton,
+  UnderlayContainer,
 } from './Carousel.styles.jsx';
 
 
 function Carousel() {
+  // Ottieni i dati delle immagini delle ricette
   const recipeData = recipeImages();
+  
+  // Stato per gestire la visibilità dell'icona
   const [showIcon, setShowIcon] = useState(false);
 
+  // Effetto per nascondere l'icona dopo 2 secondi se è visibile
   useEffect(() => {
     let timer;
     if (showIcon) {
@@ -37,30 +43,36 @@ function Carousel() {
         setShowIcon(false);
       }, 2000);
     }
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer); // Pulizia del timer se il componente viene smontato
   }, [showIcon]);
 
+  // Gestisce l'evento di ingresso del mouse per mostrare l'icona
   const handleMouseEnter = () => {
     setShowIcon(true);
   };
 
+  // Gestisce l'evento di uscita del mouse (l'icona rimarrà visibile finché non scompare automaticamente)
   const handleMouseLeave = () => {
-    // Lasciare l'icona visibile finché non scompare automaticamente
-    // setShowIcon(false);
+    setShowIcon(false);
   };
 
   return (
+    // Contenitore del carosello con eventi per mostrare/nascondere l'icona
     <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Caffe src={caffe} alt='caffe overlay' />
-      <Ciambella src={ciambella} alt='ciambella overlay'  />
+      {/* Immagini di overlay */}
+      <Blueberry src={blueberry} alt='caffe underlay' />
+      <Donut src={donut} alt='ciambella underlay'  />
+      
       <div>
         <div>
           <Span>discover</Span>
           <MainTitle className='gradient-text'>Home Recipes</MainTitle>
-          <Hr className='carousel-hr' />
+          <Hr />
           <P>La nostra collezione di ricette gourmet, fatte su misura per te. Provale!</P>
         </div>
       </div>
+      
+      {/* Componente Swiper per lo slideshow */}
       <MySwiper
         className='myswiper'
         modules={[Pagination, EffectCoverflow, Autoplay]}
@@ -90,29 +102,29 @@ function Carousel() {
           },
           1024: {
             slidesPerView: 2,
-          },
-          1500: {
-            slidesPerView: 3,
-          },
+          }
         }}
       >
-        {recipeData.map(({ title, imageCarousel }, index) => {
+        {/* Mappa dei dati delle ricette e crea uno slide per ogni ricetta */}
+        {recipeData.map(({ id, title, imageCarousel }, index) => {
           return (
             <MySwiperSlide key={index} className='myswiper-slider'>
               <Image src={imageCarousel} alt={"Recipe" + title} />
               <ExploreContainer>
                 <Title>{title}</Title>
-                <Link to={`/cookbook/${title.toLowerCase()}`}>
-                  <SlideButton className='slider-btn'>Explore</SlideButton>
+                <Link to={`/cookbook/${id}`}>
+                  <ExploreButton className='slider-btn'>Explore</ExploreButton>
                 </Link>
               </ExploreContainer>
             </MySwiperSlide>
           );
         })}
+        
+        {/* Mostra un'icona di overlay se lo stato showIcon è vero */}
         {showIcon && (
-        <OverlayContainer>
+        <UnderlayContainer>
           <img src='https://i.ibb.co/PW8zc1V/Swipe-icon.png' alt="Icon" />
-        </OverlayContainer>
+        </UnderlayContainer>
       )}
       </MySwiper>
       

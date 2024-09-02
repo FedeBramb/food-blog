@@ -4,15 +4,15 @@ import { recipeImages } from '../../assets/ricette/Recipes.js';
 
 import RecipePreview from '../RecipePreview/RecipePreview.component.jsx';
 
-import { PreviewsContainer, Header } from './RecipesPreviews.styles.jsx';
+import { PreviewsContainer, Header } from './RecipesPreviewsContainer.styles.jsx';
 
-const RecipesPreviews = () => {
+const RecipesPreviewsContainer = () => {
     const data = recipeImages();
   return (
     <PreviewsContainer>
         <Header>
             <h2 className='gradient-text margin'>Ricette</h2>
-            <hr></hr>
+            <hr className='hr-blue' />
         </Header>
         {data.map((recipe, index) => {
             if (index <= 4) {
@@ -29,4 +29,4 @@ const RecipesPreviews = () => {
   )
 }
 
-export default RecipesPreviews;
+export default RecipesPreviewsContainer;

@@ -8,12 +8,11 @@ import { RecipeBookContainer } from './RecipesBook.styles.jsx';
 
 const RecipeBook = () => {
     const recipes = recipeImages();
-    
   return (
     <RecipeBookContainer>
-        {recipes.map(({ title, imagesCookBook }, index) => {
+        {recipes.map(({ id, title, imagesCookBook }) => {
             return (
-                <RecipeCard key={index} title={title} image={imagesCookBook} />
+                <RecipeCard key={id} title={title} image={imagesCookBook} id={id}/>
             );
         })}
     </RecipeBookContainer>

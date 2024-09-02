@@ -6,7 +6,7 @@ export const RecipeBookContainer = styled.div`
     width: 78vw;
     justify-items: center;
     gap: 5px;
-    margin: auto;
+    margin: 0 auto 4% auto;
 
     @media screen and (max-width: 738px) {
         grid-template-columns: 1fr;

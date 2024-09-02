@@ -55,12 +55,12 @@ function Navbar() {
       )}
       {isSmallScreen && (
         <>
-          <LinkSmallLogo className='link-small-logo'>
+          <LinkSmallLogo to="/" className='link-small-logo'>
             <LogoSmallView src={logo} alt='logo' />
           </LinkSmallLogo>
           <DropcaseContainer>
             <MenuButton  onClick={toggleMenu}>
-              <img src="https://icongr.am/fontawesome/bars.svg?size=28&color=00a4aa" alt="icon Facebook"></img>Menu
+              <img src={`https://icongr.am/fontawesome/bars.svg?size=28&color=223b4e`} alt="icon Facebook"></img>Menu
             </MenuButton>
             {isOpen && (
                 <DropdownContent>

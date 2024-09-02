@@ -5,13 +5,11 @@ export const NewsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 0.7fr 1.1fr 1.1fr 1.1fr;
-    gap: 10px; /* Add spacing between columns */
+    gap: 10px;
     height: calc(100vh - 157.73px);
     position: -webkit-sticky;
     position: sticky;
     top: 52.04px;
-    margin-left: 1vw;
-    font-family: "Open Sans", sans-serif;
 
     @media screen and (max-width: 1100px) {
         width: 78vw;
@@ -21,7 +19,11 @@ export const NewsContainer = styled.div`
         margin-left: 0;
         height: 100%;
         top: 0;
-        margin-top: 2vh;
+    }
+
+    @media screen and (max-width: 850px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.8fr 1.2fr;
     }
 
     @media screen and (max-width: 738px) {
@@ -30,8 +32,8 @@ export const NewsContainer = styled.div`
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: repeat(7, auto); /* 1 row for text + 6 rows for images */
         height: 100%;
-        top: 0;
         margin-top: 2vh;
+        justify-content: center;
     }
 
     & a {
@@ -42,24 +44,19 @@ export const NewsContainer = styled.div`
 
 export const NewsTitle = styled.div`
     grid-column: 1 / span 2;
-    margin: auto;
-
-    &.margin {
-        margin-bottom: 2vh;
-    }
-
-    & hr {
-        display: block;
-        background: #00a4aa;
-        height:  0.25rem;
-        width: 5.25rem;
-        border: none;
-        margin-bottom: 3vh;
-        margin-left: 1%;
+    
+    & h2 {
+        margin: 40px 0 20px 0;
     }
 
     @media screen and (max-width: 1100px) {
+        text-align: center;
+        margin: auto;
         grid-column: 1 / span 3;
+    }
+
+    @media screen and (max-width: 850px) {
+        grid-column: 1 / span 2;
     }
 
     @media screen and (max-width: 738px) {
@@ -69,20 +66,20 @@ export const NewsTitle = styled.div`
 
 export const ImgContainer = styled.div`
     position: relative;
-
+    display: flex;
+    justify-content: center;
     & img {
-        width: 100%;
+        width: min(300px, 100%);
         height: auto;
-    }
-    
+    }    
 `
 
 export const OverlayContainer = styled.div`
     position: absolute;
-    bottom: 2%;
-    background: rgba(0, 170, 170, 0.8);
+    bottom: 0;
+    background: var(--primary-color);
     color: #fff;
-    width: 100%;
+    width: min(300px, 100%);
     text-align: center;
     white-space: nowrap;
 

@@ -21,11 +21,12 @@ const recipes = [
   pancake,
 ];
 
-export const recipeImages = (nameRecipe) => {
-  if (nameRecipe) {
-    const recipeData = recipes.find(recipe => recipe.title.toLocaleLowerCase() === nameRecipe);
+export const recipeImages = (id) => {
+  if (id) {
+    const recipeData = recipes.find(recipe => recipe.id === id);
     if (recipeData) {
       return {
+        id: recipeData.id,
         title: recipeData.title,
         imageCarousel: recipeData.imageCarousel,
         imagesMiniature: recipeData.imagesMiniature,
@@ -36,6 +37,7 @@ export const recipeImages = (nameRecipe) => {
     }
   } else {
         return recipes.map((recipe) => ({
+        id: recipe.id,
         title: recipe.title,
         imageCarousel: recipe.imageCarousel,
         imagesMiniature: recipe.imagesMiniature,
@@ -49,26 +51,28 @@ export const recipeImages = (nameRecipe) => {
 };
 
 
-export const recipeData = (nameRecipe) => {
-  if (nameRecipe) {
-    const recipeData = recipes.find(recipe => recipe.title.toLocaleLowerCase() === nameRecipe);
+export const recipeData = (id) => {
+  if (id) {
+    const recipeData = recipes.find(recipe => recipe.id === id);
     if (recipeData) {
       return {
+        id: recipeData.id,
         title: recipeData.title,
         video: recipeData.video,
         ingredients: recipeData.ingredients,
         details: recipeData.details,
-        imagesMiniature: recipeData.imagesMiniature,
         instructions: recipeData.instructions,
         prepTime: recipeData.prepTime,
         cookTime: recipeData.cookTime,
         totalTime: recipeData.totalTime,
         servings: recipeData.servings,
         difficulty: recipeData.difficulty,
+        imageCarousel: recipeData.imageCarousel,
       };
     }
   } else {
     return recipes.map((recipe) => ({
+      id: recipe.id,
       title: recipe.title,
       video: recipe.video,
       ingredients: recipe.ingredients,

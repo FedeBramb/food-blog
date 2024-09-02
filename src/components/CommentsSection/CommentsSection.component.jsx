@@ -1,117 +1,67 @@
-// implementare con mentions e lato server.
-
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import StarRating from '../StarRating/StarRating.component';
-
 import {
     CommentsSectionContainer,
     AllCommentsTitle,
     CommentContainer,
-    UsernameInputContainer,
-    UsernameInput,
     CommentInput
 } from './CommentsSections.styles.jsx';
 
-const CommentsSection = () => {
-    /* Imposta quattro states, 1.commento digitato, 2.username, 3.rating, 
-         4. array con tutti i commenti (due lasciati predefiniti) e gli altri states. */
-    const [inputValue, setInputValue] = useState("");
-    const [username, setUsername] = useState("");
-    const [rating, setRating ] = useState(0);
-    const [comments, setComments] = useState([{ username: "Fred", comment: "Bellissima ricetta complimenti!!!", rating: 5 }, { username: "Arci", comment: "Devo Assolutamente provarla! Sembra fantastica!", rating: 5 }]);
 
-    /* storedComments = commenti presenti nel local storage. 
-        se presenti li convertiamo e li salviamo nello state. Solo all'avvio. */
-    useEffect(() => {
-        const storedComments = localStorage.getItem('comments');
-        if (storedComments) {
-            const parsedComments = JSON.parse(storedComments);
-            setComments(parsedComments); // Utilizza solo i commenti salvati nel localStorage
-        }
-    }, []);
-
-    /* Funzione che imposta l'username */
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    }
-
-    /* Funzione che imposta il commento */
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    }
-
-    /*Funzione che aggiorna lo state rating 
-        con il nuovo valore di rating ricevuto dal componente figlio. */
-    const handleRatingChange = (newRating) => {
-        setRating(newRating);
-    };
-
-    /* Se l'input senza spazi iniziali/finali non è vuoto e anche l'username
-       Aggiungi il commento insieme all'username all'array dei commenti
-       Salva i commenti aggiornati nel localStorage
-       Resetta i campi di input */
-    const handleSubmit = () => {
-        if (inputValue.trim() !== "" && username.trim() !== "") {
-            const newComment = { username, comment: inputValue, rating };
-            setComments([...comments, newComment]);
-            localStorage.setItem('comments', JSON.stringify([...comments, newComment]));
-            setInputValue("");
-            setUsername("");
-            setRating(0);
-        }
-    }
-
-    /* Funzione filtre tutti i commenti diversi dall'indice passato come argomento 
-        e aggiorna lo state, "eliminando" il commento. Aggiorna il Local Storage */
-    const handleDelete = (index) => {
-        const updatedComments = comments.filter((_, i) => i !== index);
-        setComments(updatedComments);
-        // Aggiorna il localStorage con i commenti aggiornati
-        localStorage.setItem('comments', JSON.stringify(updatedComments));
-    }
+// Componente per la sezione dei commenti
+const CommentsSection = ({ comments, handleDelete, user, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
     
-    // () => handleDelete(index) altrimenti verrebbe chiamata durante il rendering.
+    // Log per il rendering e il numero di commenti
+    console.log("Rendering CommentsSection component");
+    console.log("Numero di commenti:", comments.length);
+
     return (
         <CommentsSectionContainer>
             <AllCommentsTitle>Commenti:</AllCommentsTitle>
             <hr className='line'></hr>
-            <div className='comments-box'>
-                {comments.map((item, index) => (
-                    <CommentContainer key={index} >
-                        <p className='username text-gradient'>{item.username}:</p>
-                        <p className='comment'>{item.comment}</p>
-                        <div className="rating">
-                            {"★".repeat(item.rating) + "☆".repeat(5 - item.rating)}
-                        </div>
-                        <button onClick={() => handleDelete(index)}>Delete</button>
-                    </CommentContainer>
-                ))}
-            </div>
-            <UsernameInputContainer>
-                <label htmlFor="username">User:</label>
-                <UsernameInput 
-                    type="text"
-                    placeholder="username..." 
-                    value={username} 
-                    onChange={handleUsernameChange} 
-                />
-            </UsernameInputContainer>
+            
+            {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
+            {comments.length > 0 ? (
+                <div className='comments-box'>
+                    {comments.map((comment, index) => (
+                        <CommentContainer key={index}>
+                            <p className='username'>{comment.userName}:</p>
+                            <p className='comment'>{comment.content}</p>
+                            <div className="rating">
+                                {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
+                            </div>
+                            {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
+                            {user.logged_in && user.id === comment.userId &&   
+                                <button onClick={() => handleDelete(recipeID, comment.id)}>X</button>
+                            }
+                        </CommentContainer>
+                    ))}
+                </div>
+            ) : (
+                <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>
+            )}
+
+            {/* Se l'utente è loggato, mostra il modulo di inserimento commento */}
             <div className='comment-input-container'>
-                <label htmlFor="message">Message:</label>
-                <CommentInput 
-                    type="text"
-                    placeholder="commento..." 
-                    value={inputValue} 
-                    onChange={handleInputChange} 
-                />
+                {user.logged_in ? (
+                    <>
+                        <label htmlFor="message">Message:</label>
+                        <CommentInput 
+                            type="text"
+                            placeholder="commento..." 
+                            value={inputValue} 
+                            onChange={handleInputChange} 
+                        />
+                        <StarRating handleRatingChange={handleRatingChange} />
+                        <button className="button-input" onClick={handleSubmit}>Invia</button>
+                    </>
+                ) : (
+                    <p>Effettua il login per accedere a questa sezione.</p>
+                )}
             </div>
-            {/* handleRatingChange viene passata come prop onRatingChange al componente StarRating */}
-            <StarRating onRatingChange={handleRatingChange} />
-            <button className="button-input" onClick={handleSubmit}>Invia</button>
         </CommentsSectionContainer>
     );
-    
-}
+};
 
 export default CommentsSection;
+
