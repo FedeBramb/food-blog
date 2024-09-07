@@ -16,7 +16,7 @@ import {
 // Ragruppo tutte le proprietà in un oggetto di stato. 
 const SignUp = ({ loadUser }) => {
     const [ formSignUp, setFormSignUp ] = useState({
-        name: '',
+        username: '',
         password: '',
         checkPassword: '',
         email: '',
@@ -41,7 +41,7 @@ const SignUp = ({ loadUser }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const { name, password, checkPassword, email } = formSignUp;
+        const { username, password, checkPassword, email } = formSignUp;
 
         // Validazione di base: controllo password
         if (password !== checkPassword) {
@@ -61,7 +61,7 @@ const SignUp = ({ loadUser }) => {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    name: name,
+                    username: username,
                     email: email,
                     password: password,
                 })
@@ -94,8 +94,8 @@ const SignUp = ({ loadUser }) => {
                 <Label htmlFor='name'>
                     Nome
                     <Input
-                        id='name' 
-                        name='name' 
+                        id='username' 
+                        name='username' 
                         type='text' 
                         value={formSignUp.name} 
                         onChange={onChangeHandler} 

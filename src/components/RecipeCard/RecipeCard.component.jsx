@@ -11,7 +11,7 @@ import {
 } from './RecipeCard.styles.jsx';
 
 const RecipeCard = ({ title, image, id }) => {
-  console.log(id);
+  console.log('RecipeCard props:', { id, image, title });
   return (
     <>
       <CustomLink to={`${id}`} className='CustomLink-custom' key={id}>

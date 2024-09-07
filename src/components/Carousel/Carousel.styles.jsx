@@ -8,7 +8,7 @@ export const CarouselContainer = styled.div`
     min-height: 30vh;
     column-gap: 3rem;
     padding-block: min(20vh, 3rem);
-    border-bottom: 1px solid rgb(164, 164, 164);
+    border-bottom: 1px solid rgba(176, 175, 175, 0.4);
 
     @media screen and (min-width: 768px) {
         display: flex;
@@ -69,12 +69,13 @@ export const Hr = styled.hr`
 
 export const P = styled.p`
     line-height: 1.6;
-    font: 200 normal 1rem "Libre Baskerville", serif;
+    font-size: 1.1rem;
     opacity: 90%;
 `;
 
 export const MySwiper = styled(Swiper)`
     width: 100%;
+
 `;
 
 export const ExploreContainer = styled.div`
@@ -89,6 +90,10 @@ export const MySwiperSlide = styled(SwiperSlide)`
     display: grid;
     justify-items: center;  
     align-content: end;
+    & img {
+            border-radius: 1rem;
+            max-width: 395px;
+        }
 
     &.swiper-slide-active {
         ${ExploreContainer} {
@@ -125,6 +130,7 @@ export const Image = styled.img`
 
 export const Title = styled.h2`
     color: var(--primary-color);
+    margin: 1rem 0;
     font-weight: 400;
     font-size: 2rem;
     line-height: 1.4;

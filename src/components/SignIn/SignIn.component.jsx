@@ -38,7 +38,7 @@ const SignIn = ({ loadUser }) => {
         event.preventDefault();
         
         const { email, password } = formSignIn;
-
+        console.log('Email:', email);
         setError(""); // Pulisci eventuali errori
         // Invia tramite post method email e password
         try {
@@ -59,15 +59,17 @@ const SignIn = ({ loadUser }) => {
 
             const user = await response.json();
             
-            if (user.id) {
-                user.logged_in = true;
+            if (user) {
+                const userWithLoggedIn = { ...user, logged_in: true };
+
                 // Settiamo lo state con i dati utente ricevuti dal BE
-                loadUser(user);
+                loadUser(userWithLoggedIn);
+                console.log(userWithLoggedIn);
                 navigate('/'); // Naviga alla home
-                console.log(user);
             }
         } catch (error) {
-            setError('Credenziali errate');
+            console.error(error); // Stampa l'errore per il debugging
+            setError('Si è verificato un errore di connessione. Riprova più tardi.');
         }
     };
 

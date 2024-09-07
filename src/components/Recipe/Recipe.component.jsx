@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState}  from 'react';
 
 import { useParams } from 'react-router-dom';
 
-import { recipeData } from '../../assets/ricette/Recipes';
+import { useRecipe } from '../../hooks/useRecipes.js';
 
 import CommentsSection from '../CommentsSection/CommentsSection.component';
 
@@ -19,29 +19,28 @@ import {
 
 const Recipe = ({ user }) => {
   const { id } = useParams();
-  const [comments, setComments] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
-
-  const recipe = recipeData(id);
+  const [comments, setComments] = useState([]);
+  const { recipe, loading, error } = useRecipe(id);
 
   useEffect(() => {
-    console.log("Fetching comments...");
     const fetchComments = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/cookbook/${id}/comments`);
-        const recipeComments = await response.json();
-        setComments(recipeComments);
-      } catch (error) {
-        console.log(error);
+        const response = await fetch(`http://localhost:3000/recipes/${id}/comments`);
+        const data = await response.json();
+        setComments(data);
+      } catch (err) {
+        console.error("Errore durante il recupero dei commenti:", err);
       }
     };
+
     fetchComments();
   }, [id]);
 
   const addComment = async (newComment) => {
     try {
-      const response = await fetch(`http://localhost:3000/cookbook/${id}/comments`, {
+      const response = await fetch(`http://localhost:3000/recipes/${id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,10 +49,9 @@ const Recipe = ({ user }) => {
       });
 
       if (response.ok) {
-        const updatedComments = await response.json();
-        setComments(updatedComments);
-        console.log(updatedComments);
-        console.log(comments);
+        setComments(prevComments => [...prevComments, newComment]);
+      } else {
+        console.error("Errore durante l'aggiunta del commento");
       }
     } catch (err) {
       console.error("Errore durante l'invio del commento:", err);
@@ -62,13 +60,13 @@ const Recipe = ({ user }) => {
 
   const handleDelete = async (recipeID, commentID) => {
     try {
-      const response = await fetch(`http://localhost:3000/cookbook/${recipeID}/comments`, {
+      const response = await fetch(`http://localhost:3000/recipes/${recipeID}/comments`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          commentID: commentID,
+          id: commentID,
           userID: user.id
         }),
       });
@@ -95,13 +93,15 @@ const Recipe = ({ user }) => {
 
   const handleSubmit = () => {
     if (inputValue.trim() !== "" && user.logged_in) {
+      
       const newComment = {
-        id: new Date().getTime(),
-        userId: user.id,
-        userName: user.name,
-        content: inputValue,
+        id: Date.now(),
+        user_id: user.id,
+        user_name: user.username,
+        recipe_id: id,
+        comment_text: inputValue,
         rating: rating,
-        timestamp: new Date(),
+        create_at: new Date(),
       };
       addComment(newComment);
       setInputValue("");
@@ -109,6 +109,10 @@ const Recipe = ({ user }) => {
     }
   };
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Errore: {error}</div>;
+  if (!recipe) return <div>Nessuna ricetta trovata</div>;
+  
   return (
     <RecipeContainer>
       <SectionTitle className="title gradient-text">
@@ -143,7 +147,7 @@ const Recipe = ({ user }) => {
       </IngredientsAndDetails>
       <InstructionSection>
         <SectionTitle>Procedimento</SectionTitle>
-          <img src={recipe.imageCarousel} alt={recipe.title} />
+          <img src={recipe.image_carousel} alt={recipe.title} />
         <div className="instructions">
           {recipe.instructions.map((p, index) => (
             <li key={`li-${index}`}>{p}</li>
@@ -162,7 +166,6 @@ const Recipe = ({ user }) => {
         handleRatingChange={handleRatingChange}
         handleSubmit={handleSubmit}
       />
-
     </RecipeContainer>
   );
 }

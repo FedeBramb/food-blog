@@ -106,8 +106,9 @@ export const IngredientsContainer = styled.div`
 export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center; /* Centra il testo orizzontalmente */
-    width: 100%;
+    width: 40%;
     background-color: cornflowerblue;
 
     & p {
@@ -122,6 +123,7 @@ export const DetailsContainer = styled.div`
 `
 
 export const InstructionSection = styled.div`
+    width: 100%;
     & .instructions {
         text-align: justify;
 

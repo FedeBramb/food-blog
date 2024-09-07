@@ -1,22 +1,27 @@
 import styled from 'styled-components';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+import { motion } from "framer-motion";
+
 import { Link } from 'react-router-dom';
 
-export const PreviewContainer = styled.div`
+export const Splash = styled.div`
+    clip-path: xywh(0 5px 100% 100% round 15% 0);
+`
+
+export const PreviewContainer = motion.create(styled.div`
     display: flex;
+    position: relative;
     flex-direction: row;
     gap: 2rem;
     align-items: center;
-    font-family: "Libre Baskerville", serif;
-    font-weight: 200;
-    font-style: normal;
-    width: 100%;
+    font-size: 1.1rem;
+    
 
     @media (max-width: 738px) {
         margin: 0;
         flex-direction: column;
     }
-`;
+`);
 
 export const NewsLink = styled(Link)`
     width: 40%;
@@ -75,14 +80,24 @@ export const DetailsContainer = styled.div`
         opacity: 72%;
     }
 
-    & .span-link {
-        color: #007074;
-        font-weight: 650;
+    
+`;
 
-        &:hover {
-            color: black;
-        }
+export const ReadButton = styled.div`
+    display: inline-block;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    padding: 0.625rem 1.875rem;
+    text-transform: uppercase;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    margin-bottom: 15px;
+
+    &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
     }
 `;
+
 
 

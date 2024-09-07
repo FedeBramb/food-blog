@@ -46,8 +46,8 @@ function Navbar() {
     <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
       {!isSmallScreen && (
         <>
-          <NavItem to="/" >HOME</NavItem>
-          <NavItem to="/cookbook" >RICETTE</NavItem>
+          <NavItem to="/">HOME</NavItem>
+          <NavItem to="/recipes" >RICETTE</NavItem>
           <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
           <NavItem to="/glossario" >GLOSSARIO</NavItem>
           <NavItem to="/contatti" >CONTATTI</NavItem>
@@ -65,7 +65,7 @@ function Navbar() {
             {isOpen && (
                 <DropdownContent>
                   <Link to="/" className="dropItem" onClick={toggleMenu}>HOME</Link>
-                  <Link to="/cookbook" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
+                  <Link to="/recipes" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
                   <Link to="/glossario" className="dropItem" onClick={toggleMenu}>GLOSSARIO</Link>
                   <Link to="/contatti" className="dropItem" onClick={toggleMenu}>CONTATTI</Link>
                 </DropdownContent>

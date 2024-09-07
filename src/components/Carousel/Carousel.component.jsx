@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
-import { recipeImages } from '../../assets/ricette/Recipes.js';
+import { useRecipes } from '../../hooks/useRecipes.js';
 
 import blueberry from '../../assets/bluberry.webp';
 import donut from '../../assets/ciambella.webp';
@@ -30,7 +30,7 @@ import {
 
 function Carousel() {
   // Ottieni i dati delle immagini delle ricette
-  const recipeData = recipeImages();
+  const { recipes, loading, error } = useRecipes();
   
   // Stato per gestire la visibilità dell'icona
   const [showIcon, setShowIcon] = useState(false);
@@ -47,14 +47,13 @@ function Carousel() {
   }, [showIcon]);
 
   // Gestisce l'evento di ingresso del mouse per mostrare l'icona
-  const handleMouseEnter = () => {
-    setShowIcon(true);
-  };
-
+  const handleMouseEnter = () => setShowIcon(true);
   // Gestisce l'evento di uscita del mouse (l'icona rimarrà visibile finché non scompare automaticamente)
-  const handleMouseLeave = () => {
-    setShowIcon(false);
-  };
+  const handleMouseLeave = () => setShowIcon(false);
+
+  if (loading || error) {
+    return <div>{loading ? "Loading recipes..." : `Error loading recipes: ${error.message}`}</div>;
+  }
 
   return (
     // Contenitore del carosello con eventi per mostrare/nascondere l'icona
@@ -62,14 +61,11 @@ function Carousel() {
       {/* Immagini di overlay */}
       <Blueberry src={blueberry} alt='caffe underlay' />
       <Donut src={donut} alt='ciambella underlay'  />
-      
       <div>
-        <div>
-          <Span>discover</Span>
-          <MainTitle className='gradient-text'>Home Recipes</MainTitle>
-          <Hr />
-          <P>La nostra collezione di ricette gourmet, fatte su misura per te. Provale!</P>
-        </div>
+        <Span>discover</Span>
+        <MainTitle className='gradient-text'>Home Recipes</MainTitle>
+        <Hr />
+        <P>La nostra collezione di ricette gourmet, fatte su misura per te. Provale!</P>
       </div>
       
       {/* Componente Swiper per lo slideshow */}
@@ -86,7 +82,7 @@ function Carousel() {
           modifier: 3,
           slideShadows: true,
         }}
-        loop={true}
+        loop={recipes.length >= 3}
         loopAddBlankSlides={true}
         pagination={{ clickable: true }}
         autoplay={{
@@ -106,13 +102,13 @@ function Carousel() {
         }}
       >
         {/* Mappa dei dati delle ricette e crea uno slide per ogni ricetta */}
-        {recipeData.map(({ id, title, imageCarousel }, index) => {
+        {recipes.map(({ id, title, image_carousel}, index) => {
           return (
             <MySwiperSlide key={index} className='myswiper-slider'>
-              <Image src={imageCarousel} alt={"Recipe" + title} />
+              <Image src={image_carousel} alt={"Recipe" + title} />
               <ExploreContainer>
                 <Title>{title}</Title>
-                <Link to={`/cookbook/${id}`}>
+                <Link to={`/recipes/${id}`}>
                   <ExploreButton className='slider-btn'>Explore</ExploreButton>
                 </Link>
               </ExploreContainer>

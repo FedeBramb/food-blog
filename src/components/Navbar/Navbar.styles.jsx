@@ -9,7 +9,7 @@ export const NavbarContainer = styled.div`
     margin: auto;
     font: 700 1.0em "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    border-bottom: 1px solid rgb(176, 175, 175);
+    border-bottom: 1px solid rgba(176, 175, 175, 0.4);
     height: 122.69px;
     @media screen and (max-width: 800px) {
         flex-direction: column;
@@ -20,7 +20,7 @@ export const NavbarContainer = styled.div`
 export const NavItem = styled(Link)`
     text-decoration: none;
     background-color: var(--primary-color);
-    background-image: linear-gradient(45deg, #00a4aa, #00073b);
+    background-image: var(--gradient-color);
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -98,13 +98,13 @@ export const DropdownContent = styled.div`
     z-index: 1000;
 
     & a {
-        color: black;
+        color: var(--primary-color);
         padding: 12px 16px;
-        text-decoration: none;
         display: block;
 
         &:hover {
-            background-color: #00a4aa;
+            background-color: #395b93;
+            color: var(--secondary-color);
         }
     }   
 `

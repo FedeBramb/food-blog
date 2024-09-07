@@ -10,10 +10,6 @@ import {
 
 // Componente per la sezione dei commenti
 const CommentsSection = ({ comments, handleDelete, user, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
-    
-    // Log per il rendering e il numero di commenti
-    console.log("Rendering CommentsSection component");
-    console.log("Numero di commenti:", comments.length);
 
     return (
         <CommentsSectionContainer>
@@ -25,8 +21,8 @@ const CommentsSection = ({ comments, handleDelete, user, recipeID, inputValue, h
                 <div className='comments-box'>
                     {comments.map((comment, index) => (
                         <CommentContainer key={index}>
-                            <p className='username'>{comment.userName}:</p>
-                            <p className='comment'>{comment.content}</p>
+                            <p className='username'>{comment.user_name}:</p>
+                            <p className='comment'>{comment.comment_text}</p>
                             <div className="rating">
                                 {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
                             </div>
