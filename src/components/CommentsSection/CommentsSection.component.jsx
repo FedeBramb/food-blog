@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+
+import { UserContext } from '../../context/user.context.jsx';
+
 import StarRating from '../StarRating/StarRating.component';
+
 import {
     CommentsSectionContainer,
     AllCommentsTitle,
@@ -9,8 +13,9 @@ import {
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ comments, handleDelete, user, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
-
+const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
+    const { user } = useContext(UserContext);
+    console.log(user);
     return (
         <CommentsSectionContainer>
             <AllCommentsTitle>Commenti:</AllCommentsTitle>

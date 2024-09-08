@@ -134,9 +134,10 @@ export const InstructionSection = styled.div`
     }
 
     & img {
-            max-height: 400px;
+            max-width: 400px;
             float: left;
             margin: 0 15px 15px 0;
+            height: auto;
         }
 
     & p {

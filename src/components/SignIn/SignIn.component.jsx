@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { UserContext } from '../../context/user.context';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +14,8 @@ import {
 } from './SignIn.styles';
 
 // Componente per il log in
-const SignIn = ({ loadUser }) => {
+const SignIn = () => {
+    const { loadUser } = useContext(UserContext);
     // Stato per i dati della form
     const [ formSignIn, setformSignIn ] = useState({
         email: '',
@@ -61,8 +64,10 @@ const SignIn = ({ loadUser }) => {
             
             if (user) {
                 const userWithLoggedIn = { ...user, logged_in: true };
-
+                // Salviamo l'utente nel localstorage per mantenerlo loggato al refresh
+                localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
                 // Settiamo lo state con i dati utente ricevuti dal BE
+                console.log('User saved to localStorage:', localStorage.getItem('user'));
                 loadUser(userWithLoggedIn);
                 console.log(userWithLoggedIn);
                 navigate('/'); // Naviga alla home

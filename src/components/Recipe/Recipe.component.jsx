@@ -1,8 +1,9 @@
-import React, { useEffect, useState}  from 'react';
-
+import React, { useEffect, useState, useContext}  from 'react';
 import { useParams } from 'react-router-dom';
 
+import { UserContext } from '../../context/user.context';
 import { useRecipe } from '../../hooks/useRecipes.js';
+import { useComments } from '../../hooks/useComments.js';
 
 import CommentsSection from '../CommentsSection/CommentsSection.component';
 
@@ -17,26 +18,16 @@ import {
   InstructionSection,
 } from './Recipe.styles.jsx';
 
-const Recipe = ({ user }) => {
+const Recipe = () => {
   const { id } = useParams();
+  const { user } = useContext(UserContext);
+  const { recipe, loading, error } = useRecipe(id);
+  const { comments, loading: commentsLoading, error: commentsError, setComments } = useComments(id);
+  
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
-  const [comments, setComments] = useState([]);
-  const { recipe, loading, error } = useRecipe(id);
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const response = await fetch(`http://localhost:3000/recipes/${id}/comments`);
-        const data = await response.json();
-        setComments(data);
-      } catch (err) {
-        console.error("Errore durante il recupero dei commenti:", err);
-      }
-    };
-
-    fetchComments();
-  }, [id]);
+  
+  
 
   const addComment = async (newComment) => {
     try {
@@ -109,8 +100,8 @@ const Recipe = ({ user }) => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Errore: {error}</div>;
+  if (loading || commentsLoading) return <div>Loading...</div>; // Mostra loading per entrambi i caricamenti
+  if (error || commentsError) return <div>Errore: {error || commentsError}</div>; // Mostra errore per entrambi
   if (!recipe) return <div>Nessuna ricetta trovata</div>;
   
   return (
@@ -158,7 +149,6 @@ const Recipe = ({ user }) => {
         comments={comments}
         addComment={addComment}
         handleDelete={handleDelete}
-        user={user}
         recipeID={id}
         inputValue={inputValue}
         rating={rating}

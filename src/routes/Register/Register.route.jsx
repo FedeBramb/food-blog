@@ -2,9 +2,9 @@ import React from 'react'
 
 import SignUp from '../../components/SignUp/SignUp.component';
 
-const register = ({loadUser}) => {
+const register = () => {
   return (
-    <SignUp loadUser={loadUser} />
+    <SignUp />
   )
 }
 

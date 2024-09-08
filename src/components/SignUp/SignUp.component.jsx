@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { UserContext } from '../../context/user.context';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +16,8 @@ import {
 
 // Componente per la registrazione
 // Ragruppo tutte le proprietà in un oggetto di stato. 
-const SignUp = ({ loadUser }) => {
+const SignUp = () => {
+    const { loadUser } = useContext(UserContext);
     const [ formSignUp, setFormSignUp ] = useState({
         username: '',
         password: '',

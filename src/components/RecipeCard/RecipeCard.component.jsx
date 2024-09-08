@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import {
   CustomLink,
@@ -11,9 +12,13 @@ import {
 } from './RecipeCard.styles.jsx';
 
 const RecipeCard = ({ title, image, id }) => {
-  console.log('RecipeCard props:', { id, image, title });
   return (
-    <>
+    <motion.div animate={{
+      scale: [0.8, 1],
+    }}
+    transition={{
+      duration: 1
+    }}>
       <CustomLink to={`${id}`} className='CustomLink-custom' key={id}>
         <CardContainer>
           <PosterContainer>
@@ -31,7 +36,7 @@ const RecipeCard = ({ title, image, id }) => {
           </TitleContainer>
         </CardContainer>
       </CustomLink>
-    </>
+    </motion.div>
   )
 }
 

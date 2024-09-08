@@ -5,6 +5,7 @@
 :root {
   --primary-color: #223b4e;
   --secondary-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.7);
   --hover-color: #526a7f;
   --hover-color-sec: ;
   --gradient-color: linear-gradient(45deg, #4c7ea4, var(--primary-color));

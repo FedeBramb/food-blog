@@ -1,6 +1,6 @@
 // src/hooks/useRecipes.js
 import { useState, useEffect } from 'react';
-import { fetchRecipes, fetchRecipeById, fetchCommentsByRecipeId } from './api.js';
+import { fetchRecipes, fetchRecipeById } from './api.js';
 
 const useRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -31,10 +31,9 @@ const useRecipe = (id) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchRecipe = async () => {
+    const getRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/recipes/${id}`);
-        const data = await response.json();
+        const data = await fetchRecipeById(id);
         setRecipe(data);
       } catch (error) {
         setError(error.message);
@@ -42,12 +41,15 @@ const useRecipe = (id) => {
         setLoading(false);
       }
     };
-    fetchRecipe();
+
+    getRecipe(id);
   }, [id]);
 
 
   return { recipe, loading, error };
 };
+
+
 
 
 

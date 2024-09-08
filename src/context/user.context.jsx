@@ -35,20 +35,29 @@ export const UserProvider = ({ children }) => {
     }
 
     const resetUser = () => {
-    setUser({
-        id: '',
-        username: '',
-        email: '',
-        comments: [],
-        joined: '',
-        logged_in: false
-    });
+        setUser({
+            id: '',
+            username: '',
+            email: '',
+            comments: [],
+            joined: '',
+            logged_in: false
+        });
+        localStorage.removeItem('user');
     }
 
     // useEffect verrà eseguito quando 'user' viene aggiornato
     useEffect(() => {
         console.log("Dati utente aggiornati:", user);
     }, [user]);
+
+    useEffect(() => {
+        // Recupera i dati dell'utente dal localStorage
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser && storedUser.logged_in) {
+            loadUser(storedUser);
+        }
+    }, []);
 
     const value = { user, loadUser, resetUser };
 
