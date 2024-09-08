@@ -3,10 +3,6 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-const primaryColor = "aliceblue";
-const secondaryColor = "rgba(0, 0, 0, 0.7)";
-const borderRadius = "5px";
-const transitionDuration = "0.3s";
 
 export const CustomLink = styled(Link)`
     text-decoration: none;
@@ -19,13 +15,13 @@ export const TitleContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    border-radius: ${borderRadius}; 
+    border-radius: 5px; 
     position: absolute;
     bottom: 0;
     left: 0; 
-    box-shadow: 0 5px 20px 3px ${secondaryColor};
+    box-shadow: 0 5px 20px 3px var(--shadow-color);
     opacity: 0;
-    transition: opacity ${transitionDuration}; 
+    transition: opacity 0.3s; 
 
     @media screen and (max-width: 738px) {
         opacity: 1;
@@ -57,7 +53,7 @@ export const PosterContainer = styled.div`
 export const PosterLazyImg = styled(LazyLoadImage)`
     width: 100%; 
     object-fit: cover;
-    border-radius: ${borderRadius};
+    border-radius: 5px;
     display: block;
 `
 
@@ -71,18 +67,18 @@ export const TitleContent = styled.div`
     & .title-card {
         font-size: clamp(16px, 3vw, 36px);
         margin-bottom: 2%;
-        color: ${primaryColor}; 
-        text-shadow: 2px 2px 4px ${secondaryColor};
+        color: var(--secondary-color); 
+        text-shadow: 2px 2px 4px var(--shadow-color);
         text-decoration: none;
     }
 `
 
 export const ReadButton = styled.button`
     background-color: transparent;
-    color: ${primaryColor}; 
+    color: var(--secondary-color); 
     border: 2px solid #fff;
     padding: 5px 5px;
-    border-radius: ${borderRadius}; 
+    border-radius: 5px; 
     font-size: clamp(12px, 3vw, 20px);
     cursor: pointer;
     margin-top: 1%;

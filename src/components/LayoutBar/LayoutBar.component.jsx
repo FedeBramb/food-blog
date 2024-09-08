@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
+
+import { UserContext } from "../../context/user.context.jsx";
 
 import logoIcon from '../../assets/logo-icon.webp';
 
 import { Bar, AuthButtonsContainer, IconsContainer, Span } from "./LayoutBar.styles.jsx";
 
 // 
-function LayoutBar({ position, children, user, resetUser }) {
-
+function LayoutBar({ position, children }) {
+  const { user, resetUser } = useContext(UserContext);
   const containerClass = position === 'header' ? 'social-bar-header' : 'social-bar-footer';
 
   const handleLogout = () => {

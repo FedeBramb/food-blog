@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-const mainColor = "#223b4e";
 
 export const SearchFormContainer = styled.div`
     display: flex;
@@ -9,6 +8,7 @@ export const SearchFormContainer = styled.div`
     flex-wrap: wrap; /* Per rendere la barra di ricerca responsive */
     position: relative;
     margin-top: 5px;
+    margin-left: 11%;
     height: 38px;
 `
 
@@ -28,12 +28,12 @@ export const SearchInput = styled.input`
     flex: 1;
     font-size: 16px; 
     max-width: 400px; 
-    background-color: ${mainColor};
-    border: 2px solid ${mainColor};
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-bottom: none; 
     visibility: hidden;
     opacity: 0;
-    color: #ffffff;
+    color: var(--text-seconday-color);
     transition: opacity 0.5s ease-in-out;
 
     &.visible {
@@ -44,7 +44,7 @@ export const SearchInput = styled.input`
 
     &:focus {
         outline: none; 
-        border: 2px solid ${mainColor};
+        border: 2px solid var(--primary-color);
     }
 
     &::-webkit-input-placeholder {
@@ -63,7 +63,7 @@ export const SearchInput = styled.input`
   
 export const SearchButton = styled.div`
     padding: 5px 10px;
-    background-color: ${mainColor};
+    background-color: var(--primary-color);
     border: none;
     cursor: pointer;
 
@@ -88,7 +88,7 @@ export const DropdownItemContainer = styled.div`
     font-size: 1rem; /* Dimensione del font relativa */
     
     &:hover {
-        background-color: var(--hover-color);
+        background-color: #94adc4;
         color: white;
     }
 

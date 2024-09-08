@@ -1,0 +1,29 @@
+ 
+.welcome-container {
+  width: 30%;
+  min-width: 283.1px;
+}
+  
+.span-sign-in {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1rem;
+  color: #717171;
+}
+      
+.h1-sign-in {
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-top: 0;
+}
+  
+.p-sign-in {
+  line-height: 1.6;
+  font: 200 normal 1rem "Libre Baskerville", serif;
+  opacity: 90%;
+  font-size: 1.25rem;
+  color: var(--text-primary-color);
+}
+

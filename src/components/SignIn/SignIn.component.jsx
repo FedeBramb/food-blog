@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+
+import { UserContext } from '../../context/user.context';
 
 import { useNavigate } from 'react-router-dom';
 
-import blueDonuts from '../../assets/bluDonut.png';
-
-import './SignIn.styles.css';
+import {
+    SignInContainer,
+    SignInForm,
+    Label,
+    Input,
+    Button,
+    WelcomeAuthStyled
+} from './SignIn.styles';
 
 // Componente per il log in
-const SignIn = ({ loadUser }) => {
+const SignIn = () => {
+    const { loadUser } = useContext(UserContext);
     // Stato per i dati della form
     const [ formSignIn, setformSignIn ] = useState({
         email: '',
@@ -33,7 +41,7 @@ const SignIn = ({ loadUser }) => {
         event.preventDefault();
         
         const { email, password } = formSignIn;
-
+        console.log('Email:', email);
         setError(""); // Pulisci eventuali errori
         // Invia tramite post method email e password
         try {
@@ -54,39 +62,37 @@ const SignIn = ({ loadUser }) => {
 
             const user = await response.json();
             
-            if (user.id) {
-                user.logged_in = true;
+            if (user) {
+                const userWithLoggedIn = { ...user, logged_in: true };
+                // Salviamo l'utente nel localstorage per mantenerlo loggato al refresh
+                localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
                 // Settiamo lo state con i dati utente ricevuti dal BE
-                loadUser(user);
+                console.log('User saved to localStorage:', localStorage.getItem('user'));
+                loadUser(userWithLoggedIn);
+                console.log(userWithLoggedIn);
                 navigate('/'); // Naviga alla home
-                console.log(user);
             }
         } catch (error) {
-            setError('Credenziali errate');
+            console.error(error); // Stampa l'errore per il debugging
+            setError('Si è verificato un errore di connessione. Riprova più tardi.');
         }
     };
 
     
   return (
-        <div className='signin-container'>
-            <img className='overlay-donut' src={blueDonuts} alt='blu donut' />
-            <div className='welcome-container'>
-                <h1 className='h1-sign-in gradient-text'>Bentornato!</h1>
-                <hr className='hr-sign-in hr-blue' />
-                <p className='p-sign-in'>Se hai già effettuato la registrazione, inserisci la tua email e password!
-                </p>
-            </div>
-            <form className='signin-form' onSubmit={handleSubmit}>
-                <label htmlFor='email' className='signin-label'>Email</label>
-                <input id='email' className='signin-input' type='email' name='email' onChange={onChangeHandler} required></input>
-                <label htmlFor='password' className='signin-label'>Password</label>
-                <input id='password' className='signin-input' type='password'name='password' onChange={onChangeHandler} required></input>
-                <button type='submit' className='signin-button'>Accedi</button>
+        <SignInContainer>
+            <WelcomeAuthStyled className='overlay-donut-sign-in' />
+            <SignInForm onSubmit={handleSubmit}>
+                <Label htmlFor='email'>Email</Label>
+                <Input id='email' type='email' name='email' onChange={onChangeHandler} required></Input>
+                <Label htmlFor='password'>Password</Label>
+                <Input id='password' type='password'name='password' onChange={onChangeHandler} required></Input>
+                <Button type='submit'>Accedi</Button>
                 <div className='error-container'>
                     {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
                 </div>
-            </form>
-        </div>
+            </SignInForm>
+        </SignInContainer>
   )
 }
 

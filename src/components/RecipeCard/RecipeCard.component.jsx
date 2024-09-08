@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 import {
   CustomLink,
@@ -10,28 +11,32 @@ import {
   ReadButton
 } from './RecipeCard.styles.jsx';
 
-const RecipeCard = ({ title, image, index }) => {
-    
+const RecipeCard = ({ title, image, id }) => {
   return (
-    <>
-      <CustomLink to={`${title.trim().toLowerCase()}`} className='CustomLink-custom' key={index}>
+    <motion.div animate={{
+      scale: [0.8, 1],
+    }}
+    transition={{
+      duration: 1
+    }}>
+      <CustomLink to={`${id}`} className='CustomLink-custom' key={id}>
         <CardContainer>
           <PosterContainer>
             <PosterLazyImg 
               src={image}
-              alt={`pic-${index}`}
+              alt={`pic-${id}`}
               className='poster'
             />
           </PosterContainer>
           <TitleContainer>
             <TitleContent>
-              <p className='title-card' key={`${index}-p`}>{title}</p>
+              <p className='title-card' key={`${id}-p`}>{title}</p>
               <ReadButton>Scopri</ReadButton>  
             </TitleContent>
           </TitleContainer>
         </CardContainer>
       </CustomLink>
-    </>
+    </motion.div>
   )
 }
 

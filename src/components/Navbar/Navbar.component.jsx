@@ -46,8 +46,8 @@ function Navbar() {
     <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
       {!isSmallScreen && (
         <>
-          <NavItem to="/" >HOME</NavItem>
-          <NavItem to="/cookbook" >RICETTE</NavItem>
+          <NavItem to="/">HOME</NavItem>
+          <NavItem to="/recipes" >RICETTE</NavItem>
           <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
           <NavItem to="/glossario" >GLOSSARIO</NavItem>
           <NavItem to="/contatti" >CONTATTI</NavItem>
@@ -55,17 +55,17 @@ function Navbar() {
       )}
       {isSmallScreen && (
         <>
-          <LinkSmallLogo className='link-small-logo'>
+          <LinkSmallLogo to="/" className='link-small-logo'>
             <LogoSmallView src={logo} alt='logo' />
           </LinkSmallLogo>
           <DropcaseContainer>
             <MenuButton  onClick={toggleMenu}>
-              <img src="https://icongr.am/fontawesome/bars.svg?size=28&color=00a4aa" alt="icon Facebook"></img>Menu
+              <img src={`https://icongr.am/fontawesome/bars.svg?size=28&color=223b4e`} alt="icon Facebook"></img>Menu
             </MenuButton>
             {isOpen && (
                 <DropdownContent>
                   <Link to="/" className="dropItem" onClick={toggleMenu}>HOME</Link>
-                  <Link to="/cookbook" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
+                  <Link to="/recipes" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
                   <Link to="/glossario" className="dropItem" onClick={toggleMenu}>GLOSSARIO</Link>
                   <Link to="/contatti" className="dropItem" onClick={toggleMenu}>CONTATTI</Link>
                 </DropdownContent>

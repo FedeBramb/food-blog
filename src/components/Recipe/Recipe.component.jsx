@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useReducer } from "react";
-
-/* Recupera il nome della ricetta dall'url */
+import React, { useEffect, useState, useContext}  from 'react';
 import { useParams } from 'react-router-dom';
 
-import { recipeData } from '../../assets/ricette/Recipes';
+import { UserContext } from '../../context/user.context';
+import { useRecipe } from '../../hooks/useRecipes.js';
+import { useComments } from '../../hooks/useComments.js';
 
-import CommentsSection from "../CommentsSection/CommentsSection.component";
+import CommentsSection from '../CommentsSection/CommentsSection.component';
 
 import { 
   RecipeContainer,
@@ -18,69 +18,53 @@ import {
   InstructionSection,
 } from './Recipe.styles.jsx';
 
-
-/* Componente che renderizza la ricetta completa, prende come argomento l'user */
-const Recipe = ({ user }) => {
-  const { idRecipe } = useParams();
-  const [ comments, setComments ] = useState([]);
-
-  const recipe = recipeData(idRecipe);
-
-  useEffect(() => {
-    console.log("Fetching comments...");
-    const fetchComments = async () => {
-        try {
-            const response = await fetch(`http://localhost:3000/cookbook/${idRecipe}/comments`);
-            const recipeComments = await response.json();
-            setComments(recipeComments);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    fetchComments();
-  }, [idRecipe]);
-
+const Recipe = () => {
+  const { id } = useParams();
+  const { user } = useContext(UserContext);
+  const { recipe, loading, error } = useRecipe(id);
+  const { comments, loading: commentsLoading, error: commentsError, setComments } = useComments(id);
   
-  // Funzione per aggiungere un commento e inviarlo al back end 
+  const [inputValue, setInputValue] = useState("");
+  const [rating, setRating] = useState(0);
+  
+  
+
   const addComment = async (newComment) => {
     try {
-      const response = await fetch(`http://localhost:3000/cookbook/${idRecipe}/comments`, {
+      const response = await fetch(`http://localhost:3000/recipes/${id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(newComment),
       });
-  
+
       if (response.ok) {
-        const updatedComments = await response.json();
-        setComments(updatedComments); // Aggiorna i commenti con quelli aggiornati dal backend
-        console.log(updatedComments);
-        console.log(comments);
-        
+        setComments(prevComments => [...prevComments, newComment]);
+      } else {
+        console.error("Errore durante l'aggiunta del commento");
       }
     } catch (err) {
       console.error("Errore durante l'invio del commento:", err);
     }
   };
 
-
   const handleDelete = async (recipeID, commentID) => {
     try {
-      const response = await fetch(`http://localhost:3000/cookbook/${recipeID}/comments`, {
+      const response = await fetch(`http://localhost:3000/recipes/${recipeID}/comments`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          commentID: commentID,  
-          userID: user.id        
+          id: commentID,
+          userID: user.id
         }),
       });
-  
+
       if (response.ok) {
-        const updatedComments = await response.json();  // Ottieni i commenti aggiornati
-        setComments(updatedComments);  // Aggiorna lo stato dei commenti
+        const updatedComments = await response.json();
+        setComments(updatedComments);
         console.log("Commento cancellato con successo");
       } else {
         console.error("Errore nella cancellazione del commento");
@@ -89,9 +73,37 @@ const Recipe = ({ user }) => {
       console.error('Errore nella richiesta di cancellazione:', error);
     }
   };
-  
-  
 
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+
+  const handleSubmit = () => {
+    if (inputValue.trim() !== "" && user.logged_in) {
+      
+      const newComment = {
+        id: Date.now(),
+        user_id: user.id,
+        user_name: user.username,
+        recipe_id: id,
+        comment_text: inputValue,
+        rating: rating,
+        create_at: new Date(),
+      };
+      addComment(newComment);
+      setInputValue("");
+      setRating(0);
+    }
+  };
+
+  if (loading || commentsLoading) return <div>Loading...</div>; // Mostra loading per entrambi i caricamenti
+  if (error || commentsError) return <div>Errore: {error || commentsError}</div>; // Mostra errore per entrambi
+  if (!recipe) return <div>Nessuna ricetta trovata</div>;
+  
   return (
     <RecipeContainer>
       <SectionTitle className="title gradient-text">
@@ -126,9 +138,7 @@ const Recipe = ({ user }) => {
       </IngredientsAndDetails>
       <InstructionSection>
         <SectionTitle>Procedimento</SectionTitle>
-        <div className="miniature-rec">
-          <img src={recipe.imagesMiniature} alt={recipe.title} />
-        </div>
+          <img src={recipe.image_carousel} alt={recipe.title} />
         <div className="instructions">
           {recipe.instructions.map((p, index) => (
             <li key={`li-${index}`}>{p}</li>
@@ -139,10 +149,13 @@ const Recipe = ({ user }) => {
         comments={comments}
         addComment={addComment}
         handleDelete={handleDelete}
-        user={user}
-        recipeID={idRecipe}  // Passa recipeID qui
+        recipeID={id}
+        inputValue={inputValue}
+        rating={rating}
+        handleInputChange={handleInputChange}
+        handleRatingChange={handleRatingChange}
+        handleSubmit={handleSubmit}
       />
-
     </RecipeContainer>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Link } from 'react-router-dom';
 
-import { recipeData } from "../../assets/ricette/Recipes.js";
+import { useRecipes } from '../../hooks/useRecipes.js';
 
 import { 
   SearchFormContainer,
@@ -16,11 +16,11 @@ import {
 /* Barra di ricerca */
 const Searchbox = () => {
   // Otteniamo oggetto contenente ogni oggetto ricetta
-  const dataRecipe = recipeData(); 
+  const { recipes } = useRecipes(); 
   // Inizializziamo state per il testo da ricercare
   const [searchInput, setSearchInput] = useState('');
   // Inizializziamo state per le ricette filtrare in base alla ricerca
-  const [filteredRecipes, setfilteredRecipes] = useState(dataRecipe); 
+  const [filteredRecipes, setfilteredRecipes] = useState(recipes); 
 
   const [isVisible, setIsVisibile] = useState(false);
   const [searchError, setSearchError] = useState('');
@@ -28,12 +28,13 @@ const Searchbox = () => {
      se è presente il nome della ricetta o un ingrediente della suddetta.
      Utilizziamo useEffect quando cambiano il searchInput o recipeData */
   useEffect(() => {
+    console.log(recipes);
     const searchInputClean = searchInput.trim().toLocaleLowerCase();
     if (!searchInputClean) {
       setfilteredRecipes([]);
     } else {
-      //Object.entries(dataRecipe).filter(([key, recipe]) => key.toLowerCase().includes(searchInput.toLowerCase())
-      const results =  dataRecipe.filter(recipe => recipe.title.toLocaleLowerCase() === searchInputClean ||
+      //Object.entries(recipes).filter(([key, recipe]) => key.toLowerCase().includes(searchInput.toLowerCase())
+      const results =  recipes.filter(recipe => recipe.title.toLocaleLowerCase() === searchInputClean ||
       recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean)));
       setfilteredRecipes(results);
     }
@@ -87,7 +88,7 @@ const Searchbox = () => {
         <ResultDropdown>
           {filteredRecipes.map((recipe, index) => (
             <DropdownItemContainer key={index}>
-              <Link to={`/cookbook/${recipe.title.toLowerCase()}`} onClick={handleResultClick}>
+              <Link to={`/recipes/${recipe.id}`} onClick={handleResultClick}>
                 <p>{recipe.title}</p>
               </Link>
             </DropdownItemContainer>

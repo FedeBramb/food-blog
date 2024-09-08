@@ -10,7 +10,6 @@ export const NewsContainer = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: 52.04px;
-    margin-left: 1vw;
 
     @media screen and (max-width: 1100px) {
         width: 78vw;
@@ -18,9 +17,13 @@ export const NewsContainer = styled.div`
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 0.8fr 1.1fr 1.1fr;
         margin-left: 0;
-        margin-top: 2vh;
         height: 100%;
         top: 0;
+    }
+
+    @media screen and (max-width: 850px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.8fr 1.2fr;
     }
 
     @media screen and (max-width: 738px) {
@@ -29,8 +32,8 @@ export const NewsContainer = styled.div`
         grid-template-columns: 1fr; /* Single column layout */
         grid-template-rows: repeat(7, auto); /* 1 row for text + 6 rows for images */
         height: 100%;
-        top: 0;
         margin-top: 2vh;
+        justify-content: center;
     }
 
     & a {
@@ -44,11 +47,16 @@ export const NewsTitle = styled.div`
     
     & h2 {
         margin: 40px 0 20px 0;
-
     }
 
     @media screen and (max-width: 1100px) {
+        text-align: center;
+        margin: auto;
         grid-column: 1 / span 3;
+    }
+
+    @media screen and (max-width: 850px) {
+        grid-column: 1 / span 2;
     }
 
     @media screen and (max-width: 738px) {
@@ -58,7 +66,8 @@ export const NewsTitle = styled.div`
 
 export const ImgContainer = styled.div`
     position: relative;
-
+    display: flex;
+    justify-content: center;
     & img {
         width: min(300px, 100%);
         height: auto;
@@ -67,7 +76,7 @@ export const ImgContainer = styled.div`
 
 export const OverlayContainer = styled.div`
     position: absolute;
-    bottom: 2%;
+    bottom: 0;
     background: var(--primary-color);
     color: #fff;
     width: min(300px, 100%);

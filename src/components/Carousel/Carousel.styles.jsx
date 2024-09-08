@@ -8,7 +8,7 @@ export const CarouselContainer = styled.div`
     min-height: 30vh;
     column-gap: 3rem;
     padding-block: min(20vh, 3rem);
-    border-bottom: 1px solid rgb(164, 164, 164);
+    border-bottom: 1px solid rgba(176, 175, 175, 0.4);
 
     @media screen and (min-width: 768px) {
         display: flex;
@@ -69,17 +69,17 @@ export const Hr = styled.hr`
 
 export const P = styled.p`
     line-height: 1.6;
-    font: 200 normal 1rem "Libre Baskerville", serif;
+    font-size: 1.1rem;
     opacity: 90%;
 `;
 
 export const MySwiper = styled(Swiper)`
     width: 100%;
+
 `;
 
 export const ExploreContainer = styled.div`
     opacity: 0;
-    padding-bottom: 10px;
     position: relative;
 `;
 
@@ -90,6 +90,10 @@ export const MySwiperSlide = styled(SwiperSlide)`
     display: grid;
     justify-items: center;  
     align-content: end;
+    & img {
+            border-radius: 1rem;
+            max-width: 395px;
+        }
 
     &.swiper-slide-active {
         ${ExploreContainer} {
@@ -98,7 +102,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
             align-content: end;
             opacity: 1;
             background-color: rgba(255, 255, 255, .6);
-            width: 50%;
+            padding: 0 2rem;
             margin-bottom: 60px;
 
             .slider-btn {
@@ -113,7 +117,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
     }
     .swiper-pagination-bullet,
     .swiper-pagination-bullet-active {
-        background: #fff;
+        background: var(--text-seconday-color);
     }
 `;
 
@@ -126,8 +130,9 @@ export const Image = styled.img`
 
 export const Title = styled.h2`
     color: var(--primary-color);
+    margin: 1rem 0;
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 2rem;
     line-height: 1.4;
 `;
 
@@ -140,7 +145,6 @@ export const ExploreButton = styled.div`
     border: 2px solid var(--primary-color);
     cursor: pointer;
     margin-bottom: 15px;
-    font-size: 14px;
 
     &:hover {
         background-color: var(--primary-color);
@@ -148,28 +152,31 @@ export const ExploreButton = styled.div`
     }
 `;
 
-const rotateHand = keyframes`
+const move = keyframes`
     0% {
-      transform: rotate(-10deg);
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-50px);
     }
     100% {
-      transform: rotate(25deg);
+        transform: translateX(50px); /* Tornare al centro */
     }
 `;
 
-export const OverlayContainer = styled.div`
+export const UnderlayContainer = styled.div`
     position: absolute;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 1000;
+    z-index: 100;
     text-align: center;
 
     img {
         max-width: 150px;
         opacity: 100%;
-        transform-origin: bottom center;
-        animation: ${rotateHand} 1s infinite alternate ease-in-out;
+        transform-origin:  center;
+        animation: ${move} 2s infinite ease-in-out;
     }
 `;

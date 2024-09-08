@@ -5,8 +5,15 @@ export const PreviewsContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    gap: 12px;
-    margin: auto;
+    gap:  0.75rem;
+
+    @media screen and (max-width: 738px) {
+        align-items: center;
+    }
+
+    &.div-hr  {
+        width: 100%;
+    }
 `
 
 export const Header = styled.div`
@@ -14,16 +21,10 @@ export const Header = styled.div`
         margin-left: 1%;
     }
     
-
     & .margin {
-        margin-bottom: 2vh;
+        margin-bottom: 2%;
     }
 `
-
-export const PreviewContainer = styled.div`
-    opacity: 50%;
-`
-
 
 
 

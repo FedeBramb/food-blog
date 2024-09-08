@@ -106,8 +106,9 @@ export const IngredientsContainer = styled.div`
 export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center; /* Centra il testo orizzontalmente */
-    width: 100%;
+    width: 40%;
     background-color: cornflowerblue;
 
     & p {
@@ -122,6 +123,7 @@ export const DetailsContainer = styled.div`
 `
 
 export const InstructionSection = styled.div`
+    width: 100%;
     & .instructions {
         text-align: justify;
 
@@ -131,14 +133,12 @@ export const InstructionSection = styled.div`
         }
     }
 
-    & .miniature-rec {
-        float: left;
-        margin-right: 2%;
-
-        @media screen and (max-width: 800px) {
-            margin-bottom: 2vh;
+    & img {
+            max-width: 400px;
+            float: left;
+            margin: 0 15px 15px 0;
+            height: auto;
         }
-    }
 
     & p {
         margin-bottom: 20px;

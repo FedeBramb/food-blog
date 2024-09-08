@@ -7,11 +7,9 @@ export const Bar = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 11vw;
     
-
-    @media screen and (max-width: 880px) {
-        justify-content: center;
+    & img {
+        margin-left: 11%;
     }
 
     &.logo-image {
@@ -19,15 +17,23 @@ export const Bar = styled.div`
         height: auto;
     }
 
+    &.social-bar-header {
+        position: -webkit-sticky; /* Per supporto nei browser Webkit */
+        position: sticky;
+        top: 0; /* Attacca al top della viewport */
+        z-index: 1000; /* Assicurati che stia sopra altri elementi */
+    }
+
     &.social-bar-footer {
-        height: 60px;
+        height: 54px;
     }
 `
 
 export const AuthButtonsContainer = styled.div`
     display: flex;
     gap: 50px;
-
+    margin-right: 11%;
+    
     @media screen and (max-width: 880px) {
         justify-content: center;
         gap: 10px;
@@ -37,10 +43,7 @@ export const AuthButtonsContainer = styled.div`
 export const IconsContainer = styled.div`
     display: flex;
     gap: 10px;
-
-    @media screen and (max-width: 880px) {
-        display: none;
-    }
+    margin-right: 11%;
 `
 
 export const Span = styled.span`

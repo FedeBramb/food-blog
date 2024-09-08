@@ -2,10 +2,10 @@ import React from 'react'
 
 import SignIn from '../../components/SignIn/SignIn.component';
 
-const signin = ({loadUser}) => {
+const SigninRoute = () => {
   return (
-    <SignIn loadUser={{loadUser}} />
+    <SignIn />
   )
 }
 
-export default signin;
+export default SigninRoute;

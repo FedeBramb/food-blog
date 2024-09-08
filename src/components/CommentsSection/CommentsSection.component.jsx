@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+
+import { UserContext } from '../../context/user.context.jsx';
+
 import StarRating from '../StarRating/StarRating.component';
+
 import {
     CommentsSectionContainer,
     AllCommentsTitle,
@@ -7,52 +11,28 @@ import {
     CommentInput
 } from './CommentsSections.styles.jsx';
 
-const CommentsSection = ({ comments, addComment, handleDelete, user, recipeID }) => {
-    const [inputValue, setInputValue] = useState("");
-    const [rating, setRating] = useState(0);
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    };
-
-    const handleRatingChange = (newRating) => {
-        setRating(newRating);
-    };
-
-    const handleSubmit = () => {
-        if (inputValue.trim() !== "" && user.logged_in) {
-            const newComment = {
-                userId: user.id,
-                userName: user.name,
-                content: inputValue,
-                rating: rating,
-                timestamp: new Date(),
-            };
-            addComment(newComment);
-            setInputValue("");
-            setRating(0);
-        }
-    };
-
-    
-    console.log("Rendering CommentsSection component");
-    console.log("Numero di commenti:", comments.length);
-
+// Componente per la sezione dei commenti
+const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
+    const { user } = useContext(UserContext);
+    console.log(user);
     return (
         <CommentsSectionContainer>
             <AllCommentsTitle>Commenti:</AllCommentsTitle>
             <hr className='line'></hr>
             
+            {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
             {comments.length > 0 ? (
                 <div className='comments-box'>
                     {comments.map((comment, index) => (
                         <CommentContainer key={index}>
-                            <p className='username'>{comment.userName}:</p>
-                            <p className='comment'>{comment.content}</p>
+                            <p className='username'>{comment.user_name}:</p>
+                            <p className='comment'>{comment.comment_text}</p>
                             <div className="rating">
                                 {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
                             </div>
-                            {user.logged_in &&    
+                            {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
+                            {user.logged_in && user.id === comment.userId &&   
                                 <button onClick={() => handleDelete(recipeID, comment.id)}>X</button>
                             }
                         </CommentContainer>
@@ -62,6 +42,7 @@ const CommentsSection = ({ comments, addComment, handleDelete, user, recipeID })
                 <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>
             )}
 
+            {/* Se l'utente è loggato, mostra il modulo di inserimento commento */}
             <div className='comment-input-container'>
                 {user.logged_in ? (
                     <>
@@ -72,7 +53,7 @@ const CommentsSection = ({ comments, addComment, handleDelete, user, recipeID })
                             value={inputValue} 
                             onChange={handleInputChange} 
                         />
-                        <StarRating onRatingChange={handleRatingChange} />
+                        <StarRating handleRatingChange={handleRatingChange} />
                         <button className="button-input" onClick={handleSubmit}>Invia</button>
                     </>
                 ) : (
