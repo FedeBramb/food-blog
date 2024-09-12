@@ -59,7 +59,7 @@ const SignIn = () => {
                 // Leggi il messaggio di errore dal server
                 const errorData = await response.json();
                 setError(errorData.error || "Errore durante il login"); // Imposta il messaggio di errore
-                return; // Ferma l'esecuzione qui
+                return; // Ferma l'esecuzione qui.
             }
 
             const user = await response.json();
