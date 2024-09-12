@@ -17,7 +17,7 @@ export const CommentsSectionContainer = styled.div`
 `
 
 export const AllCommentsTitle = styled.h2`
-    background-color: ${mainColor};;
+    background-color: ${mainColor};
     background-image: linear-gradient(45deg, #00a4aa, #00073b);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -25,10 +25,12 @@ export const AllCommentsTitle = styled.h2`
 `
 
 export const CommentContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
     .username {
         margin-bottom: 10px;
-        font-family: "Montserrat", sans-serif;
-        font-optical-sizing: auto;
         font-weight: 700;
         font-style: normal;
         color: #009a93;
@@ -40,7 +42,21 @@ export const CommentContainer = styled.div`
     }
 
     & button {
-        margin-bottom: 10px;
+        background-color: var(--secondary-color); /* Colore di sfondo */
+        border: none; /* Rimuovi il bordo */
+        border: 2px solid var(--primary-color);
+        border-radius: 50%; /* Rende il pulsante tondo */
+        width: 30px; /* Dimensione del pulsante */
+        height: 30px; /* Dimensione del pulsante */
+        display: flex; /* Usato per centrare l'icona */
+        align-items: center; /* Centra verticalmente l'icona */
+        justify-content: center; /* Centra orizzontalmente l'icona */
+        cursor: pointer; /* Cambia il cursore al passaggio sopra */
+        transition: background-color 0.3s, transform 0.3s; /* Transizioni per animazioni */
+        
+        &:hover {
+            background-color: #ff4d4d;
+        }
     }
 
     .rating {
@@ -49,6 +65,10 @@ export const CommentContainer = styled.div`
     }
 `
 
+export const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 export const CommentInput = styled.input`
     width: 25vw;

@@ -90,10 +90,6 @@ export const MySwiperSlide = styled(SwiperSlide)`
     display: grid;
     justify-items: center;  
     align-content: end;
-    & img {
-            border-radius: 1rem;
-            max-width: 395px;
-        }
 
     &.swiper-slide-active {
         ${ExploreContainer} {
@@ -104,6 +100,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
             background-color: rgba(255, 255, 255, .6);
             padding: 0 2rem;
             margin-bottom: 60px;
+
 
             .slider-btn {
                 align-self: flex-start;

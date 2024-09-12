@@ -8,18 +8,22 @@ export const SearchFormContainer = styled.div`
     flex-wrap: wrap; /* Per rendere la barra di ricerca responsive */
     position: relative;
     margin-top: 5px;
-    margin-left: 11%;
     height: 38px;
+    overflow: hidden;
 `
 
 export const SearchForm = styled.form`
     display: flex;
     align-items: center;
-    width: 280px;
+    width: 17.5rem;
     
     &.visible {
         opacity: 1;
         border: 1px solid #8c8c8c;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 12rem;
     }
 `
 
@@ -54,6 +58,7 @@ export const SearchInput = styled.input`
     &:-moz-placeholder {
         color: #8c8c8c;  
     }
+
 
     @media screen and (max-width: 600px) {
         width: 100%; /* Occupa tutto lo spazio disponibile su schermi più piccoli */

@@ -11,8 +11,9 @@ export const NavbarContainer = styled.div`
     font-optical-sizing: auto;
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
     height: 122.69px;
+
     @media screen and (max-width: 800px) {
-        flex-direction: column;
+        
     }
     
 `
@@ -68,7 +69,6 @@ export const MenuButton = styled.button`
     outline: none;
     border: none;
     font-size: 1.4rem;
-    margin: 2% 0 2% 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,7 @@ export const DropdownContent = styled.div`
         display: block;
 
         &:hover {
-            background-color: #395b93;
+            background-color: var(--hover-input);
             color: var(--secondary-color);
         }
     }   

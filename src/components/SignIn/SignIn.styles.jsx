@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
-import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
-
 export const SignInContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: calc(100vh - 225.69px);
+  height: calc(100vh - 219.69px); // Intera altezza view meno altezze bars/navbar
   width: 78%;
   margin: auto;
   z-index: 100;
-
+  
   @media screen and (max-width: 780px) {
     flex-direction: column;
     justify-content: center;
@@ -26,17 +24,6 @@ export const SignInContainer = styled.div`
     font-size: 14px;
     margin-top: 10px;
     text-align: center;
-  }
-`
-
-export const WelcomeAuthStyled = styled(WelcomeAuth)`
-  &.overlay-donut-sign-in {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    height: 80%;
-    opacity: 0.5;
   }
 `
 
@@ -66,14 +53,12 @@ export const Input = styled.input`
   width: 100%;
   padding: 12px 16px;
   font-size: 14px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--hover-input);
   border-radius: 8px;
   margin-bottom: 20px;
   background-color: #f8f9fa;
-  transition: border-color 0.3s ease;
 
   &:focus {
-    border-color: var(--primary-color);
     outline: none;
   }
 `
@@ -81,9 +66,9 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   padding: 14px 20px;
-  background-color: var(--secondary-color);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--secondary-color);
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
@@ -91,8 +76,8 @@ export const Button = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: var(--primary-color);
-    color: var(--text-secondary-color);
+    background-color: var(--hover-input);
+    border: 2px solid var(--hover-input);
   }
 `
 /*

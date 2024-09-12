@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
-
 export const SignUpContainer = styled.div`
     height: calc(100vh - 14.106rem);
     position: relative;
@@ -11,17 +9,13 @@ export const SignUpContainer = styled.div`
     width: 78%;
     z-index: 100;
     margin: auto;
-`
 
-export const WelcomeAuthStyled = styled(WelcomeAuth)`
-  &.overlay-donut-sign-up {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    height: 80%;
-    opacity: 0.5;
-  }
+    @media screen and (max-width: 780px) {
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        margin-top: 3%;
+    }
 `
 
 export const FormContainer = styled.div`
@@ -41,10 +35,8 @@ export const Form = styled.form`
     }
 
     &.marketing-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
+        
+    }
 `
 
 export const Label = styled.label`
@@ -57,11 +49,10 @@ export const Input = styled.input`
     width: 100%;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
-    border: 0.0625rem solid #ccc;
+    border: 1px solid var(--hover-input);
     border-radius: 0.5rem;
     margin-bottom: 0;
-    background-color: #f8f9fa;
-    transition: border-color 0.3s ease;
+    background-color: #f8f9fa;    
 
     &:focus {
     border-color: var(--input-focus-color);
@@ -74,20 +65,20 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-    width: 100%;
-    padding: 0.875rem 1.25rem;
-    background-color: var(--secondary-color);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    grid-column: span 2;
+   width: 100%;
+  padding: 14px 20px;
+  background-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  grid-column: span 2;
 
-    &:hover {
-        background-color: var(--primary-color);
-        color: var(--text-secondary-color);
-    }
+  &:hover {
+    background-color: var(--hover-input);
+    border: 2px solid var(--hover-input);
+  }
 `

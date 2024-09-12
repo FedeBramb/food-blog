@@ -49,7 +49,7 @@ const Recipe = () => {
     }
   };
 
-  const handleDelete = async (recipeID, commentID) => {
+  const handleDelete = async (recipeID) => {
     try {
       const response = await fetch(`http://localhost:3000/recipes/${recipeID}/comments`, {
         method: 'DELETE',
@@ -57,15 +57,15 @@ const Recipe = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: commentID,
-          userID: user.id
+          user_id: user.id
         }),
       });
+      
 
       if (response.ok) {
         const updatedComments = await response.json();
+        console.log(updatedComments);
         setComments(updatedComments);
-        console.log("Commento cancellato con successo");
       } else {
         console.error("Errore nella cancellazione del commento");
       }
@@ -84,9 +84,9 @@ const Recipe = () => {
 
   const handleSubmit = () => {
     if (inputValue.trim() !== "" && user.logged_in) {
-      
+      console.log(user);
       const newComment = {
-        id: Date.now(),
+        // id commento SERIAL auto incremento nel DB
         user_id: user.id,
         user_name: user.username,
         recipe_id: id,
