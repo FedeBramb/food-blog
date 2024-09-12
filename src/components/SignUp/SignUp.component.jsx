@@ -71,7 +71,7 @@ const SignUp = () => {
         }
     
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch('https://food-blog-api-jlca.onrender.com/register', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({

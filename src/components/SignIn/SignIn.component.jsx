@@ -46,7 +46,7 @@ const SignIn = () => {
         setError(""); // Pulisce eventuali errori
 
         try {
-            const response = await fetch('http://localhost:3000/signin', {
+            const response = await fetch('https://food-blog-api-jlca.onrender.com/signin', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
