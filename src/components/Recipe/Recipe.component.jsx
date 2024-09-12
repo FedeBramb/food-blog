@@ -31,7 +31,7 @@ const Recipe = () => {
 
   const addComment = async (newComment) => {
     try {
-      const response = await fetch(`http://localhost:3000/recipes/${id}/comments`, {
+      const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Recipe = () => {
 
   const handleDelete = async (recipeID) => {
     try {
-      const response = await fetch(`http://localhost:3000/recipes/${recipeID}/comments`, {
+      const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeID}/comments`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
