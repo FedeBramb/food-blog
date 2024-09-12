@@ -4,13 +4,14 @@ import { UserContext } from '../../context/user.context';
 
 import { useNavigate } from 'react-router-dom';
 
+import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
+
 import {
     SignInContainer,
     SignInForm,
     Label,
     Input,
     Button,
-    WelcomeAuthStyled
 } from './SignIn.styles';
 
 // Componente per il log in
@@ -42,12 +43,12 @@ const SignIn = () => {
         
         const { email, password } = formSignIn;
         console.log('Email:', email);
-        setError(""); // Pulisci eventuali errori
-        // Invia tramite post method email e password
+        setError(""); // Pulisce eventuali errori
+
         try {
             const response = await fetch('http://localhost:3000/signin', {
                 method: 'post',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     email: email,
                     password: password
@@ -57,7 +58,8 @@ const SignIn = () => {
             if (!response.ok) {
                 // Leggi il messaggio di errore dal server
                 const errorData = await response.json();
-                throw new Error(errorData);
+                setError(errorData.error || "Errore durante il login"); // Imposta il messaggio di errore
+                return; // Ferma l'esecuzione qui
             }
 
             const user = await response.json();
@@ -74,14 +76,14 @@ const SignIn = () => {
             }
         } catch (error) {
             console.error(error); // Stampa l'errore per il debugging
-            setError('Si è verificato un errore di connessione. Riprova più tardi.');
+            setError("Errore del server. Riprova più tardi."); // Imposta un messaggio di errore generico in caso di eccezione
         }
     };
 
     
   return (
         <SignInContainer>
-            <WelcomeAuthStyled className='overlay-donut-sign-in' />
+            <WelcomeAuth className='sign-in' />
             <SignInForm onSubmit={handleSubmit}>
                 <Label htmlFor='email'>Email</Label>
                 <Input id='email' type='email' name='email' onChange={onChangeHandler} required></Input>

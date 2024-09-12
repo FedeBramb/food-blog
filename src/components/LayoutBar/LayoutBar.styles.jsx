@@ -6,11 +6,8 @@ export const Bar = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 10.3rem;
     align-items: center;
-    
-    & img {
-        margin-left: 11%;
-    }
 
     &.logo-image {
         max-width: 100%;
@@ -27,27 +24,30 @@ export const Bar = styled.div`
     &.social-bar-footer {
         height: 54px;
     }
+
+    @media screen and (max-width: 768px) {
+        padding: 1rem;
+    }
 `
 
 export const AuthButtonsContainer = styled.div`
     display: flex;
-    gap: 50px;
-    margin-right: 11%;
+    gap: 3.125rem;
+    
     
     @media screen and (max-width: 880px) {
         justify-content: center;
-        gap: 10px;
+        gap: 0.625rem;
     }
 `
 
 export const IconsContainer = styled.div`
     display: flex;
-    gap: 10px;
-    margin-right: 11%;
+    gap: 0.625rem;
 `
 
 export const Span = styled.span`
-    font-size: 14px;
+    font-size: 0.875rem;
 `
 
 

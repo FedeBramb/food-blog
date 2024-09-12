@@ -90,6 +90,7 @@ export const ReadButton = styled.div`
     padding: 0.625rem 1.875rem;
     text-transform: uppercase;
     border: 2px solid var(--primary-color);
+    border-radius: 10px;
     cursor: pointer;
     margin-bottom: 15px;
 

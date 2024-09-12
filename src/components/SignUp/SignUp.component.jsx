@@ -1,12 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { UserContext } from '../../context/user.context';
 
 import { useNavigate } from 'react-router-dom';
 
+import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
+
 import {
     SignUpContainer,
-    WelcomeAuthStyled,
     FormContainer,
     Form,
     Label,
@@ -28,6 +29,14 @@ const SignUp = () => {
 
     const [ error, setError ] = useState("");
 
+
+    useEffect(() => {
+        console.log("Error detected:", error); // Log per il debug
+        if (error) {
+            alert(error);
+            setError(""); // Resetta l'errore dopo aver mostrato l'alert
+        }
+    }, [error]);
     const navigate = useNavigate();
     // Handler  destruttura le proprietà dall'event.target
     // Settiamo lo state mantenendo i dati precedenti altrimenti
@@ -43,25 +52,27 @@ const SignUp = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         const { username, password, checkPassword, email } = formSignUp;
-
+    
         // Validazione di base: controllo password
         if (password !== checkPassword) {
+            console.log("Password mismatch"); // Log per il debug
             setError("Le password non coincidono");
             return;
         }
-
+    
         // Validazione di base: email
         const emailRegex = /\S+@\S+\.\S+/;
         if (!emailRegex.test(email)) {
+            console.log("Invalid email"); // Log per il debug
             setError("L'email non è valida");
             return;
         }
-
+    
         try {
             const response = await fetch('http://localhost:3000/register', {
-                method: 'post',
+                method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     username: username,
@@ -69,29 +80,25 @@ const SignUp = () => {
                     password: password,
                 })
             });
-            const data = await await response.json();
-            if (data) {
+    
+            const data = await response.json();
+            
+            if (response.ok) {
                 data.logged_in = true;
                 console.log(data);
                 loadUser(data);
-                navigate('/'); // Naviga alla home
+                navigate('/'); 
+            } else {
+                setError(data.error || 'Errore nella richiesta di registrazione');
             }
         } catch (error) {
-            console.error('Errore nella richiesta registrazione:', error);
-            setError('Errore nella richiesta registrazione');
+            setError('Errore nella richiesta di registrazione');
         }
-
-        // Se non ci sono errori, invia i dati al server
-        setError(""); // Resetta errori
-        console.log('Dati del form inviati:', formSignUp);
-
-        // Logica per inviare i dati al server tramite API
-        // Es. chiamata fetch o axios
     }
-
+    
   return (
     <SignUpContainer>
-        <WelcomeAuthStyled className='overlay-donut-sign-up' />
+        <WelcomeAuth className='sign-up' />
         <FormContainer>
             <Form onSubmit={handleSubmit}>
                 <Label htmlFor='name'>
@@ -102,6 +109,17 @@ const SignUp = () => {
                         type='text' 
                         value={formSignUp.name} 
                         onChange={onChangeHandler} 
+                        required 
+                    />
+                </Label>
+                <Label htmlFor='email'>
+                    Email
+                    <Input 
+                        id='email' 
+                        name='email' 
+                        type='email' 
+                        value={formSignUp.email} 
+                        onChange={onChangeHandler}
                         required 
                     />
                 </Label>
@@ -126,31 +144,19 @@ const SignUp = () => {
                         onChange={onChangeHandler} 
                         required 
                     />
-                </Label> 
-                <Label htmlFor='email'>
-                    Email
-                    <Input 
-                        id='email' 
-                        name='email' 
-                        type='email' 
-                        value={formSignUp.email} 
-                        onChange={onChangeHandler}
-                        required 
-                    />
                 </Label>
-                <div className='marketing-container'>
-                    <Input
-                        id='marketing' 
-                        name='marketing' 
-                        type='checkbox'
-                        value={formSignUp.marketing} 
-                        onChange={onChangeHandler}
-                        required
-                    />
-                    <Label htmlFor='marketing'>
-                        Accetto di ricevere comunicazioni di marketing
-                    </Label>
-                </div>
+                <Input
+                    id='marketing' 
+                    name='marketing' 
+                    type='checkbox'
+                    value={formSignUp.marketing} 
+                    onChange={onChangeHandler}
+                    required
+                />
+                <Label htmlFor='marketing'>
+                    Accetto di ricevere comunicazioni di marketing
+                </Label>
+                
                 <Button type='submit' className='form-button'>Registrati</Button>
             </Form>
         </FormContainer>

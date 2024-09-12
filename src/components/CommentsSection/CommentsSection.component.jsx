@@ -8,6 +8,7 @@ import {
     CommentsSectionContainer,
     AllCommentsTitle,
     CommentContainer,
+    Content,
     CommentInput
 } from './CommentsSections.styles.jsx';
 
@@ -15,7 +16,6 @@ import {
 // Componente per la sezione dei commenti
 const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
     const { user } = useContext(UserContext);
-    console.log(user);
     return (
         <CommentsSectionContainer>
             <AllCommentsTitle>Commenti:</AllCommentsTitle>
@@ -26,14 +26,18 @@ const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleI
                 <div className='comments-box'>
                     {comments.map((comment, index) => (
                         <CommentContainer key={index}>
-                            <p className='username'>{comment.user_name}:</p>
-                            <p className='comment'>{comment.comment_text}</p>
-                            <div className="rating">
-                                {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
-                            </div>
+                            <Content>
+                                <p className='username'>{comment.user_name}:</p>
+                                <p className='comment'>{comment.comment_text}</p>
+                                <div className="rating">
+                                    {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
+                                </div>
+                            </Content>
                             {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
-                            {user.logged_in && user.id === comment.userId &&   
-                                <button onClick={() => handleDelete(recipeID, comment.id)}>X</button>
+                            {user.logged_in && user.id === comment.user_id &&   
+                                <button onClick={() => handleDelete(recipeID, user.id)}>
+                                    <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />
+                                </button>
                             }
                         </CommentContainer>
                     ))}
