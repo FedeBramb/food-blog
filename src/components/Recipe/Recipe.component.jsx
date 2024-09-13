@@ -49,30 +49,30 @@ const Recipe = () => {
     }
   };
 
-  const handleDelete = async (recipeID) => {
+  const handleDelete = async (recipeID, commentID) => {
     try {
-      const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeID}/comments`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          user_id: user.id
-        }),
-      });
-      
+        const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeID}/comments/${commentID}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id: user.id
+            }),
+        });
 
-      if (response.ok) {
-        const updatedComments = await response.json();
-        console.log(updatedComments);
-        setComments(updatedComments);
-      } else {
-        console.error("Errore nella cancellazione del commento");
-      }
+        if (response.ok) {
+            const updatedComments = await response.json();
+            console.log(updatedComments);
+            setComments(updatedComments);
+        } else {
+            console.error("Errore nella cancellazione del commento");
+        }
     } catch (error) {
-      console.error('Errore nella richiesta di cancellazione:', error);
+        console.error('Errore nella richiesta di cancellazione:', error);
     }
-  };
+};
+
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
