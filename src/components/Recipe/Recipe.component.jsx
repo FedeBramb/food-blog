@@ -41,6 +41,7 @@ const Recipe = () => {
 
       if (response.ok) {
         setComments(prevComments => [...prevComments, newComment]);
+        console.log(comments);
       } else {
         console.error("Errore durante l'aggiunta del commento");
       }
