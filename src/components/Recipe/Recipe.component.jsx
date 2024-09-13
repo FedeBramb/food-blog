@@ -63,9 +63,7 @@ const Recipe = () => {
 
         if (response.ok) {
             const updatedComments = await response.json();
-            console.log('Recipe ID:', recipeID);
-            console.log('Comment ID:', commentID);
-            console.log('User ID:', user.id);
+            console.log(updatedComments);
             setComments(updatedComments);
         } else {
             console.error("Errore nella cancellazione del commento");
