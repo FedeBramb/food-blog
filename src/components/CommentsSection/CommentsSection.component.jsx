@@ -14,7 +14,7 @@ import {
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ comments, commentID, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
+const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
     const { user } = useContext(UserContext);
     return (
         <CommentsSectionContainer>
