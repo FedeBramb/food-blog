@@ -14,7 +14,7 @@ import {
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
+const CommentsSection = ({ comments, commentID, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
     const { user } = useContext(UserContext);
     return (
         <CommentsSectionContainer>
@@ -35,7 +35,7 @@ const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleI
                             </Content>
                             {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
                             {user.logged_in && user.id === comment.user_id &&   
-                                <button onClick={() => handleDelete(recipeID, user.id, comment.id)}>
+                                <button onClick={() => handleDelete(recipeID, user.id, commentID)}>
                                     <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />
                                 </button>
                             }
