@@ -60,10 +60,7 @@ const Recipe = () => {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                user_id: user.id
-            }),
+            }
         });
 
         if (response.ok) {
