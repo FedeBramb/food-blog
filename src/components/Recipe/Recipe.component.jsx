@@ -40,7 +40,11 @@ const Recipe = () => {
       });
 
       if (response.ok) {
-        setComments(prevComments => [...prevComments, newComment]);
+        setComments(prevComments => {
+          const updatedComments = [...prevComments, newComment];
+          console.log('Commenti aggiornati:', updatedComments);
+          return updatedComments;
+      });
         console.log(comments);
       } else {
         console.error("Errore durante l'aggiunta del commento");
