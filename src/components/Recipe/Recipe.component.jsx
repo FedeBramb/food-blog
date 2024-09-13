@@ -40,8 +40,8 @@ const Recipe = () => {
       });
 
       if (response.ok) {
-        const addedComment = await response.json();
-        setComments(prevComments => [...prevComments, addedComment]);
+        const updatedComments = await response.json(); // Ottieni tutti i commenti
+        setComments(updatedComments); // Aggiorna lo stato dei commenti
       } else {
         console.error("Errore durante l'aggiunta del commento");
       }
@@ -49,6 +49,7 @@ const Recipe = () => {
       console.error("Errore durante l'invio del commento:", err);
     }
   };
+
 
   const handleDelete = async (recipeID, commentID) => {
     try {
