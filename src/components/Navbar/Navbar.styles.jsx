@@ -10,12 +10,7 @@ export const NavbarContainer = styled.div`
     font: 700 1.0em "Montserrat", sans-serif;
     font-optical-sizing: auto;
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
-    height: 122.69px;
-
-    @media screen and (max-width: 800px) {
-        
-    }
-    
+    height: 122.69px;    
 `
 
 export const NavItem = styled(Link)`
