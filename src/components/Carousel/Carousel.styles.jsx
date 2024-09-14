@@ -43,7 +43,7 @@ export const Donut = styled.img`
     @media screen and (max-width: 738px) {
         left: 2rem;
         top: 50rem;
-    }
+        width: 350px;
 `;
 
 export const Span = styled.span`
