@@ -13,6 +13,7 @@ export const CarouselContainer = styled.div`
     @media screen and (min-width: 768px) {
         display: flex;
         align-items: center;
+        width: 100%;
     }
 `;
 

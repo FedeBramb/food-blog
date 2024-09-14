@@ -14,7 +14,6 @@ function LayoutBar({ position, children }) {
   const containerClass = position === 'header' ? 'social-bar-header' : 'social-bar-footer';
 
   const handleLogout = () => {
-    console.log('Logout button clicked');
     resetUser();
   };
 

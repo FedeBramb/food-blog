@@ -5,7 +5,7 @@ export const SignInContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: calc(100vh - 219.69px); // Intera altezza view meno altezze bars/navbar
+  height: calc(100vh - 13.73rem); // Intera altezza view meno altezze bars/navbar
   width: 78%;
   margin: auto;
   z-index: 100;

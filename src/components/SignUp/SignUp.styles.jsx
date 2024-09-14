@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SignUpContainer = styled.div`
-    height: calc(100vh - 14.106rem);
+    height: calc(100vh - 13.73rem);
     position: relative;
     display: flex;
     justify-content: space-around;
