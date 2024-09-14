@@ -9,11 +9,11 @@ export const CarouselContainer = styled.div`
     column-gap: 3rem;
     padding-block: min(20vh, 3rem);
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
+    overflow-x: visible;
 
     @media screen and (min-width: 768px) {
         display: flex;
         align-items: center;
-        width: 100%;
     }
 `;
 
