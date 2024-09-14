@@ -14,6 +14,9 @@ export const CarouselContainer = styled.div`
         display: flex;
         align-items: center;
     }
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const Blueberry = styled.img`
@@ -25,7 +28,6 @@ export const Blueberry = styled.img`
     width: min(450px, 100%);
     height: 400px;   
     object-fit: cover;
-    overflow-x: visible;
 `;
 
 export const Donut = styled.img`
