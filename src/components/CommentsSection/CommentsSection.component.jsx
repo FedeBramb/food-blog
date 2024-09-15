@@ -14,7 +14,7 @@ import {
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange }) => {
+const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange, rating }) => {
     const { user } = useContext(UserContext);
     return (
         <CommentsSectionContainer>
@@ -57,7 +57,7 @@ const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleI
                             value={inputValue} 
                             onChange={handleInputChange} 
                         />
-                        <StarRating handleRatingChange={handleRatingChange} />
+                        <StarRating handleRatingChange={handleRatingChange} rating={rating}/>
                         <button className="button-input" onClick={handleSubmit}>Invia</button>
                     </>
                 ) : (
