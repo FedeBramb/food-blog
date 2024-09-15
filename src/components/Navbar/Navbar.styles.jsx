@@ -10,7 +10,12 @@ export const NavbarContainer = styled.div`
     font: 700 1.0em "Montserrat", sans-serif;
     font-optical-sizing: auto;
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
-    height: 122.69px;    
+    height: 122.69px; 
+    
+    @media screen and (max-width: 768px) {
+        height: 80%;
+        width: 95%;
+    }
 `
 
 export const NavItem = styled(Link)`
@@ -49,7 +54,7 @@ export const LinkSmallLogo = styled(Link)`
 
 export const LogoSmallView = styled.img`
     width: 50%;
-    min-width: 222px;
+    min-width: 185px;
 `
 
 export const DropcaseContainer = styled.div`
@@ -66,12 +71,10 @@ export const MenuButton = styled.button`
     font-size: 1.4rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 
-    
     & img {
-        margin-left: 0.5em;
-        width: 20px;
+        width: 50px;
     }
 
     &:focus {
@@ -90,7 +93,7 @@ export const DropdownContent = styled.div`
     background-color: #f1f1f1;
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 999;
 
     & a {
         color: var(--primary-color);

@@ -15,22 +15,20 @@ export const NewsContainer = styled.div`
         width: 78vw;
         position: relative;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 0.8fr 1.1fr 1.1fr;
         margin-left: 0;
         height: 100%;
         top: 0;
     }
 
     @media screen and (max-width: 850px) {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 0.8fr 1.2fr;
+        grid-template-columns: repeat(2, 1fr);  
     }
 
     @media screen and (max-width: 738px) {
         width: 78vw;
         position: relative;
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: repeat(7, auto); /* 1 row for text + 6 rows for images */
+        grid-template-columns: 1fr; 
+        grid-template-rows: repeat(7, auto); 
         height: 100%;
         margin-top: 2vh;
         justify-content: center;

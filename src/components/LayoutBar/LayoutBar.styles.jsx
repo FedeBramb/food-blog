@@ -8,11 +8,7 @@ export const Bar = styled.div`
     justify-content: space-between;
     padding: 0 10.3rem;
     align-items: center;
-
-    &.logo-image {
-        max-width: 100%;
-        height: auto;
-    }
+    height: 2.8rem;
 
     &.social-bar-header {
         position: -webkit-sticky; /* Per supporto nei browser Webkit */
@@ -22,7 +18,7 @@ export const Bar = styled.div`
     }
 
     &.social-bar-footer {
-        height: 54px;
+        height: 3.7rem;
     }
 
     @media screen and (max-width: 768px) {
