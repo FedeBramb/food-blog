@@ -17,19 +17,23 @@ import {
 const Searchbox = () => {
   // Otteniamo oggetto contenente ogni oggetto ricetta
   const { recipes } = useRecipes(); 
+
   // Inizializziamo state per il testo da ricercare
   const [searchInput, setSearchInput] = useState('');
+
   // Inizializziamo state per le ricette filtrare in base alla ricerca
   const [filteredRecipes, setfilteredRecipes] = useState(recipes); 
 
   const [isVisible, setIsVisibile] = useState(false);
   const [searchError, setSearchError] = useState('');
+
   /* Se l'input è vuoto resettiamo lo state searchInput, altrimenti cerchiamo nei dati delle ricette
      se è presente il nome della ricetta o un ingrediente della suddetta.
      Utilizziamo useEffect quando cambiano il searchInput o recipeData */
   useEffect(() => {
     console.log(recipes);
     const searchInputClean = searchInput.trim().toLocaleLowerCase();
+
     if (!searchInputClean) {
       setfilteredRecipes([]);
     } else {
@@ -37,12 +41,14 @@ const Searchbox = () => {
       const results =  recipes.filter(recipe => recipe.title.toLocaleLowerCase() === searchInputClean ||
       recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean)));
       setfilteredRecipes(results);
+      console.log(results);
     }
   }, [searchInput]);
 
   // Limitiamo l'input a solo lettere così da avere una ricerca pulita
   const handleInputChange = (e) => {
     const input = e.target.value;
+    
     // Verifica il pattern
     if (!/^[a-zA-Z\s']*$/i.test(input)) {
       setSearchError('Inserire solo caratteri alfabetici, spazi e apostrofi.');
