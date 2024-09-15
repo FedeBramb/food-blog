@@ -100,8 +100,8 @@ const Searchbox = () => {
       {/*Controlliamo se il container è vuoto altrimenti non lo renderizziamo*/}
       {filteredRecipes.length > 0 && (
         <ResultDropdown>
-          {filteredRecipes.map((recipe, index) => (
-            <DropdownItemContainer key={index}>
+          {filteredRecipes.map((recipe) => (
+            <DropdownItemContainer key={recipe.title}>
               <Link to={`/recipes/${recipe.id}`} onClick={handleResultClick}>
                 <p>{recipe.title}</p>
               </Link>
