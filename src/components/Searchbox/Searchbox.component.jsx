@@ -48,6 +48,7 @@ const Searchbox = () => {
           recipe.title.toLocaleLowerCase().includes(searchInputClean) ||
           recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean))
         );
+        console.log(results);
         setfilteredRecipes(results);
       }
     }, [searchInput, recipes]);
