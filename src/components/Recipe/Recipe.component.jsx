@@ -81,7 +81,6 @@ const Recipe = () => {
   };
 
   const handleRatingChange = (newRating) => {
-    setRating(0);
     setRating(newRating);
   };
 
