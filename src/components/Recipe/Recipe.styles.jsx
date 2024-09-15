@@ -12,6 +12,7 @@ export const RecipeContainer = styled.div`
 
     @media (max-width: 738px) {
         margin: auto;
+        width: 100%;
     }
 
     & .title {
