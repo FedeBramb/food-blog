@@ -5,9 +5,8 @@ import { StarRatingContainer, StarSpan } from './StarRating.styles.jsx';
 // Gestisce il rating nei commenti
 // Memorizziamo il rating nello state, quale stella viene evidenziata al passaggio del mouse
 // Funzioni per gestire quando il mouse è in entrata e uscita
-const StarRating = ({  rating, handleRatingChange }) => {
-  
-  const [hoverRating, setHoverRating] = useState(0); 
+const StarRating = ({ rating, handleRatingChange }) => {
+  const [hoverRating, setHoverRating] = useState(0);
 
   const handleStarClick = (num) => {
     handleRatingChange(num);
@@ -37,5 +36,6 @@ const StarRating = ({  rating, handleRatingChange }) => {
     </StarRatingContainer>
   );
 };
+
 
 export default StarRating;
