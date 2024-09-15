@@ -30,20 +30,26 @@ const Searchbox = () => {
   /* Se l'input è vuoto resettiamo lo state searchInput, altrimenti cerchiamo nei dati delle ricette
      se è presente il nome della ricetta o un ingrediente della suddetta.
      Utilizziamo useEffect quando cambiano il searchInput o recipeData */
-  useEffect(() => {
-    console.log(recipes);
-    const searchInputClean = searchInput.trim().toLocaleLowerCase();
-
-    if (!searchInputClean) {
-      setfilteredRecipes([]);
-    } else {
-      //Object.entries(recipes).filter(([key, recipe]) => key.toLowerCase().includes(searchInput.toLowerCase())
-      const results =  recipes.filter(recipe => recipe.title.toLocaleLowerCase() === searchInputClean ||
-      recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean)));
-      setfilteredRecipes(results);
-      console.log(results);
-    }
-  }, [searchInput]);
+     useEffect(() => {
+      const searchInputClean = searchInput.trim().toLocaleLowerCase();
+    
+      if (!searchInputClean) {
+        setfilteredRecipes([]);
+      } else {
+        if (recipes && recipes.length > 0) {
+          const results = recipes.filter(recipe => {
+            // Logga il titolo di ogni ricetta
+            console.log('Titolo della ricetta:', recipe.title);
+            
+            return recipe.title.toLocaleLowerCase().includes(searchInputClean) || 
+              recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean));
+          });
+    
+          setfilteredRecipes(results);
+        }
+      }
+    }, [searchInput, recipes]);
+    
 
   // Limitiamo l'input a solo lettere così da avere una ricerca pulita
   const handleInputChange = (e) => {
