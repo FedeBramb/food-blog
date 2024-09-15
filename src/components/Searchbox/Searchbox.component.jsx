@@ -98,7 +98,7 @@ const Searchbox = () => {
         />
       </SearchForm>
       {/*Controlliamo se il container è vuoto altrimenti non lo renderizziamo*/}
-      {filteredRecipes.length > 0 && (
+      
         <ResultDropdown>
           {filteredRecipes.map((recipe) => (
             <DropdownItemContainer key={recipe.title}>
@@ -108,7 +108,7 @@ const Searchbox = () => {
             </DropdownItemContainer>
           ))}
         </ResultDropdown>
-      )}
+      
     </SearchFormContainer>
   );
 };
