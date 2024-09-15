@@ -14,7 +14,7 @@ export const Bar = styled.div`
         position: -webkit-sticky; /* Per supporto nei browser Webkit */
         position: sticky;
         top: 0; /* Attacca al top della viewport */
-        z-index: 1000; /* Assicurati che stia sopra altri elementi */
+        z-index: 900; /* Assicurati che stia sopra altri elementi */
     }
 
     &.social-bar-footer {

@@ -84,7 +84,7 @@ export const ResultDropdown = styled.div`
     width: 100%; 
     background-color: white;
     border: 1px solid #ccc;
-    z-index: 100000; 
+    z-index: 1000; 
 `
 
 export const DropdownItemContainer = styled.div`

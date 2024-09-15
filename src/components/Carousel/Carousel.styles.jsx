@@ -44,6 +44,7 @@ export const Donut = styled.img`
         left: 2rem;
         top: 50rem;
         width: 350px;
+    }
 `;
 
 export const Span = styled.span`
