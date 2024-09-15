@@ -9,7 +9,6 @@ export const SearchFormContainer = styled.div`
     position: relative;
     margin-top: 5px;
     height: 38px;
-    overflow: hidden;
 `
 
 export const SearchForm = styled.form`
@@ -37,7 +36,7 @@ export const SearchInput = styled.input`
     border-bottom: none; 
     visibility: hidden;
     opacity: 0;
-    color: var(--text-seconday-color);
+    color: var(--secondary-color);
     transition: opacity 0.5s ease-in-out;
 
     &.visible {
