@@ -31,26 +31,27 @@ const Searchbox = () => {
      se è presente il nome della ricetta o un ingrediente della suddetta.
      Utilizziamo useEffect quando cambiano il searchInput o recipeData */
      useEffect(() => {
+      // Verifica che recipes non sia undefined o vuoto
+      if (!recipes || recipes.length === 0) {
+        console.log('Recipes non disponibili o ancora in fase di caricamento');
+        return;
+      }
+    
+      console.log('Recipes disponibili:', recipes.map(recipe => recipe.title));
+    
       const searchInputClean = searchInput.trim().toLocaleLowerCase();
     
       if (!searchInputClean) {
         setfilteredRecipes([]);
       } else {
-        if (recipes && recipes.length > 0) {
-          const results = recipes.filter(recipe => {
-            // Logga il titolo di ogni ricetta
-            console.log('Titolo della ricetta:', recipe.title);
-            
-            return recipe.title.toLocaleLowerCase().includes(searchInputClean) || 
-              recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean));
-          });
-    
-          setfilteredRecipes(results);
-        }
+        const results = recipes.filter(recipe => 
+          recipe.title.toLocaleLowerCase().includes(searchInputClean) ||
+          recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean))
+        );
+        setfilteredRecipes(results);
       }
     }, [searchInput, recipes]);
     
-
   // Limitiamo l'input a solo lettere così da avere una ricerca pulita
   const handleInputChange = (e) => {
     const input = e.target.value;
