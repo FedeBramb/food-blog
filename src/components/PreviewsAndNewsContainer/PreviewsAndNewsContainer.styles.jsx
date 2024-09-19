@@ -1,4 +1,7 @@
 import styled from "styled-components";
+export const Background = styled.div`
+    background: url('https://i.ibb.co/WPcZymK/nordwood-themes-Fn-Oo-RU-PYio-unsplash.jpg') center/cover
+`
 
 export const Container = styled.div`
     display: flex;
