@@ -6,12 +6,14 @@ import madeItaly from '../../assets/images-news/madeinitaly.webp';
 import streetfood from '../../assets/images-news/streetfood.webp';
 import foodprofit from '../../assets/images-news/foodprofit.webp';
 import kinder from '../../assets/images-news/kinder.webp';
+import gelato from '../../assets/gelato.png';
 
 import {
   NewsContainer,
   NewsTitle,
   ImgContainer,
-  OverlayContainer
+  OverlayContainer,
+  Gelato
 } from './News.styles.jsx';
 
 const newsLinks = [
@@ -50,20 +52,21 @@ const newsLinks = [
 const News = () => {
   return (
     <NewsContainer id='shorterDiv'>
-        <NewsTitle>
-            <h2 className='gradient-text'>News</h2>
-            <hr className='hr-blue' />
-        </NewsTitle>
-        {newsLinks.map((news, index) => (
-            <a href={news.url} className="image-link" key={index}>
-              <ImgContainer>
-                  <img src={news.image} alt={`immagine per ${news.source}`} className="news-image" width='279' height='156'/>
-                  <OverlayContainer>
-                    <span className='overText'>{news.source}</span>
-                  </OverlayContainer>
-              </ImgContainer>
-            </a>
-        ))}
+      <NewsTitle>
+          <h2 className='gradient-text'>News</h2>
+          <hr className='hr-blue' />
+      </NewsTitle>
+      {newsLinks.map((news, index) => (
+          <a href={news.url} className="image-link" key={index}>
+            <ImgContainer>
+                <img src={news.image} alt={`immagine per ${news.source}`} className="news-image" width='279' height='156'/>
+                <OverlayContainer>
+                  <span className='overText'>{news.source}</span>
+                </OverlayContainer>
+            </ImgContainer>
+          </a>
+      ))}
+      <Gelato src={gelato} alt='macarons' />
     </NewsContainer>
   )
 }

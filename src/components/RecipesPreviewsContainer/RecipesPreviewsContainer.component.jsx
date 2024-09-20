@@ -3,8 +3,9 @@ import React from 'react';
 import { useRecipes } from '../../hooks/useRecipes.js';
 
 import RecipePreview from './RecipePreview/RecipePreview.component.jsx';
+import MacaronsImg from '../../assets/macarons.png';
 
-import { PreviewsContainer, Header } from './RecipesPreviewsContainer.styles.jsx';
+import { PreviewsContainer, Header, Macarons } from './RecipesPreviewsContainer.styles.jsx';
 
 const RecipesPreviewsContainer = () => {
     const { recipes } = useRecipes();
@@ -22,6 +23,7 @@ const RecipesPreviewsContainer = () => {
                 </div>
             )      
         })}
+        <Macarons src={MacaronsImg} alt='macarons' />
     </PreviewsContainer>
   )
 }

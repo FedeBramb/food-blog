@@ -10,6 +10,7 @@ export const NewsContainer = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: 52.04px;
+    
 
     @media screen and (max-width: 1100px) {
         width: 78vw;
@@ -84,4 +85,13 @@ export const OverlayContainer = styled.div`
     & span {
         font-size: clamp(12px, 2vw, 16px);
     }
+`
+
+export const Gelato = styled.img`
+    position: absolute;
+    top: 0;
+    left: 200px;
+    z-index: -1;
+    opacity: 0.6;
+    height: 400px;
 `
