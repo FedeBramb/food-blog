@@ -123,8 +123,8 @@ export const MySwiperSlide = styled(SwiperSlide)`
 `;
 
 export const Image = styled.img`
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     position: absolute;
 `;
