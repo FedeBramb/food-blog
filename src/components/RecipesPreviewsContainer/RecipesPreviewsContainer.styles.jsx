@@ -26,15 +26,6 @@ export const Header = styled.div`
     }
 `
 
-export const Macarons = styled.img`
-    position: absolute;
-    top: 500px;
-    left: 0;
-    z-index: -1;
-    opacity: 0.6;
-    height: 400px;
-`
-
 
 
 

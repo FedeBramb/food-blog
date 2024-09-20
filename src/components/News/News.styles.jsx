@@ -89,7 +89,7 @@ export const OverlayContainer = styled.div`
 
 export const Gelato = styled.img`
     position: absolute;
-    top: 0;
+    top: 100px;
     left: 200px;
     z-index: -1;
     opacity: 0.6;
