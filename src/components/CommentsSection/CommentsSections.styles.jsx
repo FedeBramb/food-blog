@@ -42,20 +42,21 @@ export const CommentContainer = styled.div`
     }
 
     & button {
-        background-color: var(--secondary-color); /* Colore di sfondo */
-        border: none; /* Rimuovi il bordo */
+        background-color: var(--secondary-color);
+        border: none;
         border: 2px solid var(--primary-color);
-        border-radius: 50%; /* Rende il pulsante tondo */
-        width: 30px; /* Dimensione del pulsante */
-        height: 30px; /* Dimensione del pulsante */
-        display: flex; /* Usato per centrare l'icona */
-        align-items: center; /* Centra verticalmente l'icona */
-        justify-content: center; /* Centra orizzontalmente l'icona */
-        cursor: pointer; /* Cambia il cursore al passaggio sopra */
-        transition: background-color 0.3s, transform 0.3s; /* Transizioni per animazioni */
+        border-radius: 25%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
         
         &:hover {
             background-color: #ff4d4d;
+            border: none;
         }
     }
 

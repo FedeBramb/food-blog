@@ -6,7 +6,7 @@ import madeItaly from '../../assets/images-news/madeinitaly.webp';
 import streetfood from '../../assets/images-news/streetfood.webp';
 import foodprofit from '../../assets/images-news/foodprofit.webp';
 import kinder from '../../assets/images-news/kinder.webp';
-import gelato from '../../assets/gelato.png';
+import gelato from '../../assets/gelato.webp';
 
 import {
   NewsContainer,
