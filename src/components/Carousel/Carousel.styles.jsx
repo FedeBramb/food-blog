@@ -41,9 +41,9 @@ export const Donut = styled.img`
     object-fit: cover;
 
     @media screen and (max-width: 738px) {
-        left: 2rem;
+        left: 1rem;
         top: 50rem;
-        width: 350px;
+        width: 300px;
     }
 `;
 
