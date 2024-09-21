@@ -15,7 +15,7 @@ export const PreviewContainer = motion.create(styled.div`
     gap: 2rem;
     align-items: center;
     font-size: 1.1rem;
-    
+    width: 100%;
 
     @media (max-width: 738px) {
         margin: 0;
