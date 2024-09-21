@@ -10,7 +10,7 @@ export const NewsContainer = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: 52.04px;
-    
+    overflow-x: hidden;
 
     @media screen and (max-width: 1100px) {
         width: 78vw;
@@ -26,7 +26,7 @@ export const NewsContainer = styled.div`
     }
 
     @media screen and (max-width: 738px) {
-        width: 78vw;
+        width: 100vw;
         position: relative;
         grid-template-columns: 1fr; 
         grid-template-rows: repeat(7, auto); 
@@ -94,4 +94,13 @@ export const Gelato = styled.img`
     z-index: -1;
     opacity: 0.6;
     height: 400px;
+
+    @media screen and (max-width: 738px) {
+        top: 100px;
+        left: 100px;
+        z-index: -1;
+        opacity: 0.6;
+        height: 400px;
+    }
+
 `
