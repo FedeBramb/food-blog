@@ -21,6 +21,7 @@ export const PreviewContainer = motion.create(styled.div`
     @media (max-width: 738px) {
         margin: 0;
         flex-direction: column;
+        gap: 0;
     }
 `)
 
