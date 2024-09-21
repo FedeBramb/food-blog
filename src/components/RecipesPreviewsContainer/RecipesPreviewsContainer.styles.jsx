@@ -4,7 +4,7 @@ export const PreviewsContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 96%;
     gap:  0.75rem;
 
     @media screen and (max-width: 738px) {

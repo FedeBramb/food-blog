@@ -10,7 +10,7 @@ export const NewsContainer = styled.div`
     position: -webkit-sticky;
     position: sticky;
     top: 52.04px;
-    overflow-x: hidden;
+    
 
     @media screen and (max-width: 1100px) {
         width: 78vw;
@@ -33,6 +33,7 @@ export const NewsContainer = styled.div`
         height: 100%;
         margin-top: 2vh;
         justify-content: center;
+        overflow-x: hidden;
     }
 
     & a {
