@@ -21,7 +21,7 @@ export const PreviewContainer = motion.create(styled.div`
         margin: 0;
         flex-direction: column;
     }
-`);
+`)
 
 export const NewsLink = styled(Link)`
     width: 40%;
