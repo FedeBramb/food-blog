@@ -26,7 +26,7 @@ export const NewsContainer = styled.div`
     }
 
     @media screen and (max-width: 738px) {
-        width: 100vw;
+        width: 98vw;
         position: relative;
         grid-template-columns: 1fr; 
         grid-template-rows: repeat(7, auto); 
