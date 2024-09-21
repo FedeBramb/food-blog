@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 export const Splash = styled.div`
-    clip-path: xywh(0 5px 100% 100% round 15% 0);
+    clip-path: inset(5px 0 0 0 round 15% 0 15% 0);
     width: 100%;
 `
 
