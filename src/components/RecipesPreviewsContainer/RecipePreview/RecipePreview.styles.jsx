@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export const Splash = styled.div`
     clip-path: inset(5px 0 0 0 round 15% 0 15% 0);
     width: 100%;
+    max-width: 100vw;
 `
 
 export const PreviewContainer = motion.create(styled.div`
@@ -17,6 +18,7 @@ export const PreviewContainer = motion.create(styled.div`
     align-items: center;
     font-size: 1.1rem;
     width: 100%;
+    max-width: 100vw;
 
     @media (max-width: 738px) {
         margin: 0;
