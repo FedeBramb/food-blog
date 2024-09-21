@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 export const Splash = styled.div`
     clip-path: xywh(0 5px 100% 100% round 15% 0);
+    width: 100%;
 `
 
 export const PreviewContainer = motion.create(styled.div`
