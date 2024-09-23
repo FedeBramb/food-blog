@@ -13,7 +13,6 @@ const useSignIn = async () => {
         try {
             const user = await fetchSignIn(email, password);
             const userWithLoggedIn = { ...user, logged_in: true };
-
             // Salva l'utente nel localStorage
             localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
             loadUser(userWithLoggedIn);
