@@ -18,7 +18,7 @@ import {
 // Componente per la registrazione
 // Ragruppo tutte le proprietà in un oggetto di stato. 
 const SignUp = () => {
-    const { signUp, err} = useSignUp();
+    const { signUp, error} = useSignUp();
     const [ formSignUp, setFormSignUp ] = useState({
         username: '',
         password: '',
@@ -27,19 +27,8 @@ const SignUp = () => {
         marketing: false
     });
 
-    const [ error, setError ] = useState("");
-
-    useEffect(() => {
-        console.log("Error detected:", error); // Log per il debug
-        if (error) {
-            alert(error);
-            setError(""); // Resetta l'errore dopo aver mostrato l'alert
-        }
-    }, [error]);
-
     const navigate = useNavigate();
 
-    // Handler  destruttura le proprietà dall'event.target
     // Settiamo lo state mantenendo i dati precedenti altrimenti
     //  otterremmo un oggetto con singola value-pair
     const onChangeHandler = (event) => {
@@ -56,23 +45,8 @@ const SignUp = () => {
     
         const { username, password, checkPassword, email } = formSignUp;
     
-        // Validazione di base: controllo password
-        if (password !== checkPassword) {
-            console.log("Password mismatch"); // Log per il debug
-            setError("Le password non coincidono");
-            return;
-        }
-    
-        // Validazione di base: email
-        const emailRegex = /\S+@\S+\.\S+/;
-        if (!emailRegex.test(email)) {
-            console.log("Invalid email"); // Log per il debug
-            setError("L'email non è valida");
-            return;
-        }
-    
         try {
-            await signUp(username, email, password);
+            await signUp(formSignUp);
             navigate('/');
         } catch (error) {
             console.error('Errore durante la registrazione:', error.message);

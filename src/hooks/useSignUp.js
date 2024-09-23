@@ -5,9 +5,25 @@ import { fetchSignUp } from './api.js';
 
 const useSignUp = () => {
     const { loadUser } = useContext(UserContext);
-    const [ err, setError ] = useState('');
+    const [ error, setError ] = useState('');
 
-    const signUp = async (username, email, password) => {
+    const signUp = async (formSignUp) => {
+        const { username, email, password } = formSignUp;
+
+        if (password !== checkPassword) {
+            console.log("Password mismatch"); // Log per il debug
+            setError("Le password non coincidono");
+            return;
+        }
+    
+        // Validazione di base: email
+        const emailRegex = /\S+@\S+\.\S+/;
+        if (!emailRegex.test(email)) {
+            console.log("Invalid email"); // Log per il debug
+            setError("L'email non è valida");
+            return;
+        }
+
         try {
             const user = await fetchSignUp(username, email, password);
             const userWithLoggedIn = {...user, logged_in: true};
@@ -19,7 +35,7 @@ const useSignUp = () => {
             throw err;
         }
     }
-    return { signUp, err};
+    return { signUp, error};
 }
 
 export default useSignUp;
