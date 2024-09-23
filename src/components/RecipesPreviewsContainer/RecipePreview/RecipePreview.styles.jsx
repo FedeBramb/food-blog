@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export const Splash = styled.div`
     clip-path: inset(5px 0 0 0 round 15% 0 15% 0);
     width: 100%;
-    max-width: 100vw;
+    overflow-x: hidden;
 `
 
 export const PreviewContainer = motion.create(styled.div`
@@ -47,6 +47,7 @@ export const LazyImg = styled.img`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     transition: transform 0.3s ease-in-out;
     width: 100%;
+    max-width: 100%;
     
     &:hover {
         transform: scale(1.05);
