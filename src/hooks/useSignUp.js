@@ -11,7 +11,6 @@ const useSignUp = () => {
         const { username, email, password, checkPassword } = formSignUp;
 
         if (password !== checkPassword) {
-            console.log("Password mismatch"); // Log per il debug
             setError("Le password non coincidono");
             return;
         }

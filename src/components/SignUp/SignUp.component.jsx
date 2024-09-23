@@ -46,8 +46,8 @@ const SignUp = () => {
         const { username, password, checkPassword, email } = formSignUp;
     
         try {
-            const response = await signUp(formSignUp);
-            if (response.ok) {
+            const user = await signUp(formSignUp);
+            if (user) {
                 navigate('/');
             }
         } catch (error) {
