@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useSignIn } from '../../hooks/useSignIn.js';
+import useSignIn from '../../hooks/useSignIn.js';
 
 import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
 

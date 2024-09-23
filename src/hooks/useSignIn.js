@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../context/user.context.jsx';
-import {  fetchSignIn } from "./api.js";
+import { fetchSignIn } from "./api.js";
 
 const useSignIn = async () => {
     const { loadUser } = useContext(UserContext);
