@@ -8,7 +8,7 @@ const useSignUp = () => {
     const [ error, setError ] = useState('');
 
     const signUp = async (formSignUp) => {
-        const { username, email, password } = formSignUp;
+        const { username, email, password, checkPassword } = formSignUp;
 
         if (password !== checkPassword) {
             console.log("Password mismatch"); // Log per il debug
