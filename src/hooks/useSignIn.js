@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../context/user.context.jsx';
-import {  fetchSignIn } from "./api";
+import {  fetchSignIn } from "./api.js";
 
-export const useSignIn = async () => {
+const useSignIn = async () => {
     const { loadUser } = useContext(UserContext);
     const [error, setError] = useState('');
 
@@ -25,3 +25,5 @@ export const useSignIn = async () => {
     };
     return { signIn, error };   
 }
+
+export default useSignIn;
