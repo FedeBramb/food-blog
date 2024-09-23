@@ -46,8 +46,10 @@ const SignUp = () => {
         const { username, password, checkPassword, email } = formSignUp;
     
         try {
-            await signUp(formSignUp);
-            navigate('/');
+            const response = await signUp(formSignUp);
+            if (response.ok) {
+                navigate('/');
+            }
         } catch (error) {
             console.error('Errore durante la registrazione:', error.message);
         }
