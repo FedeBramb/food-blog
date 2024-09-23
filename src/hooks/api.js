@@ -37,4 +37,19 @@ export const fetchCommentsByRecipeId = async (id) => {
   }
 };
 
+export const fetchSignIn = async (email, password) => {
+  try {
+    const response = await fetch('https://food-blog-api-jlca.onrender.com/signin', {
+      method: 'post',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    })
+    if (!response.ok) throw new Error('Errore durante il Log in');
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
   

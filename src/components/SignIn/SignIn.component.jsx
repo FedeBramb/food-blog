@@ -1,8 +1,7 @@
 import React, { useState, useContext } from 'react';
 
-import { UserContext } from '../../context/user.context';
-
 import { useNavigate } from 'react-router-dom';
+import { useSignIn } from '../../hooks/useAuth.js';
 
 import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
 
@@ -16,14 +15,11 @@ import {
 
 // Componente per il log in
 const SignIn = () => {
-    const { loadUser } = useContext(UserContext);
-    // Stato per i dati della form
+    const { signIn, error } = useSignIn();
     const [ formSignIn, setformSignIn ] = useState({
         email: '',
         password: '',
     })
-    // Stato per eventuali errori
-    const [ error, setError ] = useState("");
 
     // Hook per la navigazione
     const navigate = useNavigate();
@@ -40,43 +36,11 @@ const SignIn = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
-        const { email, password } = formSignIn;
-        console.log('Email:', email);
-        setError(""); // Pulisce eventuali errori
-
         try {
-            const response = await fetch('https://food-blog-api-jlca.onrender.com/signin', {
-                method: 'post',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            });
-
-            if (!response.ok) {
-                // Leggi il messaggio di errore dal server
-                const errorData = await response.json();
-                setError(errorData.error || "Errore durante il login"); // Imposta il messaggio di errore
-                return; // Ferma l'esecuzione qui.
-            }
-
-            const user = await response.json();
-            
-            if (user) {
-                const userWithLoggedIn = { ...user, logged_in: true };
-                // Salviamo l'utente nel localstorage per mantenerlo loggato al refresh
-                localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
-                // Settiamo lo state con i dati utente ricevuti dal BE
-                console.log('User saved to localStorage:', localStorage.getItem('user'));
-                loadUser(userWithLoggedIn);
-                console.log(userWithLoggedIn);
-                navigate('/'); // Naviga alla home
-            }
-        } catch (error) {
-            console.error(error); // Stampa l'errore per il debugging
-            setError("Errore del server. Riprova più tardi."); // Imposta un messaggio di errore generico in caso di eccezione
+            await signIn(formSignIn);
+            navigate('/');
+        } catch (err) {
+            console.log(err);
         }
     };
 
