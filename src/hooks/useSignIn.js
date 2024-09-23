@@ -7,13 +7,11 @@ const useSignIn = () => {
     const [error, setError] = useState('');
 
     const signIn = async (formSignIn) => {
-        console.log('signIn function called with:', formSignIn); // Aggiungi questo
         const { email, password } = formSignIn;
         setError('');
 
         try {
             const user = await fetchSignIn(email, password);
-            console.log('User received:', user); // Aggiungi questo
             const userWithLoggedIn = { ...user, logged_in: true };
             localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
             loadUser(userWithLoggedIn);
