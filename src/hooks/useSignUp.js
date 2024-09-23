@@ -9,7 +9,7 @@ const useSignUp = () => {
 
     const signUp = async (username, email, password) => {
         try {
-            await fetchSignUp(username, email, password);
+            const user = await fetchSignUp(username, email, password);
             const userWithLoggedIn = {...user, logged_in: true};
             localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
             loadUser(userWithLoggedIn);
