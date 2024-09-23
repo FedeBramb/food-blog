@@ -59,7 +59,7 @@ export const fetchSignUp = async (username, email, password) => {
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({username, email, password})
     })
-    if (!response.ok) throw new Error('Errore durante la registrazione');
+    if (!response.ok) throw new Error(data.error || 'Errore durante la registrazione');
     return await response.json();
   } catch (error) {
     console.error(error);
