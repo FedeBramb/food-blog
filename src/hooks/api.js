@@ -52,4 +52,21 @@ export const fetchSignIn = async (email, password) => {
   }
 }
 
+export const fetchSignUp = async (username, email, password) => {
+  try {
+    const response = await fetch('https://food-blog-api-jlca.onrender.com/register', {
+      method: 'post',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({username, email, password})
+    })
+    if (!response.ok) throw new Error('Errore durante la registrazione');
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+
+
   

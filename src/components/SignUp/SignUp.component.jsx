@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 
 import { UserContext } from '../../context/user.context';
-
 import { useNavigate } from 'react-router-dom';
+import useSignUp from '../../hooks/useSignUp';
 
 import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
 
@@ -18,7 +18,7 @@ import {
 // Componente per la registrazione
 // Ragruppo tutte le proprietà in un oggetto di stato. 
 const SignUp = () => {
-    const { loadUser } = useContext(UserContext);
+    const { signUp, err} = useSignUp();
     const [ formSignUp, setFormSignUp ] = useState({
         username: '',
         password: '',
@@ -29,7 +29,6 @@ const SignUp = () => {
 
     const [ error, setError ] = useState("");
 
-
     useEffect(() => {
         console.log("Error detected:", error); // Log per il debug
         if (error) {
@@ -37,7 +36,9 @@ const SignUp = () => {
             setError(""); // Resetta l'errore dopo aver mostrato l'alert
         }
     }, [error]);
+
     const navigate = useNavigate();
+
     // Handler  destruttura le proprietà dall'event.target
     // Settiamo lo state mantenendo i dati precedenti altrimenti
     //  otterremmo un oggetto con singola value-pair
@@ -71,28 +72,10 @@ const SignUp = () => {
         }
     
         try {
-            const response = await fetch('https://food-blog-api-jlca.onrender.com/register', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    username: username,
-                    email: email,
-                    password: password,
-                })
-            });
-    
-            const data = await response.json();
-            
-            if (response.ok) {
-                data.logged_in = true;
-                console.log(data);
-                loadUser(data);
-                navigate('/'); 
-            } else {
-                setError(data.error || 'Errore nella richiesta di registrazione');
-            }
-        } catch (error) {
-            setError('Errore nella richiesta di registrazione');
+            await signUp(username, email, password);
+            navigate('/');
+        } catch (err) {
+            console.log('Errore durante la registrazione', err);
         }
     }
     
