@@ -36,11 +36,12 @@ const SignIn = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log('Dati della form:', formSignIn); // Controlla i dati della form
         try {
             await signIn(formSignIn);
             navigate('/');
         } catch (err) {
-            console.log(err);
+            console.log('Errore durante il login:', err); // Log più dettagliato
         }
     };
 
