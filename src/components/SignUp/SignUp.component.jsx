@@ -74,8 +74,8 @@ const SignUp = () => {
         try {
             await signUp(username, email, password);
             navigate('/');
-        } catch (err) {
-            console.log('Errore durante la registrazione', err);
+        } catch (error) {
+            console.error('Errore durante la registrazione:', error.message);
         }
     }
     
