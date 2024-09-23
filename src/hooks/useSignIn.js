@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../context/user.context.jsx';
 import { fetchSignIn } from "./api.js";
 
-const useSignIn = async () => {
+const useSignIn = () => {
     const { loadUser } = useContext(UserContext);
     const [error, setError] = useState('');
 
