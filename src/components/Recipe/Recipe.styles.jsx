@@ -71,8 +71,6 @@ export const IngredientsSection = styled.div`
 
 export const SectionTitle = styled.h1`    
     margin: 5% 0 5% 0;
-    background-color: #00a4aa;
-    background-image: linear-gradient(45deg, #00a4aa, #00073b);
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
