@@ -8,7 +8,8 @@
   --secondary-color: #ffffff;
   --shadow-color: rgba(0, 0, 0, 0.7);
   --hover-color: #526a7f;
-  --hover-input: #009a93;
+  --hover-input: #00978f;
+  --border-color: #1d6296;
   --hover-color-sec: ;
   --gradient-color: linear-gradient(45deg, #548db9, var(--primary-color));
 }

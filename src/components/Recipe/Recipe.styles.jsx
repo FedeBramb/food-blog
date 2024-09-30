@@ -14,23 +14,6 @@ export const RecipeContainer = styled.div`
         margin: auto;
         width: 97vw;
     }
-
-    & .title {
-        margin: 5% 0;
-    }
-
-    & .title-hr {
-        display: block;
-        background: #00a4aa;
-        height:  0.25rem;
-        width: 6.25rem;
-        border: none;
-        margin: 0.125rem 0 0.875rem 0;
-    }
-
-    & .instructions-section {
-        margin-top: 10vh;
-    }
 `
 
 export const VideoSectionContainer = styled.div`
@@ -55,7 +38,7 @@ export const IngredientsAndDetails = styled.div`
     width: 100%;
     display: flex;
     padding-left: 18px;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--border-color);
 
 
     @media screen and (max-width: 1100px) {
@@ -74,7 +57,7 @@ export const IngredientsSection = styled.div`
 
 export const SectionTitle = styled.h1`    
     margin: 5% 0 5% 0;
-    color: var(--primary-color);
+    color: var(--hover-input);
 
     @media screen and (max-width: 850px) {
         grid-template-columns: 1fr 1fr;
@@ -109,6 +92,7 @@ export const DetailsContainer = styled.div`
     justify-content: center;
     text-align: center; /* Centra il testo orizzontalmente */
     width: 30%;
+    border-left: 2px solid var(--border-color);
 
     & p {
         color: ${textColor};
