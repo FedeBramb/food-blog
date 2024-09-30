@@ -110,7 +110,7 @@ const Recipe = () => {
     <RecipeContainer>
       <SectionTitle className="gradient-text">
         {recipe.title}
-        <hr className="title-hr" />
+        <hr className="hr-blue" />
       </SectionTitle>
       <VideoSectionContainer>
         <iframe

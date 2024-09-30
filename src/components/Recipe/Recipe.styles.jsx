@@ -55,7 +55,8 @@ export const IngredientsAndDetails = styled.div`
     width: 100%;
     display: flex;
     padding-left: 18px;
-    background-color: rgb(232, 232, 232);
+    border: 2px solid var(--primary-color);
+
 
     @media screen and (max-width: 1100px) {
         display: flex;
@@ -67,11 +68,13 @@ export const IngredientsAndDetails = styled.div`
   
 export const IngredientsSection = styled.div`
     min-height: 30vh;
+    padding: 20px;
+    width: 70%;
 `
 
 export const SectionTitle = styled.h1`    
     margin: 5% 0 5% 0;
-    color: var(--gradient-color);
+    color: var(--primary-color);
 
     @media screen and (max-width: 850px) {
         grid-template-columns: 1fr 1fr;
@@ -105,8 +108,7 @@ export const DetailsContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center; /* Centra il testo orizzontalmente */
-    width: 40%;
-    background-color: cornflowerblue;
+    width: 30%;
 
     & p {
         color: ${textColor};
@@ -121,6 +123,7 @@ export const DetailsContainer = styled.div`
 
 export const InstructionSection = styled.div`
     width: 100%;
+
     & .instructions {
         text-align: justify;
 
