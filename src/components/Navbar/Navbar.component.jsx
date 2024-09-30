@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 
 import {
   NavbarContainer,
-  NavItem,
+  NavLink,
+  Underline,
   LogoBigLink,
   LinkSmallLogo,
   LogoSmallView,
@@ -46,11 +47,11 @@ function Navbar() {
     <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
       {!isSmallScreen && (
         <>
-          <NavItem to="/">HOME</NavItem>
-          <NavItem to="/recipes" >RICETTE</NavItem>
           <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
-          <NavItem to="/glossario" >GLOSSARIO</NavItem>
-          <NavItem to="/contatti" >CONTATTI</NavItem>
+          <NavLink to="/">HOME<Underline/></NavLink>
+          <NavLink to="/recipes">RICETTE<Underline/></NavLink>
+          <NavLink to="/glossario">GLOSSARIO<Underline/></NavLink>
+          <NavLink to="/contatti">CONTATTI<Underline/></NavLink>
         </>
       )}
       {isSmallScreen && (

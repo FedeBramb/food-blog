@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -18,32 +19,46 @@ export const NavbarContainer = styled.div`
     }
 `
 
-export const NavItem = styled(Link)`
+export const NavLink = styled(Link)`
+    position: relative;
     text-decoration: none;
     background-color: var(--primary-color);
     background-image: var(--gradient-color);
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    width: 20%;
+    height: 20px;
 
     /* Allinea a destra il testo negli ultimi due figli */
     &:nth-last-child(-n+2) {
         text-align: right;
     }
 
-    /* Rimuove la sottolineatura al passaggio del mouse */
     &:hover {
-        text-decoration: none;
-        color: rgb(39, 39, 39);
-    }
+
+        & > div {
+        transform: scaleX(1);
+        }
+}
 `
 
+export const Underline = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-image: var(--gradient-color);
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+`;
+
 export const LogoBigLink = styled(Link)`
-    text-align: center;
+    width: 20%;
 
     & img {
-        width: 80%;
+        width: 100%;
         height: auto;
     }
 `
