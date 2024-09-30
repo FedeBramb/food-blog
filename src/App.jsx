@@ -1,6 +1,6 @@
 import React, { Suspense, lazy} from 'react';
-
 import { Routes, Route } from 'react-router-dom';
+import { ClipLoader } from 'react-spinners';
 
 import GoToTop from './components/GoToTop/GoToTop.component';
 
