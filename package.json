@@ -17,6 +17,7 @@
     "react-lazy-load-image-component": "^1.6.2",
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.24.1",
+    "react-spinners": "^0.14.1",
     "styled-components": "^6.1.11",
     "swiper": "^11.1.4",
     "uuid": "^10.0.0"

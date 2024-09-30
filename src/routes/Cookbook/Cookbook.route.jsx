@@ -1,17 +1,19 @@
-import React from 'react';
-
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import RecipesBook from '../../components/RecipesBook/RecipesBook.component.jsx';
-import Recipe from '../../components/Recipe/Recipe.component.jsx';
+// Caricamento lazy dei componenti
+const RecipesBook = lazy(() => import('../../components/RecipesBook/RecipesBook.component'));
+const Recipe = lazy(() => import('../../components/Recipe/Recipe.component'));
 
 const Cookbook = () => {
   return (
-    <Routes>
-      <Route index element={<RecipesBook />} ></Route>
-      <Route path=':id' element={<Recipe />} />
-    </Routes>
-  )
+    <Suspense fallback={<div>Caricamento...</div>}>
+      <Routes>
+        <Route index element={<RecipesBook />} />
+        <Route path=':id' element={<Recipe />} />
+      </Routes>
+    </Suspense>
+  );
 }
 
 export default Cookbook;
