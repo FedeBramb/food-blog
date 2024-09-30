@@ -21,7 +21,7 @@ export const RecipeContainer = styled.div`
 
     & .title-hr {
         display: block;
-        background: #00a4aa;
+        background: var(--primary-color);
         height:  0.25rem;
         width: 6.25rem;
         border: none;
