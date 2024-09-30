@@ -7,6 +7,7 @@ import { useRecipes } from '../../hooks/useRecipes.js';
 
 import blueberry from '../../assets/bluberry.webp';
 import donut from '../../assets/ciambella.webp';
+import { ClipLoader } from 'react-spinners';
 
 import 'swiper/css/bundle';
 import 'swiper/css/mousewheel';
@@ -52,7 +53,7 @@ function Carousel() {
   const handleMouseLeave = () => setShowIcon(false);
 
   if (loading || error) {
-    return <div>{loading ? "Loading recipes..." : `Error loading recipes: ${error.message}`}</div>;
+    return <div>{loading ? <ClipLoader/> : `Error loading recipes: ${error.message}`}</div>;
   }
 
   return (

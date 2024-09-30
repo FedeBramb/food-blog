@@ -10,7 +10,7 @@
   --hover-color: #526a7f;
   --hover-input: #009a93;
   --hover-color-sec: ;
-  --gradient-color: linear-gradient(45deg, #4c7ea4, var(--primary-color));
+  --gradient-color: linear-gradient(45deg, #548db9, var(--primary-color));
 }
 
 html {
