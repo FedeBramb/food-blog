@@ -22,9 +22,21 @@ function App() {
         <Routes>
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
-            <Route path='recipes/*' element={<Suspense fallback={<div>Caricamento...</div>}><Cookbook /></Suspense>} />
-            <Route path='register' element={<Suspense fallback={<div>Caricamento...</div>}><Register /></Suspense>} />
-            <Route path='signin' element={<Suspense fallback={<div>Caricamento...</div>}><Signin /></Suspense>} />
+            <Route path='recipes/*' element={
+              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+                <Cookbook />
+              </Suspense>
+            } />
+            <Route path='register' element={
+              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+                <Register />
+              </Suspense>} 
+            />
+            <Route path='signin' element={
+              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+                <Signin />
+              </Suspense>} 
+            />
           </Route>
         </Routes>
     </>
