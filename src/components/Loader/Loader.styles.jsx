@@ -6,5 +6,5 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vh;
-    height: 60vh;
+    height: 70vh;
 `
