@@ -123,7 +123,7 @@ const Recipe = () => {
       </VideoSectionContainer>
       <IngredientsAndDetails>
         <IngredientsSection>
-          <SectionTitle >Ingredienti</SectionTitle>
+          <SectionTitle>Ingredienti</SectionTitle>
           <IngredientsContainer>
             {recipe.ingredients.map((p, index) => (
               <li key={index} className="ingredients-li">{p}</li>
