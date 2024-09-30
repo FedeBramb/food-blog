@@ -68,9 +68,11 @@ export const ImgContainer = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
+    
     & img {
         width: min(300px, 100%);
         height: auto;
+        border-radius: 15px;
     }    
 `
 
