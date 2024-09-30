@@ -11,10 +11,11 @@ import {
   ReadButton
 } from './RecipeCard.styles.jsx';
 
+// 
 const RecipeCard = ({ title, image, id }) => {
   return (
-    <motion.div animate={{
-      scale: [0.8, 1],
+    <motion.div animate={{ //
+      scale: [0.7, 1],
     }}
     transition={{
       duration: 1

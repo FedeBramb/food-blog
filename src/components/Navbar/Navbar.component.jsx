@@ -17,13 +17,10 @@ import {
 } from './Navbar.styles.jsx';
 
 
-function Navbar() {
-  
-  // Utilizziamo lo state che dopo andremo a modificare
+const Navbar = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1196);
   const [isOpen, setIsOpen] = useState(false);
   
-  // La gestione degli eventi è una caratteristica di useEffect
   // Cambia il boolean in base alla risoluzione della finestra
   useEffect(() => {
     const handleResize = () => {
@@ -79,7 +76,3 @@ function Navbar() {
 } 
 
 export default Navbar;
-
-// Utilizziamo lo state per reattività (reagire ai cambiamenti e rendersi nuovo),
-//  codice più chiaro e cosistenza nello stato, mantenendo la consistenza e la
-//    sincronizzazione con l'interfaccia utente.

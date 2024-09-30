@@ -15,43 +15,26 @@ import {
 
 /* Barra di ricerca */
 const Searchbox = () => {
-  // Otteniamo oggetto contenente ogni oggetto ricetta
   const { recipes } = useRecipes(); 
-
-  // Inizializziamo state per il testo da ricercare
   const [searchInput, setSearchInput] = useState('');
-
-  // Inizializziamo state per le ricette filtrare in base alla ricerca
   const [filteredRecipes, setfilteredRecipes] = useState(recipes); 
-
   const [isVisible, setIsVisibile] = useState(false);
   const [searchError, setSearchError] = useState('');
 
-  /* Se l'input è vuoto resettiamo lo state searchInput, altrimenti cerchiamo nei dati delle ricette
-     se è presente il nome della ricetta o un ingrediente della suddetta.
-     Utilizziamo useEffect quando cambiano il searchInput o recipeData */
-     useEffect(() => {
-      // Verifica che recipes non sia undefined o vuoto
-      if (!recipes || recipes.length === 0) {
-        console.log('Recipes non disponibili o ancora in fase di caricamento');
-        return;
-      }
-    
-      console.log('Recipes disponibili:', recipes.map(recipe => recipe.title));
-    
-      const searchInputClean = searchInput.trim().toLocaleLowerCase();
-    
-      if (!searchInputClean) {
-        setfilteredRecipes([]);
-      } else {
-        const results = recipes.filter(recipe => 
-          recipe.title.toLocaleLowerCase().includes(searchInputClean) ||
-          recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean))
-        );
-        console.log(results);
-        setfilteredRecipes(results);
-      }
-    }, [searchInput, recipes]);
+  // Cerca la ricetta filtrando per il titolo o per ingrendiente
+  useEffect(() => {
+    const searchInputClean = searchInput.trim().toLocaleLowerCase();
+
+    if (!searchInputClean) {
+      setfilteredRecipes([]);
+    } else {
+      const results = recipes.filter(recipe => 
+        recipe.title.toLocaleLowerCase().includes(searchInputClean) ||
+        recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchInputClean))
+      );
+      setfilteredRecipes(results);
+    }
+  }, [searchInput, recipes]);
     
   // Limitiamo l'input a solo lettere così da avere una ricerca pulita
   const handleInputChange = (e) => {
@@ -76,7 +59,6 @@ const Searchbox = () => {
     setIsVisibile(!isVisible);
   }
   
-
   return (
     <SearchFormContainer>
       <SearchForm className={`${isVisible ? 'visible' : ''}`} >

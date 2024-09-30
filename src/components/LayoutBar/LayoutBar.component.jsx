@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-
 import { Link } from "react-router-dom";
-
 import { UserContext } from "../../context/user.context.jsx";
 
 import logoIcon from '../../assets/logo-icon.webp';
 
 import { Bar, AuthButtonsContainer, IconsContainer, Span } from "./LayoutBar.styles.jsx";
 
-// 
+// Barra header e footer, renderizza dinamicamente i tasti LogIn LogOut in base se l'utente è loggato
 function LayoutBar({ position, children }) {
   const { user, resetUser } = useContext(UserContext);
   const containerClass = position === 'header' ? 'social-bar-header' : 'social-bar-footer';
@@ -58,7 +56,6 @@ function LayoutBar({ position, children }) {
         </IconsContainer>
       </>
       }
-      
     </Bar>
   );
 }

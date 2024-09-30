@@ -18,6 +18,7 @@ import {
   InstructionSection,
 } from './Recipe.styles.jsx';
 
+// Ricetta singola, gestisce i commenti
 const Recipe = () => {
   const { id } = useParams();
   const { user } = useContext(UserContext);
@@ -27,8 +28,7 @@ const Recipe = () => {
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
   
-  
-
+  // Aggiunge commento alla ricetta corrente
   const addComment = async (newComment) => {
     try {
       const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${id}/comments`, {
@@ -38,7 +38,7 @@ const Recipe = () => {
         },
         body: JSON.stringify(newComment),
       });
-
+      
       if (response.ok) {
         const updatedComments = await response.json(); // Ottieni tutti i commenti
         setComments(updatedComments); // Aggiorna lo stato dei commenti
@@ -50,7 +50,7 @@ const Recipe = () => {
     }
   };
 
-
+  // Elimina il commento e aggiorna i commenti della ricetta
   const handleDelete = async (recipeID, commentID) => {
     try {
         const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeID}/comments/${commentID}`, {
@@ -65,7 +65,6 @@ const Recipe = () => {
 
         if (response.ok) {
             const updatedComments = await response.json();
-            console.log(updatedComments);
             setComments(updatedComments);
         } else {
             console.error("Errore nella cancellazione del commento");
@@ -73,20 +72,21 @@ const Recipe = () => {
     } catch (error) {
         console.error('Errore nella richiesta di cancellazione:', error);
     }
-};
+  };
 
-
+  // Handler aggiorna dinamicamente lo stato dell'input
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
+  // Handler aggiorna dinamicamente lo stato rating
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
 
+  // Handeler invio nuovo commento, resetta input e rating
   const handleSubmit = () => {
     if (inputValue.trim() !== "" && user.logged_in) {
-      console.log(user);
       const newComment = {
         // id commento SERIAL auto incremento nel DB
         user_id: user.id,
