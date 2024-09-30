@@ -108,7 +108,7 @@ const Recipe = () => {
   
   return (
     <RecipeContainer>
-      <SectionTitle className="title">
+      <SectionTitle className="gradient-text">
         {recipe.title}
         <hr className="title-hr" />
       </SectionTitle>
