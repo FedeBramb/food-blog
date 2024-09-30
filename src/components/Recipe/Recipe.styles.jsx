@@ -21,7 +21,7 @@ export const RecipeContainer = styled.div`
 
     & .title-hr {
         display: block;
-        background: var(--primary-color);
+        background: #00a4aa;
         height:  0.25rem;
         width: 6.25rem;
         border: none;
@@ -71,6 +71,7 @@ export const IngredientsSection = styled.div`
 
 export const SectionTitle = styled.h1`    
     margin: 5% 0 5% 0;
+    background-color: var(--gradient-color);
     background-size: 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
