@@ -92,17 +92,17 @@ export const DetailsContainer = styled.div`
 export const ReadButton = styled.div`
     display: inline-block;
     color: var(--secondary-color);
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     padding: 0.625rem 1.875rem;
     text-transform: uppercase;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary);
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 15px;
 
     &:hover {
         background-color: var(--secondary-color);
-        color: var(--primary-color);
+        color: var(--primary);
     }
 `;
 

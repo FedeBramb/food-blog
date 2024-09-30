@@ -57,9 +57,7 @@ function Carousel() {
   }
 
   return (
-    // Contenitore del carosello con eventi per mostrare/nascondere l'icona
     <CarouselContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {/* Immagini di overlay */}
       <Blueberry src={blueberry} alt='caffe underlay' />
       <Donut src={donut} alt='ciambella underlay'  />
       <div>

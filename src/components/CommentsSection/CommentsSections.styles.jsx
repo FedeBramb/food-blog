@@ -12,12 +12,12 @@ export const CommentsSectionContainer = styled.div`
 
     & label {
         display: block;
-        color: ${mainColor};
+        color: var(--hover-input);
     }
 `
 
 export const AllCommentsTitle = styled.h2`
-    background-color: ${mainColor};
+    background-color: var(--hover-input);
     background-image: linear-gradient(45deg, #00a4aa, #00073b);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -44,7 +44,7 @@ export const CommentContainer = styled.div`
     & button {
         background-color: var(--secondary-color);
         border: none;
-        border: 2px solid var(--primary-color);
+        border: 2px solid var(--primary);
         border-radius: 25%;
         width: 30px;
         height: 30px;
@@ -62,7 +62,7 @@ export const CommentContainer = styled.div`
 
     .rating {
         margin-bottom: 2vh;
-        color: ${mainColor};
+        color: var(--hover-input);
     }
 `
 

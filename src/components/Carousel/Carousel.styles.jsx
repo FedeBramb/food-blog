@@ -55,7 +55,7 @@ export const Span = styled.span`
 `;
 
 export const MainTitle = styled.h1`
-    color: var(--primary-color);
+    color: var(--primary);
     text-transform: capitalize;
     letter-spacing: 0.8px;
     font-size: 4rem;
@@ -130,7 +130,7 @@ export const Image = styled.img`
 `;
 
 export const Title = styled.h2`
-    color: var(--primary-color);
+    color: var(--primary);
     margin: 1rem 0;
     font-weight: 400;
     font-size: 2rem;
@@ -139,16 +139,16 @@ export const Title = styled.h2`
 
 export const ExploreButton = styled.div`
     display: inline-block;
-    color: var(--primary-color);
+    color: var(--primary);
     padding: 0.625rem 1.875rem;
     text-decoration: none;
     text-transform: uppercase;
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary);
     cursor: pointer;
     margin-bottom: 15px;
 
     &:hover {
-        background-color: var(--primary-color);
+        background-color: var(--primary);
         color: white;
     }
 `;

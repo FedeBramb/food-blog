@@ -22,7 +22,7 @@ export const NavbarContainer = styled.div`
 export const NavLink = styled(Link)`
     position: relative;
     text-decoration: none;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     background-image: var(--gradient-color);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -111,7 +111,7 @@ export const DropdownContent = styled.div`
     z-index: 999;
 
     & a {
-        color: var(--primary-color);
+        color: var(--primary);
         padding: 12px 16px;
         display: block;
 

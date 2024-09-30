@@ -31,8 +31,8 @@ export const SearchInput = styled.input`
     flex: 1;
     font-size: 16px; 
     max-width: 400px; 
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
     border-bottom: none; 
     visibility: hidden;
     opacity: 0;
@@ -47,7 +47,7 @@ export const SearchInput = styled.input`
 
     &:focus {
         outline: none; 
-        border: 2px solid var(--primary-color);
+        border: 2px solid var(--primary);
     }
 
     &::-webkit-input-placeholder {
@@ -67,7 +67,7 @@ export const SearchInput = styled.input`
   
 export const SearchButton = styled.div`
     padding: 5px 10px;
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     border: none;
     cursor: pointer;
 

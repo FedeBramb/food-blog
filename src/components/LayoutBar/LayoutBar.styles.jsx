@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const Bar = styled.div`
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     width: 100%;
     display: flex;
     justify-content: space-between;

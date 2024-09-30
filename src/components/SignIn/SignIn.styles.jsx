@@ -66,8 +66,8 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   padding: 14px 20px;
-  background-color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
   color: var(--secondary-color);
   font-size: 16px;
   font-weight: 600;

@@ -79,7 +79,7 @@ export const ImgContainer = styled.div`
 export const OverlayContainer = styled.div`
     position: absolute;
     bottom: 0;
-    background: var(--primary-color);
+    background: var(--primary);
     color: #fff;
     width: min(300px, 100%);
     text-align: center;
