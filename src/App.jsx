@@ -1,6 +1,6 @@
 import React, { Suspense, lazy} from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ClipLoader } from 'react-spinners';
+import Loader from './components/Loader/Loader.component';
 
 import GoToTop from './components/GoToTop/GoToTop.component';
 
@@ -23,17 +23,17 @@ function App() {
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
             <Route path='recipes/*' element={
-              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+              <Suspense fallback={<Loader color="#0f324c" size={500} loading={true}/>}>
                 <Cookbook />
               </Suspense>
             } />
             <Route path='register' element={
-              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+              <Suspense fallback={<Loader color="#0f324c" size={500} loading={true}/>}>
                 <Register />
               </Suspense>} 
             />
             <Route path='signin' element={
-              <Suspense fallback={<ClipLoader color="#0f324c" size={54} loading={true}/>}>
+              <Suspense fallback={<Loader color="#0f324c" size={500} loading={true}/>}>
                 <Signin />
               </Suspense>} 
             />
