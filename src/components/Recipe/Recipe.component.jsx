@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useRecipe } from '../../hooks/useRecipes.js';
-import { useComments } from '../../hooks/useComments.js';
 
 import Loader from '../Loader/Loader.component.jsx';
 import CommentsSection from '../CommentsSection/CommentsSection.component';
