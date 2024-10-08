@@ -79,7 +79,6 @@ export const P = styled.p`
 
 export const MySwiper = styled(Swiper)`
     width: 100%;
-
 `;
 
 export const ExploreContainer = styled.div`
@@ -94,6 +93,8 @@ export const MySwiperSlide = styled(SwiperSlide)`
     display: grid;
     justify-items: center;  
     align-content: end;
+    border-radius: 15px;
+    overflow: hidden;
 
     &.swiper-slide-active {
         ${ExploreContainer} {
@@ -104,7 +105,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
             background-color: rgba(255, 255, 255, .6);
             padding: 0 2rem;
             margin-bottom: 60px;
-
+            border-radius: 15px;
 
             .slider-btn {
                 align-self: flex-start;
@@ -127,6 +128,7 @@ export const Image = styled.img`
     height: 100%;
     object-fit: cover;
     position: absolute;
+    border-radius: 15px;
 `;
 
 export const Title = styled.h2`
@@ -144,6 +146,7 @@ export const ExploreButton = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     border: 2px solid var(--primary);
+    border-radius: 5px;
     cursor: pointer;
     margin-bottom: 15px;
 
