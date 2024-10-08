@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 export const Splash = styled.div`
-    clip-path: inset(5px 0 0 0 round 15% 0 15% 0);
+    clip-path: inset(5px 0 0 0 round 15% 5px 15% 5px);
     width: 100%;
     overflow-x: hidden;
 `
@@ -19,7 +19,6 @@ export const PreviewContainer = motion.create(styled.div`
     font-size: 1.1rem;
     width: 100%;
     
-
     @media (max-width: 738px) {
         margin: 0;
         flex-direction: column;
