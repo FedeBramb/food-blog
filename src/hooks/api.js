@@ -1,5 +1,8 @@
 // src/api.js
 
+import { json } from "react-router-dom";
+import { stringify } from "uuid";
+
 export const fetchRecipes = async () => {
   try {
     const response = await fetch('https://food-blog-api-jlca.onrender.com/recipes');
@@ -37,6 +40,45 @@ export const fetchCommentsByRecipeId = async (id) => {
   }
 };
 
+export const addCommentApi = async (newComment, recipeId) => {
+  try {
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeId}/comments`, {
+      method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newComment),
+    })
+    if (!response.ok) throw new Error('Errore durante l\'aggiunta del commento');
+    const updatedComments = await response.json();
+    return updatedComments;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+export const deleteCommentApi = async (commentId, recipeId, userId) => {
+  try  {
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeId}/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: json.stringify({
+        user_id: userId
+      }),
+    })
+    if (!response.ok) throw new Error('Errore durante l\'aggiunta del commento');
+    const updatedComments = await response.json();
+    return updatedComments;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+
 export const fetchSignIn = async (email, password) => {
   try {
     const response = await fetch('https://food-blog-api-jlca.onrender.com/signin', {
@@ -69,6 +111,8 @@ export const fetchSignUp = async (username, email, password) => {
     throw error;
   }
 }
+
+
 
 
 

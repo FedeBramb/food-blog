@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { fetchCommentsByRecipeId } from './api.js';
+import { fetchCommentsByRecipeId, addCommentApi, deleteCommentApi } from './api.js';
 
 
 const useComments = (id) => {
     const [comments, setComments] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [commentsLoading, setCommentsLoading] = useState(true);
+    const [commentsError, setCommentsError] = useState(null);
   
     useEffect(() => {
       const getComments = async () => {
@@ -13,16 +13,36 @@ const useComments = (id) => {
           const data = await fetchCommentsByRecipeId(id);
           setComments(data);
         } catch (error) {
-          setError(error.message);
+          setCommentsError(error.message);
         } finally {
-          setLoading(false);
+          setCommentsLoading(false);
         }
       };
   
       getComments(id);
     }, [id]);
+
+    const addComment = async (newComment, recipeId) => {
+      try {
+        const updatedComments = await addCommentApi(newComment, recipeId);
+        setComments(updatedComments);
+      } catch (err) {
+        console.error("Errore durante l'invio del commento:", err);
+      }
+    }
+
+    const deleteComment = async (commentId, recipeId, userId) => {
+      try {
+        const updatedComments = await deleteCommentApi(commentId, recipeId, userId);
+        setComments(updatedComments);
+      } catch (err) {
+        console.error("Errore durante la cencellazione del commento:", err);
+      }
+    }
   
-    return { comments, setComments, loading, error };
+    return { comments, commentsLoading, commentsError, addComment, deleteComment };
 };
+
+
 
 export {useComments};

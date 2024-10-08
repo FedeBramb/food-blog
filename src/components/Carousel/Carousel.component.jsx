@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { Pagination, EffectCoverflow, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ import { useRecipes } from '../../hooks/useRecipes.js';
 
 import blueberry from '../../assets/bluberry.webp';
 import donut from '../../assets/ciambella.webp';
-import { ClipLoader } from 'react-spinners';
+import Loader from '../Loader/Loader.component.jsx';
 
 import 'swiper/css/bundle';
 import 'swiper/css/mousewheel';
@@ -53,7 +52,7 @@ function Carousel() {
   const handleMouseLeave = () => setShowIcon(false);
 
   if (loading || error) {
-    return <div>{loading ? <ClipLoader/> : `Error loading recipes: ${error.message}`}</div>;
+    return <div>{loading ? <Loader/> : `Error loading recipes: ${error.message}`}</div>;
   }
 
   return (

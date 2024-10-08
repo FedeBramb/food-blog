@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext}  from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import { UserContext } from '../../context/user.context';
 import { useRecipe } from '../../hooks/useRecipes.js';
 import { useComments } from '../../hooks/useComments.js';
 
+import Loader from '../Loader/Loader.component.jsx';
 import CommentsSection from '../CommentsSection/CommentsSection.component';
 
 import { 
@@ -21,89 +21,10 @@ import {
 // Ricetta singola, gestisce i commenti
 const Recipe = () => {
   const { id } = useParams();
-  const { user } = useContext(UserContext);
   const { recipe, loading, error } = useRecipe(id);
-  const { comments, loading: commentsLoading, error: commentsError, setComments } = useComments(id);
-  
-  const [inputValue, setInputValue] = useState("");
-  const [rating, setRating] = useState(0);
-  
-  // Aggiunge commento alla ricetta corrente
-  const addComment = async (newComment) => {
-    try {
-      const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${id}/comments`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newComment),
-      });
-      
-      if (response.ok) {
-        const updatedComments = await response.json(); // Ottieni tutti i commenti
-        setComments(updatedComments); // Aggiorna lo stato dei commenti
-      } else {
-        console.error("Errore durante l'aggiunta del commento");
-      }
-    } catch (err) {
-      console.error("Errore durante l'invio del commento:", err);
-    }
-  };
 
-  // Elimina il commento e aggiorna i commenti della ricetta
-  const handleDelete = async (recipeID, commentID) => {
-    try {
-        const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeID}/comments/${commentID}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                user_id: user.id
-            }),
-        });
-
-        if (response.ok) {
-            const updatedComments = await response.json();
-            setComments(updatedComments);
-        } else {
-            console.error("Errore nella cancellazione del commento");
-        }
-    } catch (error) {
-        console.error('Errore nella richiesta di cancellazione:', error);
-    }
-  };
-
-  // Handler aggiorna dinamicamente lo stato dell'input
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
-  // Handler aggiorna dinamicamente lo stato rating
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-  };
-
-  // Handeler invio nuovo commento, resetta input e rating
-  const handleSubmit = () => {
-    if (inputValue.trim() !== "" && user.logged_in) {
-      const newComment = {
-        // id commento SERIAL auto incremento nel DB
-        user_id: user.id,
-        user_name: user.username,
-        recipe_id: id,
-        comment_text: inputValue,
-        rating: rating,
-        create_at: new Date(),
-      };
-      addComment(newComment);
-      setInputValue("");
-      setRating(0);
-    }
-  };
-
-  if (loading || commentsLoading) return <div>Loading...</div>; // Mostra loading per entrambi i caricamenti
-  if (error || commentsError) return <div>Errore: {error || commentsError}</div>; // Mostra errore per entrambi
+  if (loading) return <Loader/>; // Mostra loading 
+  if (error) return <div>Errore: {error}</div>; // Mostra errore 
   if (!recipe) return <div>Nessuna ricetta trovata</div>;
   
   return (
@@ -148,15 +69,7 @@ const Recipe = () => {
         </div>
       </InstructionSection>
       <CommentsSection
-        comments={comments}
-        addComment={addComment}
-        handleDelete={handleDelete}
-        recipeID={id}
-        inputValue={inputValue}
-        rating={rating}
-        handleInputChange={handleInputChange}
-        handleRatingChange={handleRatingChange}
-        handleSubmit={handleSubmit}
+        recipeId={id}
       />
     </RecipeContainer>
   );

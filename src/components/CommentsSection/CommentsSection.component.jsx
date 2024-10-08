@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
 import { UserContext } from '../../context/user.context.jsx';
+import { useComments } from '../../hooks/useComments.js';
 
 import StarRating from '../StarRating/StarRating.component';
 
@@ -13,9 +14,44 @@ import {
 } from './CommentsSections.styles.jsx';
 
 
+
 // Componente per la sezione dei commenti
-const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleInputChange, handleSubmit, handleRatingChange, rating }) => {
-    const { user } = useContext(UserContext);
+const CommentsSection = ({ recipeId }) => {
+  const { user } = useContext(UserContext);
+  const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(id);
+  const [inputValue, setInputValue] = useState("");
+  const [rating, setRating] = useState(0);
+
+  if (commentsLoading) return <Loader/>; // Mostra loading
+  if (commentsError) return <div>Errore: {commentsError}</div>; 
+
+  // Handler aggiorna dinamicamente lo stato dell'input
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  // Handler aggiorna dinamicamente lo stato rating
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+
+  // Handeler invio nuovo commento, resetta input e rating
+  const handleSubmit = () => {
+    if (inputValue.trim() !== "" && user.logged_in) {
+      const newComment = {
+        // id commento SERIAL auto incremento nel DB
+        user_id: user.id,
+        user_name: user.username,
+        recipe_id: id,
+        comment_text: inputValue,
+        rating: rating,
+        create_at: new Date(),
+      };
+      addComment(newComment);
+      setInputValue("");
+      setRating(0);
+    }
+  };
     return (
       <CommentsSectionContainer>
         <AllCommentsTitle>Commenti:</AllCommentsTitle>
@@ -34,7 +70,7 @@ const CommentsSection = ({ comments, handleDelete, recipeID, inputValue, handleI
                 </Content>
                 {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
                 {user.logged_in && user.id === comment.user_id &&   
-                  <button onClick={() => handleDelete(recipeID, comment.id_comment)}>
+                  <button onClick={() => deleteComment(recipeId, comment.id_comment)}>
                     <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />
                   </button>
                 }
