@@ -48,6 +48,7 @@ export const LazyImg = styled.img`
     transition: transform 0.3s ease-in-out;
     width: 100%;
     max-width: 100%;
+    border-radius: 5px;
     
     &:hover {
         transform: scale(1.05);
