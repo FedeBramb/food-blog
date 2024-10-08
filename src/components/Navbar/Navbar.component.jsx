@@ -58,7 +58,7 @@ const Navbar = () => {
           </LinkSmallLogo>
           <DropcaseContainer>
             <MenuButton  onClick={toggleMenu}>
-              <img src={`https://icongr.am/fontawesome/bars.svg?size=28&color=223b4e`} alt="icon Facebook" />
+              <img src={`https://icongr.am/fontawesome/bars.svg?size=20&color=223b4e`} alt="icon Facebook" />
             </MenuButton>
             {isOpen && (
                 <DropdownContent>
