@@ -116,11 +116,11 @@ const SignUp = () => {
                     Accetto di ricevere comunicazioni di marketing
                 </Label>
                 <Button type='submit' className='form-button'>Registrati</Button>
+                <div className='error-container'>
+                    {error && <p className='error-message'>{error}</p>}
+                </div>
             </Form>
         </FormContainer>
-        <div className='error-container'>
-            {error && <p className='error-message'>{error}</p>}
-        </div>
     </SignUpContainer>
   )
 }
