@@ -59,7 +59,8 @@ export const Input = styled.input`
   background-color: #f8f9fa;
 
   &:focus {
-    outline: none;
+    outline: none; /* Rimuove il bordo predefinito */
+    border: 2px solid var(--comment-color);
   }
 `
 

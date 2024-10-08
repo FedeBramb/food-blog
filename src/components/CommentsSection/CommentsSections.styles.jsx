@@ -60,7 +60,7 @@ export const CommentContainer = styled.div`
 
     .rating {
         margin-bottom: 2vh;
-        color: var(--comment-color)
+        color: var(--comment-color);
     }
 `
 
@@ -75,7 +75,11 @@ export const CommentInput = styled.input`
     height: 10vh;
 
     &::placeholder {
-    color: #498082; 
-    font-size: 14px; 
+        color: #498082; 
+        font-size: 14px; 
+    }
+    &:focus {
+        outline: none; /* Rimuove il bordo predefinito */
+        border: 2px solid var(--comment-color);
     }
 `

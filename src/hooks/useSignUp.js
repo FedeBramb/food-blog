@@ -24,7 +24,7 @@ const useSignUp = () => {
         }
 
         try {
-            const user = await fetchSignUp(username, email, password);
+            const user = await fetchSignUp(username, email, password, checkPassword);
             const userWithLoggedIn = {...user, logged_in: true};
             localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
             loadUser(userWithLoggedIn);
