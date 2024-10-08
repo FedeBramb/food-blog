@@ -19,14 +19,14 @@ export const SignUpContainer = styled.div`
 
     .error-container {
         height: 40px;
+        text-align: center;
+        position: absolute;
+        top: 0; 
     }
 
     .error-message {
         color: #ff4d4d;
         font-size: 14px;
-        text-align: center;
-        position: absolute;
-        top: 0; 
     }
 `
 
@@ -44,10 +44,6 @@ export const Form = styled.form`
 
     @media screen and (max-width: 1050px) {
         display: block;
-    }
-
-    &.marketing-container {
-        
     }
 `
 

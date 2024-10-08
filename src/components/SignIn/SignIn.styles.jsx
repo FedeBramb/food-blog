@@ -17,14 +17,14 @@ export const SignInContainer = styled.div`
 
   .error-container {
     height: 40px;
+    position: absolute;
+    top: 0;
+    text-align: center;
   }
 
   .error-message {
     color: #ff4d4d;
     font-size: 14px;
-    text-align: center;
-    position: absolute;
-    top: 0;  
   }
 `
 
