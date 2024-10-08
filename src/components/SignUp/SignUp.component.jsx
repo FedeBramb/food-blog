@@ -42,7 +42,6 @@ const SignUp = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-    
         const { username, password, checkPassword, email } = formSignUp;
     
         try {
