@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { useComments } from '../../hooks/useComments.js';
 
+import Loader from '../Loader/Loader.component.jsx';
 import StarRating from '../StarRating/StarRating.component';
 
 import {
