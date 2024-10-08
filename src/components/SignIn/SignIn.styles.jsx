@@ -15,17 +15,6 @@ export const SignInContainer = styled.div`
     justify-content: center;
   }
 
-  .error-container {
-    height: 40px;
-    position: absolute;
-    top: 0;
-    text-align: center;
-  }
-
-  .error-message {
-    color: #ff4d4d;
-    font-size: 14px;
-  }
 `
 
 export const SignInForm = styled.form`
@@ -35,11 +24,24 @@ export const SignInForm = styled.form`
   min-width: 220px;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media screen and (max-width: 780px) {
     min-width: 300px;
     padding: 20px 20px;
     max-height: 250px;
+  }
+
+  .error-container {
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+  }
+
+  .error-message {
+    color: #ff4d4d;
+    font-size: 14px;
   }
 `
 

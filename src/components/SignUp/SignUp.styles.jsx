@@ -21,7 +21,7 @@ export const SignUpContainer = styled.div`
         height: 40px;
         text-align: center;
         position: absolute;
-        top: 0; 
+        bottom: 0; 
     }
 
     .error-message {
@@ -41,6 +41,7 @@ export const Form = styled.form`
     display: grid;
     grid-template-columns: 1fr 1fr; 
     gap: 0.625rem;
+    position: relative;
 
     @media screen and (max-width: 1050px) {
         display: block;
