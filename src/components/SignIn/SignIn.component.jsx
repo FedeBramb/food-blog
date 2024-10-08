@@ -57,7 +57,7 @@ const SignIn = () => {
                 <Button type='submit'>Accedi</Button>
             </SignInForm>
             <div className='error-container'>
-                {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
+                {error && <p className='error-message'>{error}</p>}
             </div>
         </SignInContainer>
   )

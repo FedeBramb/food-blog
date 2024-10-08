@@ -119,7 +119,7 @@ const SignUp = () => {
             </Form>
         </FormContainer>
         <div className='error-container'>
-            {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
+            {error && <p className='error-message'>{error}</p>}
         </div>
     </SignUpContainer>
   )
