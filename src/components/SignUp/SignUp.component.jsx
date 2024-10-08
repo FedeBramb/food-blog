@@ -43,7 +43,8 @@ const SignUp = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { username, password, checkPassword, email } = formSignUp;
-    
+        console.log('Stato attuale dell\'errore:', error);
+
         try {
             const user = await signUp(formSignUp);
             if (user) {

@@ -91,12 +91,12 @@ export const fetchSignIn = async (email, password) => {
   }
 }
 
-export const fetchSignUp = async (username, email, password, checkPassword) => {
+export const fetchSignUp = async (username, email, password) => {
   try {
     const response = await fetch('https://food-blog-api-jlca.onrender.com/register', {
       method: 'post',
       headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({username, email, password, checkPassword})
+      body: JSON.stringify({username, email, password})
     })
     if (!response.ok) {
       const errorData = await response.json(); // Ottenere il messaggio d'errore dall'API

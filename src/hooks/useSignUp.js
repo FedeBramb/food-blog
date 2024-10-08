@@ -12,7 +12,7 @@ const useSignUp = () => {
 
         if (password !== checkPassword) {
             setError("Le password non coincidono");
-            return null;
+            return;
         }
     
         // Validazione di base: email
@@ -20,7 +20,7 @@ const useSignUp = () => {
         if (!emailRegex.test(email)) {
             console.log("Invalid email"); // Log per il debug
             setError("L'email non è valida");
-            return null;
+            return;
         }
 
         try {
