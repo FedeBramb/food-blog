@@ -43,15 +43,15 @@ const SignUp = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { username, password, checkPassword, email } = formSignUp;
-        
+
         try {
             const user = await signUp(formSignUp);
             if (user) {
                 navigate('/');
             }
             
-        } catch (error) {
-            console.error('Errore durante la registrazione:', error.message);
+        } catch (err) {
+            console.error('Errore durante la registrazione:', err.message);
         }
     }
     
