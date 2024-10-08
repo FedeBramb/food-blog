@@ -102,7 +102,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
             display: grid;
             justify-items: center;
             align-content: end;
-            opacity: 1;
+            opacity: 1 !important;
             background-color: rgba(255, 255, 255, .6);
             padding: 0 2rem;
             margin-bottom: 60px;
