@@ -18,7 +18,7 @@ import {
 // Componente per la sezione dei commenti
 const CommentsSection = ({ recipeId }) => {
   const { user } = useContext(UserContext);
-  const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(id);
+  const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(recipeId);
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
 
