@@ -41,7 +41,7 @@ const SignIn = () => {
             await signIn(formSignIn);
             navigate('/');
         } catch (err) {
-            console.log('Errore durante il login:', err); // Log più dettagliato
+            console.error('Errore durante la registrazione:', err.message);
         }
     };
 
