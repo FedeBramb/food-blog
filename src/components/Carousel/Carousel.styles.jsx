@@ -95,14 +95,13 @@ export const MySwiperSlide = styled(SwiperSlide)`
     align-content: end;
     border-radius: 15px;
     overflow: hidden;
-    opacity: 0.5;
 
     &.swiper-slide-active {
         ${ExploreContainer} {
             display: grid;
             justify-items: center;
             align-content: end;
-            opacity: 1 !important;
+            opacity: 1;
             background-color: rgba(255, 255, 255, .6);
             padding: 0 2rem;
             margin-bottom: 60px;
