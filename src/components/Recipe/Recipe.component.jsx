@@ -68,9 +68,9 @@ const Recipe = () => {
           ))}
         </div>
       </InstructionSection>
-      <CommentsSection
+      {/* <CommentsSection
         recipeId={id}
-      />
+      /> */}
     </RecipeContainer>
   );
 }
