@@ -95,6 +95,7 @@ export const MySwiperSlide = styled(SwiperSlide)`
     align-content: end;
     border-radius: 15px;
     overflow: hidden;
+    
 
     &.swiper-slide-active {
         ${ExploreContainer} {
