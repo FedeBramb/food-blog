@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-const mainColor = '#00a4aa';
-
 export const CommentsSectionContainer = styled.div`
     width: 65vw;
     margin-top: 10vh;
@@ -33,7 +31,7 @@ export const CommentContainer = styled.div`
         margin-bottom: 10px;
         font-weight: 700;
         font-style: normal;
-        color: #009a93;
+        color: var(--comment-color);
     }
 
     .comment {
@@ -62,7 +60,7 @@ export const CommentContainer = styled.div`
 
     .rating {
         margin-bottom: 2vh;
-        color: var(--hover-input);
+        color: var(--comment-color)
     }
 `
 

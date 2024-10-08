@@ -11,6 +11,7 @@
   --hover-color: #48769e;
   --hover-input: #1d6296;
   --border-color: #1d6296;
+  --comment-color:  #009a93;
   --gradient-color: linear-gradient(45deg, #548db9, var(--primary));
 }
 
