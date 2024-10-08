@@ -38,8 +38,10 @@ const SignIn = () => {
         event.preventDefault();
         console.log('Dati della form:', formSignIn); // Controlla i dati della form
         try {
-            await signIn(formSignIn);
-            navigate('/');
+            const user = await signIn(formSignIn);
+            if (user) {
+                navigate('/');
+            }
         } catch (err) {
             console.error('Errore durante il log in:', err.message);
         }

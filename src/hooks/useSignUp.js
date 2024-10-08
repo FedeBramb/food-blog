@@ -2,7 +2,6 @@ import { useState, useContext } from 'react';
 import { UserContext } from '../context/user.context';
 import { fetchSignUp } from './api.js';
 
-
 const useSignUp = () => {
     const { loadUser } = useContext(UserContext);
     const [error, setError] = useState('');
@@ -10,7 +9,7 @@ const useSignUp = () => {
     const signUp = async (formSignUp) => {
         const { username, email, password, checkPassword } = formSignUp;
         setError('');
-        
+
         try {
             const user = await fetchSignUp(username, email, password, checkPassword);
             const userWithLoggedIn = {...user, logged_in: true};
