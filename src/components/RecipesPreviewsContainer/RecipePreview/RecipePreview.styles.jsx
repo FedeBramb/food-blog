@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 
 export const Splash = styled.div`
-    clip-path: inset(5px 0 0 0 round 15% 5px 15% 5px);
+    clip-path: inset(5px 0 0 0 round 15% 0 15% 0);
     width: 100%;
     overflow-x: hidden;
 `
@@ -47,7 +47,6 @@ export const LazyImg = styled.img`
     transition: transform 0.3s ease-in-out;
     width: 100%;
     max-width: 100%;
-    border-radius: 5px;
     
     &:hover {
         transform: scale(1.05);
