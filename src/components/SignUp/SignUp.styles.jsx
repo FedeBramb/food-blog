@@ -16,6 +16,17 @@ export const SignUpContainer = styled.div`
         height: 100%;
         margin-top: 3%;
     }
+
+    &.error-container {
+        height: 40px;
+    }
+
+    &.error-message {
+        color: #ff4d4d;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+    }
 `
 
 export const FormContainer = styled.div`

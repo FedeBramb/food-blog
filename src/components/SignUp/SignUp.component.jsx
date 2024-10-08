@@ -115,10 +115,12 @@ const SignUp = () => {
                 <Label htmlFor='marketing'>
                     Accetto di ricevere comunicazioni di marketing
                 </Label>
-                
                 <Button type='submit' className='form-button'>Registrati</Button>
             </Form>
         </FormContainer>
+        <div className='error-container'>
+            {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
+        </div>
     </SignUpContainer>
   )
 }

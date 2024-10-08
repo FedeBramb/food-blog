@@ -55,10 +55,10 @@ const SignIn = () => {
                 <Label htmlFor='password'>Password</Label>
                 <Input id='password' type='password'name='password' onChange={onChangeHandler} required></Input>
                 <Button type='submit'>Accedi</Button>
-                <div className='error-container'>
-                    {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
-                </div>
             </SignInForm>
+            <div className='error-container'>
+                {error && <p className={`error-message ${'error' ? 'visible' : ''}`}>{error}</p>}
+            </div>
         </SignInContainer>
   )
 }
