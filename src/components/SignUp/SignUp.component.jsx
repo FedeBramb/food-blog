@@ -43,7 +43,7 @@ const SignUp = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const { username, password, checkPassword, email } = formSignUp;
-
+        console.log('Dati della form:', formSignUp);
         try {
             const user = await signUp(formSignUp);
             if (user) {

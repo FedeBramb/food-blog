@@ -18,7 +18,7 @@ const SignIn = () => {
     const { signIn, error } = useSignIn();
     const [ formSignIn, setformSignIn ] = useState({
         email: '',
-        password: '',
+        password: ''
     })
 
     // Hook per la navigazione

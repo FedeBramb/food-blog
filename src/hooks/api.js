@@ -91,7 +91,7 @@ export const fetchSignIn = async (email, password) => {
   }
 }
 
-export const fetchSignUp = async (username, email, password) => {
+export const fetchSignUp = async (username, email, password, che) => {
   try {
     const response = await fetch('https://food-blog-api-jlca.onrender.com/register', {
       method: 'post',
