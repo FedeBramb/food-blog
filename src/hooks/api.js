@@ -83,8 +83,10 @@ export const fetchSignIn = async (email, password) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     })
-    if (!response.ok) throw new Error('Errore durante il Log in');
-    return await response.json();
+    if (!response.ok) {
+      const errorData = await response.json(); // Ottenere il messaggio d'errore dall'API
+      throw new Error(errorData.error || 'Errore durante il log in');
+    }
   } catch (error) {
     console.error(error);
     throw error;
