@@ -17,11 +17,11 @@ export const SignUpContainer = styled.div`
         margin-top: 3%;
     }
 
-    &.error-container {
+    .error-container {
         height: 40px;
     }
 
-    &.error-message {
+    .error-message {
         color: #ff4d4d;
         font-size: 14px;
         margin-top: 10px;

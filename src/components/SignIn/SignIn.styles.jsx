@@ -15,11 +15,11 @@ export const SignInContainer = styled.div`
     justify-content: center;
   }
 
-  &.error-container {
+  .error-container {
     height: 40px;
   }
 
-  &.error-message {
+  .error-message {
     color: #ff4d4d;
     font-size: 14px;
     margin-top: 10px;
