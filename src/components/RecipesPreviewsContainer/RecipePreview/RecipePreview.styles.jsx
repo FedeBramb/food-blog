@@ -40,7 +40,7 @@ export const NewsLink = styled(Link)`
     @media screen and (max-width: 738px) {
         min-width: 400px;
     }
-`;
+`
 
 export const LazyImg = styled.img`    
     object-fit: cover;
@@ -54,7 +54,7 @@ export const LazyImg = styled.img`
         transform: scale(1.05);
     }
 
-`;
+`
 
 export const DetailsContainer = styled.div`
     text-align: left;

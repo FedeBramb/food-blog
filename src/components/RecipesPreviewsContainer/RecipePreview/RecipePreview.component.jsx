@@ -36,11 +36,12 @@ const RecipePreview = ({ recipe }) => {
     const xPreview = useTransform(smoothScrollYProgress, [0, 0.8], ["-100%", "0%"]);
 
     return (
-        <Splash>
             <PreviewContainer key={`section-${id}`} ref={ref} style={{ x: xPreview }} >
-                <NewsLink to={`/recipes/${id}`} aria-label={`Link to ${title}`}>
-                    <LazyImg key={`${title}-${id}`} src={images_square} alt={`pic-${title}`} />
-                </NewsLink>
+                <Splash>
+                    <NewsLink to={`/recipes/${id}`} aria-label={`Link to ${title}`}>
+                        <LazyImg key={`${title}-${id}`} src={images_square} alt={`pic-${title}`} />
+                    </NewsLink>
+                </Splash>
                 <DetailsContainer>
                     <span className='date'>8 Luglio, 2024</span>
                     <h2>{title}</h2>
@@ -50,7 +51,7 @@ const RecipePreview = ({ recipe }) => {
                     </Link>
                 </DetailsContainer>
             </PreviewContainer>
-        </Splash>
+        
     );
 }
 
