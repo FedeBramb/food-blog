@@ -22,8 +22,9 @@ export const SignInContainer = styled.div`
   .error-message {
     color: #ff4d4d;
     font-size: 14px;
-    margin-top: 10px;
     text-align: center;
+    position: absolute;
+    top: 0;  
   }
 `
 
