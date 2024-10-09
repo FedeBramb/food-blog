@@ -62,7 +62,7 @@ export const deleteCommentApi = async (commentId, recipe_id, userId) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: json.stringify({
+      body: JSON.stringify({
         user_id: userId
       }),
     })
