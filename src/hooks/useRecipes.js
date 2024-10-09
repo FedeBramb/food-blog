@@ -25,7 +25,7 @@ const useRecipes = () => {
   return { recipes, loading, error };
 };
 
-const useRecipe = (id) => {
+const useRecipe = (recipe_id) => {
   const [recipe, setRecipe] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ const useRecipe = (id) => {
   useEffect(() => {
     const getRecipe = async () => {
       try {
-        const data = await fetchRecipeById(id);
+        const data = await fetchRecipeById(recipe_id);
         setRecipe(data);
       } catch (error) {
         setError(error.message);
@@ -42,8 +42,8 @@ const useRecipe = (id) => {
       }
     };
 
-    getRecipe(id);
-  }, [id]);
+    getRecipe(recipe_id);
+  }, [recipe_id]);
 
 
   return { recipe, loading, error };
