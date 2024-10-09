@@ -11,5 +11,6 @@ export default defineConfig({
   server: {
     // fallback per le rotte non trovate, utile in produzione
     historyApiFallback: true
-  }
+  },
 })
+ 
