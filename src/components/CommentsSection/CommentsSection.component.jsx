@@ -70,7 +70,6 @@ const CommentsSection = ({ recipe_id }) => {
                   </div>
                 </Content>
                 {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
-                {console.log(comment.id_comment, recipe_id, user.id)}
                 {user.logged_in && user.id === comment.user_id &&   
                   <button onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}>
                     <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />

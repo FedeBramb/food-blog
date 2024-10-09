@@ -66,7 +66,7 @@ export const deleteCommentApi = async (commentId, recipe_id, userId) => {
         user_id: userId
       }),
     })
-    if (!response.ok) throw new Error('Errore durante l\'aggiunta del commento');
+    if (!response.ok) throw new Error('Errore durante la cancellazione del commento');
     const updatedComments = await response.json();
     return updatedComments;
   } catch (error) {
