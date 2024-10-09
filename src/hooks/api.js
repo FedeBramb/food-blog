@@ -11,9 +11,9 @@ export const fetchRecipes = async () => {
   }
 };
   
-export const fetchRecipeById = async (id) => {
+export const fetchRecipeById = async (recipe_id) => {
   try {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${id}`);
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}`);
     if (!response.ok) throw new Error('Errore nel recupero della ricetta');
     const data = await response.json();
     console.log(data);
@@ -24,9 +24,9 @@ export const fetchRecipeById = async (id) => {
   }
 };
 
-export const fetchCommentsByRecipeId = async (id) => {
+export const fetchCommentsByRecipeId = async (recipe_id) => {
   try {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${id}/comments`);
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}/comments`);
     if (!response.ok) throw new Error('Errore nel recupero dei commenti');
     const data = await response.json();
     console.log(data);
@@ -39,7 +39,7 @@ export const fetchCommentsByRecipeId = async (id) => {
 
 export const addCommentApi = async (newComment, recipeId) => {
   try {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeId}/comments`, {
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}/comments`, {
       method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const addCommentApi = async (newComment, recipeId) => {
 
 export const deleteCommentApi = async (commentId, recipeId, userId) => {
   try  {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipeId}/comments/${commentId}`, {
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}/comments/${commentId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
