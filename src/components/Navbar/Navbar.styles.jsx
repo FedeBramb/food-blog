@@ -16,6 +16,7 @@ export const NavbarContainer = styled.div`
     @media screen and (max-width: 768px) {
         height: 80%;
         width: 95%;
+        flex-wrap: wrap;
     }
 `
 
@@ -35,11 +36,14 @@ export const NavLink = styled(Link)`
     }
 
     &:hover {
-
         & > div {
-        transform: scaleX(1);
+            transform: scaleX(1);
         }
-}
+    }
+    
+    @media screen and (max-width: 800px){
+        display: none;
+    }
 `
 
 export const Underline = styled.div`
@@ -61,10 +65,19 @@ export const LogoBigLink = styled(Link)`
         width: 100%;
         height: auto;
     }
+
+    @media screen and (max-width: 800px){
+        display: none;
+    }
 `
 
 export const LinkSmallLogo = styled(Link)`
     text-align: center;
+    display: none;
+
+    @media screen and (max-width: 800px){
+        display: block;
+    }
 `
 
 export const LogoSmallView = styled.img`
@@ -76,6 +89,13 @@ export const DropcaseContainer = styled.div`
     position: relative;
     width: 100%;
     text-align: center;
+    display: none;
+
+
+    @media screen and (max-width: 800px){
+        display: flex;
+        justify-content: space-between;
+    }
 `
 
 export const MenuButton = styled.button`
@@ -87,10 +107,6 @@ export const MenuButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    & img {
-        width: 50px;
-    }
 
     &:focus {
         outline: none;
@@ -119,5 +135,5 @@ export const DropdownContent = styled.div`
             background-color: var(--hover-input);
             color: var(--secondary-color);
         }
-    }   
+    }
 `

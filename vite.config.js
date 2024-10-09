@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    sourcemap: true,  // Abilita le sourcemap per il debug
   },
   server: {
     // fallback per le rotte non trovate, utile in produzione
