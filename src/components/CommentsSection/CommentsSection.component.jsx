@@ -48,7 +48,7 @@ const CommentsSection = ({ recipe_id }) => {
         rating: rating,
         create_at: new Date(),
       };
-      addComment(newComment);
+      addComment(newComment, recipe_id);
       setInputValue("");
       setRating(0);
     }
