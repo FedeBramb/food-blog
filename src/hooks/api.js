@@ -37,7 +37,7 @@ export const fetchCommentsByRecipeId = async (recipe_id) => {
   }
 };
 
-export const addCommentApi = async (newComment, recipeId) => {
+export const addCommentApi = async (newComment, recipe_id) => {
   try {
     const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}/comments`, {
       method: 'POST',
@@ -55,7 +55,7 @@ export const addCommentApi = async (newComment, recipeId) => {
   }
 }
 
-export const deleteCommentApi = async (commentId, recipeId, userId) => {
+export const deleteCommentApi = async (commentId, recipe_id, userId) => {
   try  {
     const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}/comments/${commentId}`, {
       method: 'DELETE',
