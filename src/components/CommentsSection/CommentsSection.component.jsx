@@ -17,9 +17,9 @@ import {
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ recipeId }) => {
+const CommentsSection = ({ recipe_id }) => {
   const { user } = useContext(UserContext);
-  const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(recipeId);
+  const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(recipe_id);
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -43,7 +43,7 @@ const CommentsSection = ({ recipeId }) => {
         // id commento SERIAL auto incremento nel DB
         user_id: user.id,
         user_name: user.username,
-        recipe_id: recipeId,
+        recipe_id: recipe_id,
         comment_text: inputValue,
         rating: rating,
         create_at: new Date(),
@@ -71,7 +71,7 @@ const CommentsSection = ({ recipeId }) => {
                 </Content>
                 {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
                 {user.logged_in && user.id === comment.user_id &&   
-                  <button onClick={() => deleteComment(recipeId, comment.id_comment)}>
+                  <button onClick={() => deleteComment(recipe_id, comment.id_comment)}>
                     <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />
                   </button>
                 }
