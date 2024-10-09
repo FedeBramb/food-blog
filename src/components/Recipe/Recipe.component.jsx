@@ -19,8 +19,8 @@ import {
 
 // Ricetta singola, gestisce i commenti
 const Recipe = () => {
-  const { id } = useParams();
-  const { recipe, loading, error } = useRecipe(id);
+  const { recipe_id } = useParams();
+  const { recipe, loading, error } = useRecipe(recipe_id);
 
   if (loading) return <Loader/>; // Mostra loading 
   if (error) return <div>Errore: {error}</div>; // Mostra errore 
@@ -68,7 +68,7 @@ const Recipe = () => {
         </div>
       </InstructionSection>
       <CommentsSection
-        recipe_id={id}
+        recipe_id={recipe_id}
       />
     </RecipeContainer>
   );
