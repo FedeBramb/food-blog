@@ -15,7 +15,7 @@ const Cookbook = () => {
             <RecipesBook />
           </Suspense>
         } />
-        <Route path=':id' element={<Recipe />} />
+        <Route path=':recipe_id' element={<Recipe />} />
       </Routes>
   );
 }
