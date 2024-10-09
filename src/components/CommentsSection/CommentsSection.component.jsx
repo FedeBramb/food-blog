@@ -43,7 +43,7 @@ const CommentsSection = ({ recipeId }) => {
         // id commento SERIAL auto incremento nel DB
         user_id: user.id,
         user_name: user.username,
-        recipe_id: id,
+        recipe_id: recipeId,
         comment_text: inputValue,
         rating: rating,
         create_at: new Date(),
