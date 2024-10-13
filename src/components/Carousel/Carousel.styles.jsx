@@ -9,7 +9,6 @@ export const CarouselContainer = styled.div`
     column-gap: 3rem;
     padding-block: min(20vh, 3rem);
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
-    background-color: #F8F8F8;
 
     @media screen and (min-width: 768px) {
         display: flex;
