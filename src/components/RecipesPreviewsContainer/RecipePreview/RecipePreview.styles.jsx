@@ -61,6 +61,7 @@ export const DetailsContainer = styled.div`
     @media screen and (max-width: 738px) {
         margin: 0;
         text-align: center;
+        width: 75%;
     }
 
     & h2 {
