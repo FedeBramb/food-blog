@@ -71,9 +71,13 @@ export const DetailsContainer = styled.div`
     }
 `;
 
+export const Date = styled.span`
+    font-size: 0.7rem;
+`
+
 export const Title = styled.h2`
     color: #355b5d;
-    margin: 0.4rem 0 0.3rem 0;
+    margin: 0.7rem 0 0.3rem 0;
 `
 
 export const ReadButton = styled.div`

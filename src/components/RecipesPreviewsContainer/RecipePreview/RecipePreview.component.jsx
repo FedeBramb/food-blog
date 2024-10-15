@@ -11,6 +11,7 @@ import {
     LazyImg,
     DetailsContainer,
     Title,
+    Date,
     ReadButton
 } from './RecipePreview.styles.jsx';
 
@@ -43,7 +44,7 @@ const RecipePreview = ({ recipe }) => {
                     <LazyImg key={`${title}-${id}`} src={images_square} alt={`pic-${title}`} />
                 </NewsLink>
                 <DetailsContainer>
-                    <span className='date'>8 Luglio, 2024</span>
+                    <Date className='date'>8 Luglio, 2024</Date>
                     <Title>{title}</Title>
                     <p>{description}</p>
                     <Link to={`/recipes/${id}`}>
