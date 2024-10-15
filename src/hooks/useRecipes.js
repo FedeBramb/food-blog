@@ -30,11 +30,12 @@ const useRecipe = (recipe_id) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  if (!recipe_id) {
-    return; // Non fare nulla se l'ID non è valido
-  }
-
   useEffect(() => {
+    if (!recipe_id) {
+      setLoading(false); // Se non c'è un ID, non ci sono chiamate da fare
+      return;
+    }
+
     const getRecipe = async () => {
       try {
         const data = await fetchRecipeById(recipe_id);
@@ -49,10 +50,8 @@ const useRecipe = (recipe_id) => {
     getRecipe(recipe_id);
   }, [recipe_id]);
 
-
   return { recipe, loading, error };
 };
 
-export { useRecipes, useRecipe };
 
 
