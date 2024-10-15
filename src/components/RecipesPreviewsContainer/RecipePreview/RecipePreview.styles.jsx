@@ -73,6 +73,7 @@ export const DetailsContainer = styled.div`
 
 export const Title = styled.h2`
     color: #355b5d;
+    margin: 0;
 `
 
 export const ReadButton = styled.div`
