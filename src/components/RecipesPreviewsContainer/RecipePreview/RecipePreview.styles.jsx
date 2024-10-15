@@ -14,7 +14,7 @@ export const PreviewContainer = motion.create(styled.div`
     display: flex;
     position: relative;
     flex-direction: row;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
     font-size: 1.1rem;
     width: 100%;
@@ -57,6 +57,7 @@ export const LazyImg = styled.img`
 export const DetailsContainer = styled.div`
     text-align: left;
     width: 50%;
+    gap: 1rem;
 
     @media screen and (max-width: 738px) {
         margin: 0;
@@ -66,18 +67,6 @@ export const DetailsContainer = styled.div`
 
     & h2 {
         color: #355b5d;
-    }
-
-    & > * {
-        margin-bottom: 2rem; 
-        
-        @media screen and (max-width: 1100px) {
-            margin-bottom: 1rem;
-        } 
-    }
-
-    & > *:last-child {
-        margin-bottom: 0; 
     }
 
     & p {
