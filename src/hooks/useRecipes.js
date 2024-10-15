@@ -53,5 +53,6 @@ const useRecipe = (recipe_id) => {
   return { recipe, loading, error };
 };
 
+export { useRecipes, useRecipe };
 
 
