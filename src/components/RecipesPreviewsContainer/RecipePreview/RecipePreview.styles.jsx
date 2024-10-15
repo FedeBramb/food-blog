@@ -65,13 +65,9 @@ export const DetailsContainer = styled.div`
     }
 
     & p {
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-size: 1rem;
         letter-spacing: -1px;
         opacity: 72%;
-
-        @media screen and (max-width: 1300) {
-            font-size: 1rem
-        }
     }
 `;
 
