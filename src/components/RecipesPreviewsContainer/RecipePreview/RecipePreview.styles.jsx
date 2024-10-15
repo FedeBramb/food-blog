@@ -65,20 +65,16 @@ export const DetailsContainer = styled.div`
         width: 75%;
     }
 
-    & h2 {
-        color: #355b5d;
-        margin: 0;
-    }
-
     & p {
         font-size: clamp(1rem, 2.5vw, 1.2rem);
         letter-spacing: -1px;
         opacity: 72%;
-        margin: 0;
     }
-
-    
 `;
+
+export const Title = styled.h2`
+    color: #355b5d;
+`
 
 export const ReadButton = styled.div`
     display: inline-block;
