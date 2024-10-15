@@ -74,20 +74,21 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
-   width: 100%;
-  padding: 14px 20px;
-  background-color: var(--primary);
-  border: 2px solid var(--primary);
-  color: var(--secondary-color);
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  grid-column: span 2;
+    width: 100%;
+    padding: 14px 20px;
+    background-color: var(--primary);
+    border: 2px solid var(--primary);
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: span 2;
 
-  &:hover {
-    background-color: var(--hover-input);
-    border: 2px solid var(--hover-input);
-  }
+    &:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary);
+    }
 `

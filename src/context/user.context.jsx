@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useMemo, useCallback } from 'react';
 
 export const UserContext = createContext({
     user: {
@@ -9,58 +9,56 @@ export const UserContext = createContext({
         joined: '',
         logged_in: false,
     },
-    loadUser: () => {},  // Funzione vuota di default
-    resetUser: () => {}, // Funzione vuota di default
+    loadUser: () => {},
+    resetUser: () => {},
 });
 
 export const UserProvider = ({ children }) => {
-    const [ user, setUser ] = useState({
+    const [user, setUser] = useState({
         id: '',
         username: '',
         email: '',
         comments: [],
         joined: '',
-        logged_in: false
-    })
-    
-    const loadUser = (data) => {
-    setUser({
-        id: data.id,
-        username: data.username,
-        email: data.email,
-        comments: data.comments,
-        joined: data.joined,
-        logged_in: true
-    })
-    }
+        logged_in: false,
+    });
 
-    const resetUser = () => {
+    const loadUser = useCallback((data) => {
+        setUser({
+            id: data.id,
+            username: data.username,
+            email: data.email,
+            comments: data.comments,
+            joined: data.joined,
+            logged_in: true,
+        });
+        localStorage.setItem('user', JSON.stringify(data)); // Salva l'utente nel localStorage
+    }, []);
+
+    const resetUser = useCallback(() => {
         setUser({
             id: '',
             username: '',
             email: '',
             comments: [],
             joined: '',
-            logged_in: false
+            logged_in: false,
         });
         localStorage.removeItem('user');
-    }
+    }, []);
 
-    // useEffect verrà eseguito quando 'user' viene aggiornato
     useEffect(() => {
         console.log("Dati utente aggiornati:", user);
     }, [user]);
 
     useEffect(() => {
-        // Recupera i dati dell'utente dal localStorage
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser && storedUser.logged_in) {
             loadUser(storedUser);
         }
-    }, []);
+    }, [loadUser]);
 
-    const value = { user, loadUser, resetUser };
+    const value = useMemo(() => ({ user, loadUser, resetUser }), [user, loadUser, resetUser]);
 
-    return <UserContext.Provider value={value}>{children}</UserContext.Provider>
-}
-
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+};
