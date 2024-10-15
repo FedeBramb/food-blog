@@ -70,7 +70,7 @@ export const DetailsContainer = styled.div`
     }
 
     & p {
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-size: clamp(0.7rem, 2.5vw, 1.2rem);
         letter-spacing: -1px;
         opacity: 72%;
     }
