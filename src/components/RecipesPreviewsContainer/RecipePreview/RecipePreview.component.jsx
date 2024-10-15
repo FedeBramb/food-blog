@@ -10,6 +10,7 @@ import {
     NewsLink,
     LazyImg,
     DetailsContainer,
+    Title,
     ReadButton
 } from './RecipePreview.styles.jsx';
 
@@ -43,7 +44,7 @@ const RecipePreview = ({ recipe }) => {
                 </NewsLink>
                 <DetailsContainer>
                     <span className='date'>8 Luglio, 2024</span>
-                    <h2>{title}</h2>
+                    <Title>{title}</Title>
                     <p>{description}</p>
                     <Link to={`/recipes/${id}`}>
                         <ReadButton className="span-link">LEGGI LA RICETTA</ReadButton>
