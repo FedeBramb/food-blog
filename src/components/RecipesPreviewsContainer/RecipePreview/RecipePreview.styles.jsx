@@ -65,7 +65,7 @@ export const DetailsContainer = styled.div`
     }
 
     & p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         letter-spacing: -1px;
         opacity: 72%;
     }
@@ -73,6 +73,7 @@ export const DetailsContainer = styled.div`
 
 export const Title = styled.h2`
     color: #355b5d;
+    margin: 0.3rem;
 `
 
 export const ReadButton = styled.div`
