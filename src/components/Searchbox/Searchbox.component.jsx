@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { RecipeContext } from '../../context/recipe.context.jsx';
 import { Link } from 'react-router-dom';
 
-import { useRecipes } from '../../hooks/useRecipes.js';
 
 import { 
   SearchFormContainer,
@@ -15,7 +14,7 @@ import {
 
 /* Barra di ricerca */
 const Searchbox = () => {
-  const { recipes } = useRecipes(); 
+  const { recipes } = useContext(RecipeContext); 
   const [searchInput, setSearchInput] = useState('');
   const [filteredRecipes, setfilteredRecipes] = useState(recipes); 
   const [isVisible, setIsVisibile] = useState(false);

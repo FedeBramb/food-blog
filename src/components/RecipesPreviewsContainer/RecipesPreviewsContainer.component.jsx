@@ -1,13 +1,12 @@
-import React from 'react';
-
-import { useRecipes } from '../../hooks/useRecipes.js';
+import React, { useContext } from 'react';
+import { RecipeContext } from '../../context/recipe.context.jsx';
 
 import RecipePreview from './RecipePreview/RecipePreview.component.jsx';
 
 import { PreviewsContainer, Header } from './RecipesPreviewsContainer.styles.jsx';
 
 const RecipesPreviewsContainer = () => {
-    const { recipes } = useRecipes();
+    const { recipes } = useContext(RecipeContext);
   return (
     <PreviewsContainer>
         <Header>

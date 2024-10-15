@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useRecipe } from '../../hooks/useRecipes.js';
+import { RecipeContext } from '../../context/recipe.context.jsx';
 
 import Loader from '../Loader/Loader.component.jsx';
 import CommentsSection from '../CommentsSection/CommentsSection.component';
@@ -17,10 +17,14 @@ import {
   InstructionSection,
 } from './Recipe.styles.jsx';
 
-// Ricetta singola, gestisce i commenti
 const Recipe = () => {
   const { recipe_id } = useParams();
-  const { recipe, loading, error } = useRecipe(recipe_id);
+  const { recipe, loading, error, setRecipeId } = useContext(RecipeContext); // Usa il contesto
+
+  useEffect(() => {
+    // Imposta l'ID della ricetta selezionata
+    setRecipeId(recipe_id);
+  }, [recipe_id, setRecipeId]);
 
   if (loading) return <Loader/>; // Mostra loading 
   if (error) return <div>Errore: {error}</div>; // Mostra errore 
