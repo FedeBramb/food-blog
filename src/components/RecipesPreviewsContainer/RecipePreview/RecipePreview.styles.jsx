@@ -57,7 +57,7 @@ export const LazyImg = styled.img`
 export const DetailsContainer = styled.div`
     text-align: left;
     width: 50%;
-    gap: 1rem;
+    gap: 0.3rem;
 
     @media screen and (max-width: 738px) {
         margin: 0;
