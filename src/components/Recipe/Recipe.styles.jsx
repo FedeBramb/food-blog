@@ -102,6 +102,8 @@ export const DetailsContainer = styled.div`
         width: 100%!important;
         padding: 3% 0;
         margin-top: 10px;
+        border-left: 0;
+        border-top: 2px solid var(--border-color);
     }
 `
 
