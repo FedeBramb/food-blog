@@ -22,6 +22,7 @@ const Recipe = () => {
   const { recipe, loading, error, setRecipeId } = useContext(RecipeContext); // Usa il contesto
 
   useEffect(() => {
+    console.log(recipe);
     // Imposta l'ID della ricetta selezionata
     setRecipeId(recipe_id);
   }, [recipe_id, setRecipeId]);
