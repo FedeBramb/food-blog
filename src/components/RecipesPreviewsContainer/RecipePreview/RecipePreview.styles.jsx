@@ -60,7 +60,6 @@ export const DetailsContainer = styled.div`
     gap: 0.3rem;
 
     @media screen and (max-width: 738px) {
-        margin: 0;
         text-align: center;
         width: 75%;
     }
@@ -69,6 +68,10 @@ export const DetailsContainer = styled.div`
         font-size: clamp(1rem, 2.5vw, 1.2rem);
         letter-spacing: -1px;
         opacity: 72%;
+
+        @media screen and (max-width: 1300) {
+            font-size: 1rem
+        }
     }
 `;
 
