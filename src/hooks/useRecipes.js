@@ -31,10 +31,10 @@ const useRecipe = (recipe_id) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!recipe_id) {
-      setLoading(false); // Se non c'è un ID, non ci sono chiamate da fare
-      return;
-    }
+    // if (!recipe_id) {
+    //   setLoading(false); // Se non c'è un ID, non ci sono chiamate da fare
+    //   return;
+    // }
 
     const getRecipe = async () => {
       try {
