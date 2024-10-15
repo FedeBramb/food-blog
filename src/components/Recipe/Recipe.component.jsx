@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { RecipeContext } from '../../context/recipe.context.jsx';
-
+import { useRecipe } from '../../hooks/useRecipes.js'
 import Loader from '../Loader/Loader.component.jsx';
 import CommentsSection from '../CommentsSection/CommentsSection.component';
 
@@ -19,14 +18,7 @@ import {
 
 const Recipe = () => {
   const { recipe_id } = useParams();
-  const { recipe, loading, error, setRecipeId } = useContext(RecipeContext); // Usa il contesto
-
-
-  useEffect(() => {
-    if (recipe_id) {
-      setRecipeId(recipe_id);
-    }
-  }, [recipe_id, setRecipeId]);
+  const { recipe, loading, error } = useRecipe(recipe_id); // Usa il contesto
 
   if (loading) return <Loader/>; // Mostra loading 
   if (error) return <div>Errore: {error}</div>; // Mostra errore 
