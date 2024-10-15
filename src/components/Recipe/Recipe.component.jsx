@@ -21,10 +21,11 @@ const Recipe = () => {
   const { recipe_id } = useParams();
   const { recipe, loading, error, setRecipeId } = useContext(RecipeContext); // Usa il contesto
 
+
   useEffect(() => {
-    // Imposta l'ID della ricetta selezionata
-    setRecipeId(recipe_id);
-    console.log(recipe);
+    if (recipe_id) {
+      setRecipeId(recipe_id);
+    }
   }, [recipe_id, setRecipeId]);
 
   if (loading) return <Loader/>; // Mostra loading 
