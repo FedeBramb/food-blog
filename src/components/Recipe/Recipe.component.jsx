@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { RecipeContext } from '../context/RecipeContext';
+import { RecipeContext } from '../../context/recipe.context.jsx';
 import Loader from '../Loader/Loader.component.jsx';
 import CommentsSection from '../CommentsSection/CommentsSection.component';
 
@@ -40,7 +40,13 @@ const Recipe = () => {
         <iframe
           src={recipe.video}
           title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allow="accelerometer; 
+            autoplay; 
+            clipboard-write; 
+            encrypted-media; 
+            gyroscope; 
+            picture-in-picture; 
+            web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
