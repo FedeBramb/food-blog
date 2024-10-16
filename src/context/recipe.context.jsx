@@ -1,25 +1,25 @@
-import { createContext, useState } from 'react';
-import { useRecipes, fetchRecipeById } from '../hooks/useRecipes';
+import { createContext, useState, useEffect } from 'react';
+import useRecipes from '../hooks/useRecipes';
 
 export const RecipeContext = createContext();
 
 export const RecipeProvider = ({ children }) => {
   const { recipes, loading, error } = useRecipes();
   const [recipe, setRecipe] = useState(null);
-  const [loadingRecipe, setLoadingRecipe] = useState(true);
+  const [loadingRecipe, setLoadingRecipe] = useState(false); // Set initially to false
   const [errorRecipe, setErrorRecipe] = useState(null);
 
-  const getRecipeById = async (recipeId) => {
+  const getRecipeById = (recipeId) => {
     setLoadingRecipe(true);
-    try {
-      const data = await fetchRecipeById(recipeId);
-      setRecipe(data);
+    const foundRecipe = recipes.find((r) => r.id === recipeId);
+    if (foundRecipe) {
+      setRecipe(foundRecipe);
       setErrorRecipe(null);
-    } catch (error) {
-      setErrorRecipe(error.message);
-    } finally {
-      setLoadingRecipe(false);
+    } else {
+      setRecipe(null);
+      setErrorRecipe('Ricetta non trovata');
     }
+    setLoadingRecipe(false);
   };
 
   const value = {
@@ -29,7 +29,7 @@ export const RecipeProvider = ({ children }) => {
     recipe,
     loadingRecipe,
     errorRecipe,
-    getRecipeById, // Funzione per ottenere una ricetta tramite ID
+    getRecipeById,
   };
 
   return (
