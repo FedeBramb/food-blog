@@ -25,29 +25,29 @@ const useRecipes = () => {
   return { recipes, loading, error };
 };
 
-const useRecipe = (recipe_id) => {
-  const [recipe, setRecipe] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// const useRecipe = (recipe_id) => {
+//   const [recipe, setRecipe] = useState({});
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
 
-  useEffect(() => {
+//   useEffect(() => {
 
-    const getRecipe = async () => {
-      try {
-        const data = await fetchRecipeById(recipe_id);
-        setRecipe(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+//     const getRecipe = async () => {
+//       try {
+//         const data = await fetchRecipeById(recipe_id);
+//         setRecipe(data);
+//       } catch (error) {
+//         setError(error.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-    getRecipe(recipe_id);
-  }, [recipe_id]);
+//     getRecipe(recipe_id);
+//   }, [recipe_id]);
 
-  return { recipe, loading, error };
-};
+//   return { recipe, loading, error };
+// };
 
 export { useRecipes, useRecipe };
 
