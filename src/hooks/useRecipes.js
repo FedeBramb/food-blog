@@ -1,6 +1,6 @@
 // src/hooks/useRecipes.js
 import { useState, useEffect } from 'react';
-import { fetchRecipes, fetchRecipeById } from './api.js';
+import { fetchRecipes } from './api.js';
 
 const useRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -49,6 +49,6 @@ const useRecipes = () => {
 //   return { recipe, loading, error };
 // };
 
-export { useRecipes, useRecipe };
+export { useRecipes };
 
 
