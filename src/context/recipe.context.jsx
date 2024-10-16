@@ -6,12 +6,12 @@ export const RecipeContext = createContext();
 export const RecipeProvider = ({ children }) => {
   const { recipes, loading, error } = useRecipes();
   const [recipe, setRecipe] = useState(null);
-  const [loadingRecipe, setLoadingRecipe] = useState(false); // Set initially to false
+  const [loadingRecipe, setLoadingRecipe] = useState(false);
   const [errorRecipe, setErrorRecipe] = useState(null);
 
   const getRecipeById = (recipeId) => {
     setLoadingRecipe(true);
-    const foundRecipe = recipes.find((r) => r.id === recipeId);
+    const foundRecipe = recipes.find((r) => r.recipe_id === recipeId);
     if (foundRecipe) {
       setRecipe(foundRecipe);
       setErrorRecipe(null);

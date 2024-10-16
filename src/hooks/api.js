@@ -11,18 +11,18 @@ export const fetchRecipes = async () => {
   }
 };
   
-export const fetchRecipeById = async (recipe_id) => {
-  try {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}`);
-    if (!response.ok) throw new Error('Errore nel recupero della ricetta');
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+// export const fetchRecipeById = async (recipe_id) => {
+//   try {
+//     const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/${recipe_id}`);
+//     if (!response.ok) throw new Error('Errore nel recupero della ricetta');
+//     const data = await response.json();
+//     console.log(data);
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// };
 
 export const fetchCommentsByRecipeId = async (recipe_id) => {
   try {
