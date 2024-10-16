@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
-import useRecipes from '../hooks/useRecipes';
+import { createContext, useState, } from 'react';
+import { useRecipes } from '../hooks/useRecipes';
 
 export const RecipeContext = createContext();
 
