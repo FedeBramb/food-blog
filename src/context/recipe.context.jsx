@@ -11,7 +11,7 @@ export const RecipeProvider = ({ children }) => {
 
   const getRecipeById = (recipeId) => {
     setLoadingRecipe(true);
-    const foundRecipe = recipes.find((r) => r.id === recipeId);
+    const foundRecipe = recipes.find((r) => r.id === parseInt(recipeId));
     console.log('Ricette:', recipes);
     console.log('Ricetta trovata:', foundRecipe);
     if (foundRecipe) {
