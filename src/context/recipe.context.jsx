@@ -9,6 +9,7 @@ export const RecipeProvider = ({ children }) => {
   const [loadingRecipe, setLoadingRecipe] = useState(false);
   const [errorRecipe, setErrorRecipe] = useState(null);
 
+  // Otteniamo la ricette per ID.
   const getRecipeById = (recipeId) => {
     setLoadingRecipe(true);
     const foundRecipe = recipes.find((r) => r.id === parseInt(recipeId));

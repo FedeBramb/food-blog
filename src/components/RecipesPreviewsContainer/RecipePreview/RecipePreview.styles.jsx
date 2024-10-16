@@ -72,7 +72,7 @@ export const DetailsContainer = styled.div`
 `;
 
 export const Date = styled.span`
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 `
 
 export const Title = styled.h2`
