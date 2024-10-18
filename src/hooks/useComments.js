@@ -69,7 +69,7 @@ const useComments = (recipe_id) => {
       commentsError, 
       allComments, 
       allCommentsLoading,
-      allCommentsErroraddComment,
+      allCommentsError,
       addComment,
       deleteComment };
 };
