@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
-import { fetchCommentsByRecipeId, addCommentApi, deleteCommentApi } from './api.js';
+import { fetchAllComments, fetchCommentsByRecipeId, addCommentApi, deleteCommentApi } from './api.js';
 
 
 const useComments = (recipe_id) => {
     const [comments, setComments] = useState([]);
     const [commentsLoading, setCommentsLoading] = useState(true);
     const [commentsError, setCommentsError] = useState(null);
+
+    const [allComments, setAllComments] = useState([]);
+    const [allCommentsLoading, setAllCommentsLoading] = useState(true);
+    const [allCommentsError, setAllCommentsError] = useState(null);
   
     useEffect(() => {
-      const getComments = async () => {
+      const getCommentsByRecipe = async () => {
         try {
           const data = await fetchCommentsByRecipeId(recipe_id);
           setComments(data);
@@ -19,8 +23,27 @@ const useComments = (recipe_id) => {
         }
       };
   
-      getComments(recipe_id);
+      if (recipe_id) { // Esegui la chiamata solo se recipe_id è presente
+        getCommentsByRecipe(recipe_id);
+      } else {
+        setCommentsLoading(false); // Non carica nulla se non c'è recipe_id
+      }
     }, [recipe_id]);
+
+    useEffect(() => {
+      const getAllComments = async () => {
+        try {
+          const data = await fetchAllComments();
+          setAllComments(data);
+        } catch (error) {
+          setAllCommentsError(error.message);
+        } finally {
+          setAllCommentsLoading(false);
+        }
+      };
+
+      getAllComments();
+    })
 
     const addComment = async (newComment, recipe_id) => {
       try {
@@ -40,7 +63,15 @@ const useComments = (recipe_id) => {
       }
     }
   
-    return { comments, commentsLoading, commentsError, addComment, deleteComment };
+    return { 
+      comments,
+      commentsLoading, 
+      commentsError, 
+      allComments, 
+      allCommentsLoading,
+      allCommentsErroraddComment,
+      addComment,
+      deleteComment };
 };
 
 
