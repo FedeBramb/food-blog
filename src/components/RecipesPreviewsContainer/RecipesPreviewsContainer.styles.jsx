@@ -14,10 +14,6 @@ export const PreviewsContainer = styled.div`
     &.div-hr  {
         width: 100%;
     }
-
-    &.hr {
-        margin-left: 0;
-    }
 `
 
 export const Header = styled.div`

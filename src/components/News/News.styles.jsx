@@ -105,5 +105,4 @@ export const Gelato = styled.img`
         opacity: 0.6;
         height: 400px;
     }
-
 `

@@ -73,5 +73,6 @@ a {
   height:  0.25rem;
   width: 6.25rem;
   border: none;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
+  margin-left: 0;
 }
