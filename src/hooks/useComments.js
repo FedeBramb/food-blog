@@ -43,7 +43,7 @@ const useComments = (recipe_id) => {
       };
 
       getAllComments();
-    })
+    }, [])
 
     const addComment = async (newComment, recipe_id) => {
       try {

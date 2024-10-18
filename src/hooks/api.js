@@ -30,7 +30,6 @@ export const fetchAllComments = async () => {
     const response = await fetch(`https://food-blog-api-jlca.onrender.com/comments`);
     if (!response.ok) throw new Error('Errore nel recupero dei commenti');
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);
