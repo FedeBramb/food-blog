@@ -14,6 +14,10 @@
     margin-bottom: 20px;
     color:  #1d6296;
 }
+
+.ultimi-commenti hr {
+    margin-right: 0;
+}
   
 .commenti-lista {
     max-height: 400px;

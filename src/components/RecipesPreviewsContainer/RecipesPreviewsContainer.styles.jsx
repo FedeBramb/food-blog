@@ -17,9 +17,6 @@ export const PreviewsContainer = styled.div`
 `
 
 export const Header = styled.div`
-    & hr {
-        margin-left: 1%;
-    }
     
     & .margin {
         margin-bottom: 2%;
