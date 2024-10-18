@@ -1,0 +1,120 @@
+.ultimi-commenti {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+  
+.ultimi-commenti h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color:  #1d6296;
+}
+  
+.commenti-lista {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.8rem;
+}
+  
+.commento {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+  
+.commento:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+.commento-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+  
+.commento-info {
+    flex-grow: 1;
+}
+  
+.autore {
+    font-weight: bold;
+    margin: 0;
+    color: #00bcb3
+}
+  
+.ricetta {
+    font-size: 14px;
+    color: #3c3c3c;
+    margin: 0;
+}
+
+.title-ricetta {
+    color: #00837d95;
+}
+  
+.data {
+    font-size: 12px;
+    color: #999;
+}
+  
+.contenuto {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    margin: 0;
+}
+  
+.commenti-lista::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.commenti-lista::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+.commenti-lista::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+  
+.commenti-lista::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+  
+@media (max-width: 480px) {
+    .ultimi-commenti {
+      padding: 15px;
+    }
+  
+    .ultimi-commenti h2 {
+      font-size: 20px;
+    }
+  
+    .commento-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .avatar {
+      margin-bottom: 10px;
+    }
+  
+    .data {
+      margin-top: 5px;
+    }
+}
