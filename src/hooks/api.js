@@ -27,7 +27,7 @@ export const fetchRecipes = async () => {
 
 export const fetchAllComments = async () => {
   try {
-    const response = await fetch(`https://food-blog-api-jlca.onrender.com/recipes/comments`);
+    const response = await fetch(`https://food-blog-api-jlca.onrender.com/comments`);
     if (!response.ok) throw new Error('Errore nel recupero dei commenti');
     const data = await response.json();
     console.log(data);
