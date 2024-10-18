@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import logo from '../../assets/logo.webp';
+import Burgermenu from '../BurgerMenu/BurgerMenu.component.jsx';
 
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 import {
@@ -12,14 +14,13 @@ import {
   LinkSmallLogo,
   LogoSmallView,
   DropcaseContainer,
-  MenuButton,
   DropdownContent
 } from './Navbar.styles.jsx';
 
 
 const Navbar = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1196);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   
   // Cambia il boolean in base alla risoluzione della finestra
   useEffect(() => {
@@ -39,6 +40,16 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.2 } },
+  };
+  
+  const linkVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  }
+
   return (  
     // Renderizza il nav in base alla risoluzione della view  
     <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
@@ -51,21 +62,31 @@ const Navbar = () => {
         <LinkSmallLogo to="/" className='link-small-logo'>
           <LogoSmallView src={logo} alt='logo' />
         </LinkSmallLogo>
-        <MenuButton  onClick={toggleMenu}>
-          {!isOpen && (
-            <img src={`https://icongr.am/fontawesome/bars.svg?size=28&color=223b4e`} alt="icon Facebook" />
-          )}
-          {isOpen && (
-            <img src={`https://icongr.am/feather/x.svg?size=30&color=223b4e`} alt="icon Facebook" />
-          )}
-        </MenuButton>
+        <Burgermenu 
+          strokeWidth="3"
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          isOpen={isOpen} 
+          onClick={toggleMenu} 
+        />
         {isOpen && (
-            <DropdownContent>
+          <DropdownContent
+            initial="hidden"
+            animate="visible"
+            variants={dropdownVariants}
+          >
+            <motion.div variants={linkVariants}>
               <Link to="/" className="dropItem" onClick={toggleMenu}>HOME</Link>
+            </motion.div>
+            <motion.div variants={linkVariants}>
               <Link to="/recipes" className="dropItem" onClick={toggleMenu}>RICETTE</Link>
+            </motion.div>
+            <motion.div variants={linkVariants}>
               <Link to="/glossario" className="dropItem" onClick={toggleMenu}>GLOSSARIO</Link>
+            </motion.div>
+            <motion.div variants={linkVariants}>
               <Link to="/contatti" className="dropItem" onClick={toggleMenu}>CONTATTI</Link>
-            </DropdownContent>
+            </motion.div>
+          </DropdownContent>
         )}
       </DropcaseContainer>
     </NavbarContainer>

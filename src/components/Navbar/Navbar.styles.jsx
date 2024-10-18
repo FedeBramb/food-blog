@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { motion } from 'framer-motion';
+
 
 export const NavbarContainer = styled.div`
     display: flex;
@@ -98,42 +100,41 @@ export const DropcaseContainer = styled.div`
     }
 `
 
-export const MenuButton = styled.button`
-    width: 100%; 
-    background-color: rgb(255, 255, 255);
-    outline: none;
-    border: none;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+// export const MenuButton = styled.button`
+//     width: 100%; 
+//     background-color: rgb(255, 255, 255);
+//     outline: none;
+//     border: none;
+//     font-size: 1.4rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
 
-    &:focus {
-        outline: none;
-    }
+//     &:focus {
+//         outline: none;
+//     }
 
+//     &:hover {
+//         cursor: pointer;
+//     }
+// `
+
+export const DropdownContent = styled(motion.div)`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f1f1f1;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+
+  a {
+    color: var(--primary);
+    padding: 12px 16px;
+    display: block;
     &:hover {
-        cursor: pointer;
+      background-color: var(--hover-input);
+      color: var(--secondary-color);
     }
-`
-
-export const DropdownContent = styled.div`
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #f1f1f1;
-    width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-
-    & a {
-        color: var(--primary);
-        padding: 12px 16px;
-        display: block;
-
-        &:hover {
-            background-color: var(--hover-input);
-            color: var(--secondary-color);
-        }
-    }
+  }
 `
