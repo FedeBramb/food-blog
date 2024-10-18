@@ -169,7 +169,7 @@ const move = keyframes`
     }
 `;
 
-export const UnderlayContainer = styled.div`
+export const OverlayContainer = styled.div`
     position: absolute;
     top: 30%;
     left: 50%;

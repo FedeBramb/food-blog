@@ -24,7 +24,7 @@ import {
   Image,
   Title,
   ExploreButton,
-  UnderlayContainer,
+  OverlayContainer,
 } from './Carousel.styles.jsx';
 
 
@@ -116,9 +116,9 @@ function Carousel() {
         
         {/* Mostra un'icona di overlay se lo stato showIcon è vero */}
         {showIcon && (
-        <UnderlayContainer>
+        <OverlayContainer>
           <img src='https://i.ibb.co/PW8zc1V/Swipe-icon.png' alt="Icon" />
-        </UnderlayContainer>
+        </OverlayContainer>
       )}
       </MySwiper>
       
