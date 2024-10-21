@@ -57,7 +57,7 @@ const LastComments = () => {
                 </Recipe>
               </Info>
               <Date className="data">
-                {(comment.create_at)}
+                {comment.create_at}
                 {console.log(comment.create_at)}
               </Date>
             </HeaderComment>
