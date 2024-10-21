@@ -26,9 +26,17 @@ const LastComments = () => {
 
   // Formattiamo la data
   const formatDate = (dateString) => {
-    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    return new Date(dateString).toLocaleDateString('it-IT', options).replace(/\//g, '-');
-  };
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false };
+    
+    // Converte la stringa del timestamp in un oggetto Date
+    const date = new Date(dateString);
+
+    // Restituisce la data nel formato desiderato
+    const formattedDate = date.toLocaleString('it-IT', options);
+    
+    return formattedDate.replace(',', ''); // Rimuove la virgola se presente
+};
+
 
   return (
     <Container className="ultimi-commenti">
@@ -48,8 +56,7 @@ const LastComments = () => {
                 </Recipe>
               </Info>
               <Date className="data">
-                {formatDate(comment.create_at)} 
-                {new Date(comment.create_at).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
+                {formatDate(comment.create_at)}
               </Date>
             </HeaderComment>
             <Content className="contenuto">{comment.comment_text}</Content>
