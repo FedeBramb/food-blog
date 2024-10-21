@@ -1,5 +1,6 @@
 import React from 'react';
 import { useComments } from '../../hooks/useComments';
+import { Link } from 'react-router-dom';
 
 import Loader from '../Loader/Loader.component';
 import './LastComments.styles.css';
@@ -21,7 +22,11 @@ const LastComments = () => {
               <img src={'https://i.pravatar.cc/40?img=3'} alt={`Avatar di ${comment.user_name}`} className="avatar" />
               <div className="commento-info">
                 <p className="autore">{comment.user_name}</p>
-                <p className="ricetta">su <span className='title-ricetta'>{comment.title}</span></p>
+                <span className="ricetta">su 
+                  <Link>
+                    <span to={`/recipes/${recipe_id}`} className='title-ricetta'>{comment.title}</span>
+                  </Link>
+                </span>
               </div>
               <p className="data">{comment.create_at}</p>
             </div>
