@@ -23,8 +23,8 @@ const LastComments = () => {
               <div className="commento-info">
                 <p className="autore">{comment.user_name}</p>
                 <span className="ricetta">su 
-                  <Link>
-                    <span to={`/recipes/${comment.recipe_id}`} className='title-ricetta'>{comment.title}</span>
+                  <Link to={`/recipes/${comment.recipe_id}`}>
+                    <span className='title-ricetta'>{comment.title}</span>
                   </Link>
                 </span>
               </div>
