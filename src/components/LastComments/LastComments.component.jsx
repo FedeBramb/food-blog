@@ -25,17 +25,19 @@ const LastComments = () => {
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
   // Formattiamo la data
-  const formatDateString = (dateString) => {
-    const dateParts = dateString.split(/[- :]/); // Split stringa in parti
-    const year = dateParts[0];
-    const month = dateParts[1];
-    const day = dateParts[2];
-    const hours = dateParts[3];
-    const minutes = dateParts[4];
-
-    return `${day}-${month}-${year} ${hours}:${minutes}`;
-  }
+  function formatDateString(dateString) {
+    const date = new Date(dateString);
   
+    const options = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    };
+  
+    return new Intl.DateTimeFormat('it-IT', options).format(date).replace(',', '');
+  }
 
   return (
     <Container className="ultimi-commenti">
