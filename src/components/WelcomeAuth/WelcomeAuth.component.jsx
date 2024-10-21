@@ -2,7 +2,7 @@ import React from 'react';
 
 import blueDonuts from '../../assets/bluDonut.png';
 
-import './WelcomeAuth.styles.css';
+import './WelcomeAuth.styles.jsx';
 
 const WelcomeAuth = ({ className }) => {
   // Determina il testo in base al valore di className
