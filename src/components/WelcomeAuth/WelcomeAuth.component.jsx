@@ -2,7 +2,12 @@ import React from 'react';
 
 import blueDonuts from '../../assets/bluDonut.png';
 
-import './WelcomeAuth.styles.jsx';
+import {
+  Donut,
+  Container,
+  Title,
+  P,
+} from './WelcomeAuth.styles.jsx';
 
 const WelcomeAuth = ({ className }) => {
   // Determina il testo in base al valore di className
@@ -14,12 +19,12 @@ const WelcomeAuth = ({ className }) => {
   
   return (
     <>
-      <img src={blueDonuts} alt='blu donut' className='donut'/>
-      <div className='welcome-container'>
-        <h1 className='h1-sign-in gradient-text'>{headerText}</h1>
+      <Donut src={blueDonuts} alt='blu donut' className='donut'/>
+      <Container className='welcome-container'>
+        <Title className='h1-sign-in gradient-text'>{headerText}</Title>
         <hr className='hr-sign-in hr-blue' />
-        <p className='p-sign-in'>{paragraphText}</p>
-      </div>
+        <P className='p-sign-in'>{paragraphText}</p>
+      </Container>
     </>
   )
 }
