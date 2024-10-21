@@ -37,7 +37,7 @@ const LastComments = () => {
   //   };
   
   //   return new Intl.DateTimeFormat('it-IT', options).format(date).replace(',', '');
-  }
+  
 
   return (
     <Container className="ultimi-commenti">
@@ -67,5 +67,6 @@ const LastComments = () => {
       </List>
     </Container>
   );
+}
 
 export default LastComments;
