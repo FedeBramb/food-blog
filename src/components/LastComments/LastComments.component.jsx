@@ -67,6 +67,5 @@ const LastComments = () => {
       </List>
     </Container>
   );
-}
 
 export default LastComments;
