@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { RecipeContext } from '../../context/recipe.context.jsx';
 import Loader from '../Loader/Loader.component.jsx';
-import CommentsSection from '../CommentsSection/CommentsSection.component';
+import RecipeComments from '../RecipeComments/RecipeComments.component';
 
 import { 
   RecipeContainer,
@@ -77,7 +77,7 @@ const Recipe = () => {
           ))}
         </div>
       </InstructionSection>
-      <CommentsSection
+      <RecipeComments
         recipe_id={recipe_id}
       />
     </RecipeContainer>

@@ -7,17 +7,17 @@ import Loader from '../Loader/Loader.component.jsx';
 import StarRating from '../StarRating/StarRating.component';
 
 import {
-    CommentsSectionContainer,
+    RecipeCommentsContainer,
     AllCommentsTitle,
     CommentContainer,
     Content,
     CommentInput
-} from './CommentsSections.styles.jsx';
+} from './RecipeCommentss.styles.jsx';
 
 
 
 // Componente per la sezione dei commenti
-const CommentsSection = ({ recipe_id }) => {
+const RecipeComments = ({ recipe_id }) => {
   const { user } = useContext(UserContext);
   const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(recipe_id);
   const [inputValue, setInputValue] = useState("");
@@ -54,7 +54,7 @@ const CommentsSection = ({ recipe_id }) => {
     }
   };
     return (
-      <CommentsSectionContainer>
+      <RecipeCommentsContainer>
         <AllCommentsTitle>Commenti:</AllCommentsTitle>
         <hr className='line'></hr>
         {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
@@ -100,9 +100,9 @@ const CommentsSection = ({ recipe_id }) => {
               <p>Effettua il login per accedere a questa sezione.</p>
           )}
         </div>
-      </CommentsSectionContainer>
+      </RecipeCommentsContainer>
     );
 };
 
-export default CommentsSection;
+export default RecipeComments;
 

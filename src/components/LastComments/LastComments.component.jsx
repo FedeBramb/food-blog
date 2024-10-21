@@ -21,7 +21,7 @@ const LastComments = () => {
               <img src={'https://i.pravatar.cc/40?img=3'} alt={`Avatar di ${comment.user_name}`} className="avatar" />
               <div className="commento-info">
                 <p className="autore">{comment.user_name}</p>
-                <p className="ricetta">su <span className='title-ricetta'>{comment.recipe_name}</span></p>
+                <p className="ricetta">su <span className='title-ricetta'>{comment.title}</span></p>
               </div>
               <p className="data">{comment.create_at}</p>
             </div>

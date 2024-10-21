@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CommentsSectionContainer = styled.div`
+export const RecipeCommentsContainer = styled.div`
     width: 65vw;
     margin-top: 10vh;
 
