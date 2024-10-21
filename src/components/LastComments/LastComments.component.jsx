@@ -3,7 +3,20 @@ import { useComments } from '../../hooks/useComments';
 import { Link } from 'react-router-dom';
 
 import Loader from '../Loader/Loader.component';
-import './LastComments.styles.css';
+import {
+  Container,
+  Title,
+  List,
+  Comment,
+  HeaderComment,
+  Avatar,
+  Info,
+  Autore,
+  Recipe,
+  RecipeTitle,
+  Date,
+  Content,
+} from './LastComments.styles.jsx';
 
 const LastComments = () => {
   const { allComments, allCommentsLoading, allCommentsErroraddComment} = useComments();
@@ -11,30 +24,39 @@ const LastComments = () => {
   if (allCommentsLoading) return <Loader/>; // Mostra loading
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
+  // Formattiamo la data
+  const formatDate = (dateString) => {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+    return new Date(dateString).toLocaleDateString('it-IT', options).replace(/\//g, '-');
+  };
+
   return (
-    <div className="ultimi-commenti">
-      <h2 className='gradient-text'>Ultimi Commenti</h2>
+    <Container className="ultimi-commenti">
+      <Title className='gradient-text'>Ultimi Commenti</Title>
       <hr className='hr-blue' />
-      <div className="commenti-lista">
+      <List className="commenti-lista">
         {allComments.map((comment) => (
-          <div key={comment.id_comment} className="commento">
-            <div className="commento-header">
-              <img src={'https://i.pravatar.cc/40?img=3'} alt={`Avatar di ${comment.user_name}`} className="avatar" />
-              <div className="commento-info">
-                <p className="autore">{comment.user_name}</p>
-                <span className="ricetta">su  
+          <Comment key={comment.id_comment} className="commento">
+            <HeaderComment className="commento-header">
+              <Avatar src={'https://i.pravatar.cc/40?img=3'} alt={`Avatar di ${comment.user_name}`} className="avatar" />
+              <Info className="commento-info">
+                <Autore className="autore">{comment.user_name}</Autore>
+                <Recipe className="ricetta">su  
                   <Link to={`/recipes/${comment.recipe_id}`}>
-                    <span className='title-ricetta'>{comment.title}</span>
+                    <RecipeTitle className='title-ricetta'>{comment.title}</RecipeTitle>
                   </Link>
-                </span>
-              </div>
-              <p className="data">{comment.create_at}</p>
-            </div>
-            <p className="contenuto">{comment.comment_text}</p>
-          </div>
+                </Recipe>
+              </Info>
+              <Date className="data">
+                {formatDate(comment.create_at)} 
+                {new Date(comment.create_at).toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' })}
+              </Date>
+            </HeaderComment>
+            <Content className="contenuto">{comment.comment_text}</Content>
+          </Comment>
         ))}
-      </div>
-    </div>
+      </List>
+    </Container>
   );
 }
 
