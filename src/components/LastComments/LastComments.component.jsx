@@ -25,20 +25,20 @@ const LastComments = () => {
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
   // Formattiamo la data
-  // const formatDateString = (dateString) => {
-  //   const date = new Date(dateString);
+  const formatDateString = (dateString) => {
 
-  //   const options = {
-  //     day: '2-digit',
-  //     month: '2-digit',
-  //     year: 'numeric',
-  //     hour: '2-digit',
-  //     minute: '2-digit'
-  //   };
+    const cleanDateString = dateString.replace('T', ' ').replace('Z', '');
+    
+    const year = cleanDateString.slice(0, 4);
+    const month = cleanDateString.slice(5, 7);
+    const day = cleanDateString.slice(8, 10);
+    const hour = cleanDateString.slice(11, 13);
+    const minute = cleanDateString.slice(14, 16);
+    
+    // Ritorna la stringa formattata
+    return `${day}-${month}-${year} ${hour}:${minute}`;
+  }
 
-  //   return new Intl.DateTimeFormat('it-IT', options).format(date).replace(',', '');
-  // }
-  
 
   return (
     <Container className="ultimi-commenti">
@@ -53,13 +53,12 @@ const LastComments = () => {
                 <Autore className="autore">{comment.user_name}</Autore>
                 <Recipe className="ricetta">su  
                   <Link to={`/recipes/${comment.recipe_id}`}>
-                    <RecipeTitle className='title-ricetta'>{comment.title}</RecipeTitle>
+                    <RecipeTitle className='title-ricetta'> {comment.title}</RecipeTitle>
                   </Link>
                 </Recipe>
               </Info>
               <Date className="data">
-                {comment.create_at}
-                {console.log(typeof comment.create_at)}
+                {formatDateString(comment.create_at)}
               </Date>
             </HeaderComment>
             <Content className="contenuto">{comment.comment_text}</Content>
