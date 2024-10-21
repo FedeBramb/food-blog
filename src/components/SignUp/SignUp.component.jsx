@@ -1,30 +1,33 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { UserContext } from '../../context/user.context';
 import { useNavigate } from 'react-router-dom';
 import useSignUp from '../../hooks/useSignUp';
 
 import WelcomeAuth from "../WelcomeAuth/WelcomeAuth.component";
+import UploadImage from './UploadImage/UploadImage.component';
 
 import {
     SignUpContainer,
     FormContainer,
     Form,
     Label,
+    LabelAvatar,
     Input,
     Button,
+    Arrow
 } from './SignUp.styles';
 
 // Componente per la registrazione
 // Ragruppo tutte le proprietà in un oggetto di stato. 
 const SignUp = () => {
-    const { signUp, error} = useSignUp();
-    const [ formSignUp, setFormSignUp ] = useState({
+    const { signUp, error } = useSignUp();
+    const [formSignUp, setFormSignUp] = useState({
         username: '',
         password: '',
         checkPassword: '',
         email: '',
-        marketing: false
+        marketing: false,
+        avatar_url: '',
     });
 
     const navigate = useNavigate();
@@ -40,9 +43,16 @@ const SignUp = () => {
         return;
     }
 
+    const handleImageUpload = (url) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            imageUrl: url, // Imposta l'URL dell'immagine nel formData
+        }));
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const { username, password, checkPassword, email } = formSignUp;
+        const { username, password, checkPassword, email, avatar_url } = formSignUp;
         console.log('Dati della form:', formSignUp);
         try {
             const user = await signUp(formSignUp);
@@ -115,6 +125,11 @@ const SignUp = () => {
                 <Label htmlFor='marketing'>
                     Accetto di ricevere comunicazioni di marketing
                 </Label>
+                <UploadImage id='avatar' onUpload={handleImageUpload} />
+                <LabelAvatar htmlFor='avatar'>
+                    <Arrow src='https://icongr.am/fontawesome/arrow-left.svg?size=20&color=78abdc' alt='arrow' ></Arrow>   
+                    Carica un avatar
+                </LabelAvatar>
                 <Button type='submit' className='form-button'>Registrati</Button>
                 <div className='error-container'>
                     {error && <p className='error-message'>{error}</p>}

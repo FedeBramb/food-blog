@@ -9,6 +9,7 @@ export const SignUpContainer = styled.div`
     width: 78%;
     z-index: 100;
     margin: auto;
+    overflow-y: auto;
 
     @media screen and (max-width: 780px) {
         flex-direction: column;
@@ -52,6 +53,17 @@ export const Label = styled.label`
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
+`
+
+export const LabelAvatar = styled.label`
+    display: flex;
+    align-items: center;
+`
+
+export const Arrow = styled.img`
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 `
 
 export const Input = styled.input`
