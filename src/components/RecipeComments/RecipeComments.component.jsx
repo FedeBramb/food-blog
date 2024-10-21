@@ -4,7 +4,7 @@ import { UserContext } from '../../context/user.context.jsx';
 import { useComments } from '../../hooks/useComments.js';
 
 import Loader from '../Loader/Loader.component.jsx';
-import StarRating from '../StarRating/StarRating.component';
+import StarRating from '../StarRating/StarRating.component.jsx';
 
 import {
     RecipeCommentsContainer,
@@ -12,7 +12,7 @@ import {
     CommentContainer,
     Content,
     CommentInput
-} from './RecipeCommentss.styles.jsx';
+} from './RecipeComments.styles.jsx';
 
 
 
