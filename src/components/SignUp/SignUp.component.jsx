@@ -46,7 +46,7 @@ const SignUp = () => {
     const handleImageUpload = (url) => {
         setFormData((prevData) => ({
             ...prevData,
-            imageUrl: url, // Imposta l'URL dell'immagine nel formData
+            avatar_url: url, // Imposta l'URL dell'immagine nel formData
         }));
     };
 
