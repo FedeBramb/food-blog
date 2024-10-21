@@ -26,13 +26,13 @@ const LastComments = () => {
 
   // Formattiamo la data
   const formatDateString = (dateString) => {
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Gennaio è 0!
-    const year = date.getFullYear();
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-  
+    const dateParts = dateString.split(/[- :]/); // Split stringa in parti
+    const year = dateParts[0];
+    const month = dateParts[1];
+    const day = dateParts[2];
+    const hours = dateParts[3];
+    const minutes = dateParts[4];
+
     return `${day}-${month}-${year} ${hours}:${minutes}`;
   }
   
