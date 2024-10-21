@@ -25,18 +25,18 @@ const LastComments = () => {
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
   // Formattiamo la data
-  function formatDateString(dateString) {
-    const date = new Date(dateString);
+  // function formatDateString(dateString) {
+  //   const date = new Date(dateString);
   
-    const options = {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    };
+  //   const options = {
+  //     day: '2-digit',
+  //     month: '2-digit',
+  //     year: 'numeric',
+  //     hour: '2-digit',
+  //     minute: '2-digit'
+  //   };
   
-    return new Intl.DateTimeFormat('it-IT', options).format(date).replace(',', '');
+  //   return new Intl.DateTimeFormat('it-IT', options).format(date).replace(',', '');
   }
 
   return (
@@ -57,7 +57,8 @@ const LastComments = () => {
                 </Recipe>
               </Info>
               <Date className="data">
-                {formatDateString(comment.create_at)}
+                {(comment.create_at)}
+                {console.log(comment.create_at)}
               </Date>
             </HeaderComment>
             <Content className="contenuto">{comment.comment_text}</Content>
