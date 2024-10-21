@@ -23,7 +23,7 @@ const WelcomeAuth = ({ className }) => {
       <Container className='welcome-container'>
         <Title className='h1-sign-in gradient-text'>{headerText}</Title>
         <hr className='hr-sign-in hr-blue' />
-        <P className='p-sign-in'>{paragraphText}</p>
+        <P className='p-sign-in'>{paragraphText}</P>
       </Container>
     </>
   )
