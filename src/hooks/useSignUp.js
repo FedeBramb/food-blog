@@ -7,11 +7,11 @@ const useSignUp = () => {
     const [error, setError] = useState('');
 
     const signUp = async (formSignUp) => {
-        const { username, email, password, checkPassword } = formSignUp;
+        const { username, email, password, checkPassword, avatar_url } = formSignUp;
         setError('');
 
         try {
-            const user = await fetchSignUp(username, email, password, checkPassword);
+            const user = await fetchSignUp(username, email, password, checkPassword, avatar_url);
             const userWithLoggedIn = {...user, logged_in: true};
             localStorage.setItem('user', JSON.stringify(userWithLoggedIn));
             loadUser(userWithLoggedIn);
