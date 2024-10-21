@@ -8,7 +8,7 @@ import {
     Label
 } from './UploadImage.styles';
 
-const UploadImage = () => {
+const UploadImage = ({handleImageUpload}) => {
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState('');
@@ -50,7 +50,7 @@ const UploadImage = () => {
 
                 const data = await response.json();
                 setImageUrl(data.secure_url); // Ottieni l'URL dell'immagine caricata
-                console.log('Image URL:', data.secure_url);
+                handleImageUpload(imageUrl);
                 // Qui potresti inviare l'URL al tuo backend per salvarlo nel database
 
             } catch (error) {
