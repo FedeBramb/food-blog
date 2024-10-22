@@ -8,7 +8,6 @@ import {
   Container,
   Title,
   List,
-  Comment,
 } from './LastComments.styles.jsx';
 
 const LastComments = () => {
