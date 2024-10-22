@@ -48,7 +48,7 @@ export const CommentContainer = styled.div`
     }
 `
 
-export const CommentInput = styled.input`
+export const CommentInput = styled.textarea`
     width: 25vw;
     min-width: 270px;
     height: 10vh;

@@ -82,8 +82,7 @@ const RecipeComments = ({ recipe_id }) => {
           {user.logged_in ? (
             <>
               <label htmlFor="message">Message:</label>
-              <CommentInput 
-                type="textarea"
+              <CommentInput
                 placeholder="commento..." 
                 value={inputValue} 
                 onChange={handleInputChange} 
