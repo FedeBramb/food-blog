@@ -20,12 +20,12 @@ const LastComments = () => {
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
   return (
-    <Container className="ultimi-commenti">
+    <Container>
       <Title className='gradient-text'>Commenti</Title>
       <hr className='hr-blue' />
-      <List className="commenti-lista">
+      <List>
         {reverseComments.map((comment) => (
-          <Comment key={comment.id_comment} comment={comment} className="commento" />
+          <Comment key={comment.id_comment} comment={comment}/>
         ))}
       </List>
     </Container>
