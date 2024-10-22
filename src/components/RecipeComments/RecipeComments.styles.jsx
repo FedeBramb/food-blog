@@ -52,6 +52,7 @@ export const CommentInput = styled.input`
     width: 25vw;
     min-width: 270px;
     height: 10vh;
+    font-size: 1.1rem;
 
     &::placeholder {
         color: #498082; 

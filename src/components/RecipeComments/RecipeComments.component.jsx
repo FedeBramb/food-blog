@@ -83,7 +83,7 @@ const RecipeComments = ({ recipe_id }) => {
             <>
               <label htmlFor="message">Message:</label>
               <CommentInput 
-                type="text"
+                type="textarea"
                 placeholder="commento..." 
                 value={inputValue} 
                 onChange={handleInputChange} 
