@@ -7,7 +7,7 @@ export const Container = styled.div`
     margin: 0 auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 5px 20px 20px 20px;
+    padding: 5px 20px 20px 10px;
     font-family: Arial, sans-serif;
     position: -webkit-sticky;
     position: sticky;
