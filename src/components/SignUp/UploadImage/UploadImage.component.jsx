@@ -49,6 +49,8 @@ const UploadImage = ({handleImageUpload}) => {
                 });
 
                 const data = await response.json();
+                console.log(data);
+                console.log(data.secure_url);
                 setImageUrl(data.secure_url); // Ottieni l'URL dell'immagine caricata
                 handleImageUpload(imageUrl);
                 // Qui potresti inviare l'URL al tuo backend per salvarlo nel database
