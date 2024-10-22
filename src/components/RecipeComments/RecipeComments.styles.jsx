@@ -28,6 +28,7 @@ export const CommentContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
+    margin-bottom: 0.7rem;
 
     & button {
         background-color: var(--secondary-color);
@@ -55,7 +56,7 @@ export const CommentInput = styled.textarea`
     height: 10vh;
     font-size: 1.1rem;
     resize: none;
-    margin: 0.7rem 0 0.7rem 0;
+    margin-top: 0.7rem;
 
     &::placeholder {
         color: #498082; 
