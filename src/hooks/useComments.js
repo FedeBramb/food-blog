@@ -71,7 +71,8 @@ const useComments = (recipe_id) => {
       allCommentsLoading,
       allCommentsError,
       addComment,
-      deleteComment };
+      deleteComment 
+    };
 };
 
 
