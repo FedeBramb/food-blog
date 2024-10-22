@@ -95,7 +95,7 @@ export const RecipeTitle = styled.span`
 `
 
 export const DateAndRating = styled.div`
-    flex-grow: 1 
+     
 `
 
 export const Date = styled.p`
