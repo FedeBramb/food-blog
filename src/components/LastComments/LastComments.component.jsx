@@ -42,7 +42,7 @@ const LastComments = () => {
 
   return (
     <Container className="ultimi-commenti">
-      <Title className='gradient-text'>Ultimi Commenti</Title>
+      <Title className='gradient-text'>Commenti</Title>
       <hr className='hr-blue' />
       <List className="commenti-lista">
         {allComments.map((comment) => (
