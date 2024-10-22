@@ -1,3 +1,4 @@
+import { style } from "framer-motion/client";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -70,12 +71,11 @@ export const Avatar = styled.img`
 
     @media (max-width: 480px) {
         margin-bottom: 10px;
-    }
-    
+    } 
 ` 
 
 export const Info = styled.div`
-    flex-grow: 1;
+    flex-grow: 1; // Occupa tutto lo spazio disponibile
 `
 
 export const Autore = styled.p`
@@ -92,6 +92,10 @@ export const Recipe = styled.span`
 
 export const RecipeTitle = styled.span`
     color: #00524e94;
+`
+
+export const DateAndRating = styled.div`
+    flex-grow: 1 
 `
 
 export const Date = styled.p`

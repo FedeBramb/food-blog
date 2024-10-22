@@ -14,6 +14,7 @@ import {
   Autore,
   Recipe,
   RecipeTitle,
+  DateAndRating,
   Date,
   Rating,
   Content,
@@ -61,13 +62,15 @@ const LastComments = () => {
                   </Link>
                 </Recipe>
               </Info>
-              <Date className="data">
-                {formatDateString(comment.create_at)}
-              </Date>
+              <DateAndRating>
+                <Date className="data">
+                  {formatDateString(comment.create_at)}
+                </Date>
+                <Rating>
+                  {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
+                </Rating>
+              </DateAndRating>
             </HeaderComment>
-            <Rating>
-              {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
-            </Rating>
             <Content className="contenuto">{comment.comment_text}</Content>
           </Comment>
         ))}
