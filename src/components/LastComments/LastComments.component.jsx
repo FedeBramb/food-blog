@@ -1,23 +1,14 @@
 import React from 'react';
 import { useComments } from '../../hooks/useComments';
-import { Link } from 'react-router-dom';
 
+import Comment from '../Comment/Comment.component.jsx';
 import Loader from '../Loader/Loader.component';
+
 import {
   Container,
   Title,
   List,
   Comment,
-  HeaderComment,
-  Avatar,
-  Info,
-  Autore,
-  Recipe,
-  RecipeTitle,
-  DateAndRating,
-  Date,
-  Rating,
-  Content,
 } from './LastComments.styles.jsx';
 
 const LastComments = () => {
@@ -51,28 +42,7 @@ const LastComments = () => {
       <hr className='hr-blue' />
       <List className="commenti-lista">
         {reverseComments.map((comment) => (
-          <Comment key={comment.id_comment} className="commento">
-            <HeaderComment className="commento-header">
-              <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} className="avatar" />
-              <Info className="commento-info">
-                <Autore className="autore">{comment.user_name}</Autore>
-                <Recipe className="ricetta">su  
-                  <Link to={`/recipes/${comment.recipe_id}`}>
-                    <RecipeTitle className='title-ricetta'> {comment.title}</RecipeTitle>
-                  </Link>
-                </Recipe>
-              </Info>
-              <DateAndRating>
-                <Date className="data">
-                  {formatDateString(comment.create_at)}
-                </Date>
-                <Rating>
-                  {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
-                </Rating>
-              </DateAndRating>
-            </HeaderComment>
-            <Content className="contenuto">{comment.comment_text}</Content>
-          </Comment>
+          <Comment key={comment.id_comment} comment={comment} className="commento" />
         ))}
       </List>
     </Container>

@@ -5,12 +5,13 @@ import { useComments } from '../../hooks/useComments.js';
 
 import Loader from '../Loader/Loader.component.jsx';
 import StarRating from '../StarRating/StarRating.component.jsx';
+import Comment from '../Comment/Comment.component.jsx';
+
 
 import {
     RecipeCommentsContainer,
     AllCommentsTitle,
     CommentContainer,
-    Content,
     CommentInput
 } from './RecipeComments.styles.jsx';
 
@@ -56,27 +57,21 @@ const RecipeComments = ({ recipe_id }) => {
     return (
       <RecipeCommentsContainer>
         <AllCommentsTitle>Commenti:</AllCommentsTitle>
-        <hr className='line'></hr>
+        <hr className='line' />
         {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
         {comments.length > 0 ? (
           <div className='comments-box'>
             {comments.map((comment, index) => (
               <CommentContainer key={index}>
-                <Content>
-                  <p className='username'>{comment.user_name}:</p>
-                  <p className='comment'>{comment.comment_text}</p>
-                  <div className="rating">
-                      {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
-                  </div>
-                </Content>
+                <Comment />
                 {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
-                {user.logged_in && user.id === comment.user_id &&   
+                {user.logged_in && user.id === comment.user_id && (
                   <button onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}>
-                    <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' />
+                    <img src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' alt='Delete comment' />
                   </button>
-                }
+                )}
               </CommentContainer>
-              ))}
+            ))}
           </div>
         ) : (
           <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>

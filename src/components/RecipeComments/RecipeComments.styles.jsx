@@ -28,18 +28,6 @@ export const CommentContainer = styled.div`
     align-items: center;
     gap: 2rem;
 
-    .username {
-        margin-bottom: 10px;
-        font-weight: 700;
-        font-style: normal;
-        color: var(--comment-color);
-    }
-
-    .comment {
-        margin-bottom: 10px;
-        color: #767676;
-    }
-
     & button {
         background-color: var(--secondary-color);
         border: none;
@@ -58,16 +46,6 @@ export const CommentContainer = styled.div`
             border: none;
         }
     }
-
-    .rating {
-        margin-bottom: 2vh;
-        color: var(--comment-color);
-    }
-`
-
-export const Content = styled.div`
-    display: flex;
-    flex-direction: column;
 `
 
 export const CommentInput = styled.input`
