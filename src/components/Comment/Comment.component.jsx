@@ -29,11 +29,11 @@ const formatDateString = (dateString) => {
     return `${day}-${month}-${year} ${hour}:${minute}`;
 }
 
-const Comment = ({ comment }) => {
+const Comment = ({ isFullWidth, comment }) => {
       // Formattiamo la data
 
   return (
-    <Container >
+    <Container className={isFullWidth ? 'full-width' : ''}>
         <HeaderComment >
             <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} />
             <Info>

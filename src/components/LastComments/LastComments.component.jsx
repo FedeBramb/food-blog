@@ -25,7 +25,7 @@ const LastComments = () => {
       <hr className='hr-blue' />
       <List>
         {reverseComments.map((comment) => (
-          <Comment key={comment.id_comment} comment={comment}/>
+          <Comment key={comment.id_comment} comment={comment} isFullWidth={true}/>
         ))}
       </List>
     </Container>
