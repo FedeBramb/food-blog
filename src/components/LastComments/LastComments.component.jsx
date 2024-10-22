@@ -48,6 +48,7 @@ const LastComments = () => {
         {allComments.map((comment) => (
           <Comment key={comment.id_comment} className="commento">
             <HeaderComment className="commento-header">
+              {console.log(comment.avatar_url)}
               <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} className="avatar" />
               <Info className="commento-info">
                 <Autore className="autore">{comment.user_name}</Autore>
