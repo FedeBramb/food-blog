@@ -25,11 +25,6 @@ const UploadImage = ({ onUpload }) => {
     }
   };
 
-  useEffect(() => {
-    if (imageUrl) {
-      onUpload(imageUrl); // Chiamata a onUpload quando imageUrl è impostato
-    }
-  }, [imageUrl, onUpload]);
 
   const handleUpload = async () => {
     setLoading(true);
