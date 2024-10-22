@@ -5,6 +5,7 @@ export const Container = styled.div`
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
     min-width: 325px;
+    width: 100%;
 
     &:last-child {
         margin-bottom: 0;
