@@ -6,7 +6,7 @@ const UploadImage = ({ onUpload }) => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
   const [error, setError] = useState('');
-  const defaultAvatarUrl = 'URL_DEL_TUO_AVATAR_PREDEFINITO'; // Sostituisci con il tuo URL predefinito
+  const defaultAvatarUrl = 'https://i.ibb.co/xh6X7f2/avatar-default.jpg'; // Sostituisci con il tuo URL predefinito
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
