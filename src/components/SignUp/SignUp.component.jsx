@@ -48,6 +48,7 @@ const SignUp = () => {
             ...prevData,
             avatar_url: url, // Imposta l'URL dell'immagine nel formData
         }));
+        console.log('Avatar URL impostato:', url); 
     };
 
     const handleSubmit = async (event) => {
