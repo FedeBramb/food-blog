@@ -19,22 +19,6 @@ const LastComments = () => {
   if (allCommentsLoading) return <Loader/>; // Mostra loading
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
-  // Formattiamo la data
-  const formatDateString = (dateString) => {
-
-    const cleanDateString = dateString.replace('T', ' ').replace('Z', '');
-    
-    const year = cleanDateString.slice(0, 4);
-    const month = cleanDateString.slice(5, 7);
-    const day = cleanDateString.slice(8, 10);
-    const hour = cleanDateString.slice(11, 13);
-    const minute = cleanDateString.slice(14, 16);
-    
-    // Ritorna la stringa formattata
-    return `${day}-${month}-${year} ${hour}:${minute}`;
-  }
-
-
   return (
     <Container className="ultimi-commenti">
       <Title className='gradient-text'>Commenti</Title>
