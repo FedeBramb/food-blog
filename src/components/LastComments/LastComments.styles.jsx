@@ -14,8 +14,7 @@ export const Container = styled.div`
     top: 52.04px;
 
     @media screen and (max-width: 1100px) {
-        width: 98vw;
-        max-width: 98vw;
+        width: 100%;
     }
 
     @media (max-width: 480px) {
@@ -92,7 +91,7 @@ export const Recipe = styled.span`
 `
 
 export const RecipeTitle = styled.span`
-    color: #00837d95;
+    color: #00524e94;
 `
 
 export const Date = styled.p`

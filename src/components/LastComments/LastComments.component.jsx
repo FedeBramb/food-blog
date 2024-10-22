@@ -21,6 +21,9 @@ import {
 const LastComments = () => {
   const { allComments, allCommentsLoading, allCommentsErroraddComment} = useComments();
 
+  // Creiamo una copia dei commenti e invertiamo l'ordine per avere prima l'ultimo commento
+  const reverseComments = [...allComments].reverse();
+
   if (allCommentsLoading) return <Loader/>; // Mostra loading
   if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
 
@@ -45,7 +48,7 @@ const LastComments = () => {
       <Title className='gradient-text'>Commenti</Title>
       <hr className='hr-blue' />
       <List className="commenti-lista">
-        {allComments.map((comment) => (
+        {reverseComments.map((comment) => (
           <Comment key={comment.id_comment} className="commento">
             <HeaderComment className="commento-header">
               {console.log(comment.avatar_url)}

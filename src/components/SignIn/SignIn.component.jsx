@@ -58,7 +58,7 @@ const SignIn = () => {
                 <Input id='password' type='password'name='password' onChange={onChangeHandler} required></Input>
                 <Button type='submit'>Accedi</Button>
                 <div className='error-container'>
-                    {error && <p className='error-message'>{error}</p>}
+                    {error && <p className='error-message'>Error: {error}</p>}
                 </div>
             </SignInForm>
         </SignInContainer>
