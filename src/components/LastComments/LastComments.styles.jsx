@@ -101,6 +101,7 @@ export const DateAndRating = styled.div`
 export const Date = styled.p`
     font-size: 12px;
     color: #999;
+    margin-bottom: 3px;
 
     @media (max-width: 480px) {
         margin-top: 5px;
