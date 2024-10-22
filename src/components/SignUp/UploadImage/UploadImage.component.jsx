@@ -50,7 +50,7 @@ const UploadImage = ({onUpload}) => {
 
                 const data = await response.json();
                 setImageUrl(data.secure_url); // Ottieni l'URL dell'immagine caricata
-                onUpload(imageUrl);
+                onUpload(data.secure_url);
             } catch (error) {
                 console.error('Error uploading image:', error);
             }
