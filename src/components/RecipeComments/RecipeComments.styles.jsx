@@ -10,7 +10,8 @@ export const RecipeCommentsContainer = styled.div`
 
     & label {
         display: block;
-        color: var(--hover-input);
+        font-size: 1.2rem;
+        color: var(--primary);
     }
 `
 

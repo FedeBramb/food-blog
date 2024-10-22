@@ -15,6 +15,7 @@ import {
   Recipe,
   RecipeTitle,
   Date,
+  Rating,
   Content,
 } from './LastComments.styles.jsx';
 
@@ -51,7 +52,6 @@ const LastComments = () => {
         {reverseComments.map((comment) => (
           <Comment key={comment.id_comment} className="commento">
             <HeaderComment className="commento-header">
-              {console.log(comment.avatar_url)}
               <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} className="avatar" />
               <Info className="commento-info">
                 <Autore className="autore">{comment.user_name}</Autore>
@@ -65,6 +65,9 @@ const LastComments = () => {
                 {formatDateString(comment.create_at)}
               </Date>
             </HeaderComment>
+            <Rating>
+              {"★".repeat(comment.rating) + "☆".repeat(5 - comment.rating)}
+            </Rating>
             <Content className="contenuto">{comment.comment_text}</Content>
           </Comment>
         ))}

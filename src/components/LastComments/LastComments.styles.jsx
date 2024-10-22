@@ -103,6 +103,10 @@ export const Date = styled.p`
     }
 `
 
+export const Rating = styled.span`
+    color: var(--comment-color);
+`
+
 export const Content = styled.p`
     font-size: 1.1rem;
     letter-spacing: -1px;
