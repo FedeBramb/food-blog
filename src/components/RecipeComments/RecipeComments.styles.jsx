@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RecipeCommentsContainer = styled.div`
     width: 65vw;
     margin-top: 10vh;
+    margin-bottom: 1.3rem;
 
     .line {
         margin-bottom: 3vh;
