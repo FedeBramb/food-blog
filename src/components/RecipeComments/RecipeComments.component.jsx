@@ -11,6 +11,7 @@ import Comment from '../Comment/Comment.component.jsx';
 import {
     RecipeCommentsContainer,
     AllCommentsTitle,
+    CommentBox,
     CommentContainer,
     CommentInput
 } from './RecipeComments.styles.jsx';
@@ -60,7 +61,7 @@ const RecipeComments = ({ recipe_id }) => {
         <hr className='line' />
         {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
         {comments.length > 0 ? (
-          <div className='comments-box'>
+          <CommentBox>
             {comments.map((comment, index) => (
               <CommentContainer key={index}>
                 <Comment comment={comment} />
@@ -72,7 +73,7 @@ const RecipeComments = ({ recipe_id }) => {
                 )}
               </CommentContainer>
             ))}
-          </div>
+          </CommentBox>
         ) : (
           <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>
         )}

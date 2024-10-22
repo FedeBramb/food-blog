@@ -24,6 +24,10 @@ export const AllCommentsTitle = styled.h2`
     -webkit-text-fill-color: transparent;
 `
 
+export const CommentBox = styled.div`
+    margin-bottom: 0.7rem;
+`
+
 export const CommentContainer = styled.div`
     display: flex;
     align-items: center;
