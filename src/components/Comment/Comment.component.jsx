@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import {
-    Comment,
+    Container,
     HeaderComment,
     Avatar,
     Info,
@@ -16,7 +16,7 @@ import {
 
 const Comment = ({ comment }) => {
   return (
-    <Comment className="commento">
+    <Container className="commento">
         <HeaderComment className="commento-header">
             <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} className="avatar" />
             <Info className="commento-info">
@@ -37,7 +37,7 @@ const Comment = ({ comment }) => {
             </DateAndRating>
         </HeaderComment>
         <Content className="contenuto">{comment.comment_text}</Content>
-    </Comment>
+    </Container>
   )
 }
 
