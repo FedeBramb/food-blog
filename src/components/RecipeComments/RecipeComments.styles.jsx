@@ -12,7 +12,7 @@ export const RecipeCommentsContainer = styled.div`
     & label {
         display: block;
         font-size: 1.2rem;
-        color: var(--primary);
+        color: var(--hover-color);
     }
 `
 
