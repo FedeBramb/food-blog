@@ -32,7 +32,7 @@ export const Blueberry = styled.img`
 
 export const Donut = styled.img`
     position: absolute;
-    bottom: -4rem;
+    bottom: -9rem;
     right: 0;
     z-index: -1;
     opacity: 0.6;
