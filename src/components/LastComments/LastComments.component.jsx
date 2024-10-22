@@ -48,7 +48,7 @@ const LastComments = () => {
         {allComments.map((comment) => (
           <Comment key={comment.id_comment} className="commento">
             <HeaderComment className="commento-header">
-              <Avatar src={'https://i.pravatar.cc/40?img=3'} alt={`Avatar di ${comment.user_name}`} className="avatar" />
+              <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} className="avatar" />
               <Info className="commento-info">
                 <Autore className="autore">{comment.user_name}</Autore>
                 <Recipe className="ricetta">su  
