@@ -36,7 +36,7 @@ export const Donut = styled.img`
     right: -9rem;
     z-index: -1;
     opacity: 0.6;
-    width: min(600px, 100%);
+    width: min(400px, 100%);
     height: 400px; 
     object-fit: cover;
 
