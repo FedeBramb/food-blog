@@ -48,6 +48,7 @@ function Carousel() {
 
   // Gestisce l'evento di ingresso del mouse per mostrare l'icona
   const handleMouseEnter = () => setShowIcon(true);
+  
   // Gestisce l'evento di uscita del mouse (l'icona rimarrà visibile finché non scompare automaticamente)
   const handleMouseLeave = () => setShowIcon(false);
 

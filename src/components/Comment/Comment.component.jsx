@@ -14,9 +14,7 @@ import {
     Content,
 } from './Comment.styles';
 
-const Comment = ({ comment }) => {
-      // Formattiamo la data
-    const formatDateString = (dateString) => {
+const formatDateString = (dateString) => {
 
     const cleanDateString = dateString.replace('T', ' ').replace('Z', '');
     
@@ -28,7 +26,10 @@ const Comment = ({ comment }) => {
     
     // Ritorna la stringa formattata
     return `${day}-${month}-${year} ${hour}:${minute}`;
-  }
+}
+
+const Comment = ({ comment }) => {
+      // Formattiamo la data
 
   return (
     <Container className="commento">
