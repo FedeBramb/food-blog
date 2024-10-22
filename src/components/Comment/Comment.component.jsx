@@ -10,6 +10,7 @@ import {
     Recipe,
     RecipeTitle,
     DateAndRating,
+    Date,
     Rating,
     Content,
 } from './Comment.styles';
@@ -39,7 +40,7 @@ const Comment = ({ comment }) => {
             <Autore className="autore">{comment.user_name}</Autore>
             <Recipe className="ricetta">su  
                 <Link to={`/recipes/${comment.recipe_id}`}>
-                <RecipeTitle className='title-ricetta'> {comment.title}</RecipeTitle>
+                    <RecipeTitle className='title-ricetta'> {comment.title}</RecipeTitle>
                 </Link>
             </Recipe>
             </Info>
