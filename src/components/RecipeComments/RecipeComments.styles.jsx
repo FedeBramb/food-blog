@@ -55,6 +55,7 @@ export const CommentInput = styled.textarea`
     height: 10vh;
     font-size: 1.1rem;
     resize: none;
+    margin-bottom: 0.7rem;
 
     &::placeholder {
         color: #498082; 
