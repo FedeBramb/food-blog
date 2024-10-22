@@ -50,6 +50,7 @@ const UploadImage = ({ onUpload }) => {
       }
     } else {
       setImageUrl(defaultAvatarUrl);
+      onUpload(defaultAvatarUrl);
       console.log('Default Avatar URL:', defaultAvatarUrl);
     }
     setLoading(false);

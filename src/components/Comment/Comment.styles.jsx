@@ -4,6 +4,7 @@ export const Container = styled.div`
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
+    min-width: 325px;
 
     &:last-child {
         margin-bottom: 0;
