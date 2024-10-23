@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -30,7 +30,10 @@ const formatDateString = (dateString) => {
 }
 
 const Comment = ({ isFullWidth, comment }) => {
-      // Formattiamo la data
+    const Comment = ({ comment }) => {
+        useEffect(() => {
+          console.log('Rendering comment:', comment);
+        }, [comment]);
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>
