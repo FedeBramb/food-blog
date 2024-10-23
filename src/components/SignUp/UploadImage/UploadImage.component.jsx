@@ -29,6 +29,7 @@ const UploadImage = ({ onUpload }) => {
   const handleUpload = async () => {
     setLoading(true);
     if (image) {
+      console.log(image);
       const formData = new FormData();
       formData.append('file', image);
       formData.append('upload_preset', 'p4uzodz5'); // Sostituisci con il tuo preset
