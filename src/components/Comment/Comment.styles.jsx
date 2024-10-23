@@ -16,6 +16,10 @@ export const Container = styled.div`
         padding-bottom: 0;
         border-bottom: none;
     }
+
+    @media (max-width: 480px) {
+        width: 100%;
+    }
 `
 
 export const HeaderComment = styled.div`
