@@ -6,13 +6,17 @@ export const RecipeCommentsContainer = styled.div`
     margin-bottom: 1.3rem;
 
     .line {
-        margin-bottom: 3vh;
+        margin-bottom: 1.5rem;
     }
 
     & label {
         display: block;
         font-size: 1.2rem;
         color: var(--comment-color);
+    }
+
+    @media (max-width: 780px) {
+        width: 100%;
     }
 `
 
