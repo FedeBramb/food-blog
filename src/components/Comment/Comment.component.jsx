@@ -30,10 +30,9 @@ const formatDateString = (dateString) => {
 }
 
 const Comment = ({ isFullWidth, comment }) => {
-    const Comment = ({ comment }) => {
-        useEffect(() => {
-          console.log('Rendering comment:', comment);
-        }, [comment]);
+    useEffect(() => {
+    console.log('Rendering comment:', comment);
+    }, [comment]);
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>
