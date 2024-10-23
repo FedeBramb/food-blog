@@ -19,22 +19,8 @@ import {
 
 
 const Navbar = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1196);
   const [isOpen, setIsOpen] = useState(false)
   
-  // Cambia il boolean in base alla risoluzione della finestra
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 800);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   //Funzione per gestire il dropDown, tramite boolean memorizzato nello state
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -52,7 +38,7 @@ const Navbar = () => {
 
   return (  
     // Renderizza il nav in base alla risoluzione della view  
-    <NavbarContainer className={`${isSmallScreen && 'smallScreen'}`}>
+    <NavbarContainer >
       <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
       <NavLink to="/">HOME<Underline/></NavLink>
       <NavLink to="/recipes">RICETTE<Underline/></NavLink>

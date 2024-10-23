@@ -74,17 +74,18 @@ export const LogoBigLink = styled(Link)`
 `
 
 export const LinkSmallLogo = styled(Link)`
-    text-align: center;
     display: none;
 
     @media screen and (max-width: 800px){
         display: block;
+        text-align: left;
     }
 `
 
 export const LogoSmallView = styled.img`
     width: 50%;
     min-width: 125px;
+    margin: 0;
 `
 
 export const DropcaseContainer = styled.div`
@@ -96,7 +97,8 @@ export const DropcaseContainer = styled.div`
 
     @media screen and (max-width: 800px){
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
     }
 `
 
