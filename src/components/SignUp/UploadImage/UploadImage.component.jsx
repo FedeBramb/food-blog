@@ -4,9 +4,7 @@ import { Container, Input, Avatar, Button, Label } from './UploadImage.styles';
 const UploadImage = ({ onUpload }) => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [imageUrl, setImageUrl] = useState('');
   const [error, setError] = useState('');
-  const defaultAvatarUrl = 'https://i.ibb.co/xh6X7f2/avatar-default.jpg'; // Sostituisci con il tuo URL predefinito
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -29,25 +27,19 @@ const UploadImage = ({ onUpload }) => {
   const handleUpload = async () => {
     setLoading(true);
     if (image) {
-      console.log(image);
       const formData = new FormData();
       formData.append('file', image);
-      formData.append('upload_preset', 'p4uzodz5'); // Sostituisci con il tuo preset
+      formData.append('upload_preset', 'p4uzodz5'); 
       try {
         const response = await fetch(`https://api.cloudinary.com/v1_1/dzm2ylhty/image/upload`, {
           method: 'POST',
           body: formData,
         });
         const data = await response.json();
-        setImageUrl(data.secure_url); // Ottieni l'URL dell'immagine caricata
-        console.log('Image URL:', data.secure_url); // Log dell'URL dell'immagine caricata
+        onUpload(data.secure_url); 
       } catch (error) {
         console.error('Error uploading image:', error);
       }
-    } else {
-      setImageUrl(defaultAvatarUrl);
-      onUpload(defaultAvatarUrl);
-      console.log('Default Avatar URL:', defaultAvatarUrl);
     }
     setLoading(false);
   };

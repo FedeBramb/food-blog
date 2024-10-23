@@ -27,7 +27,7 @@ const SignUp = () => {
         checkPassword: '',
         email: '',
         marketing: false,
-        avatar_url: '',
+        avatar_url: 'https://i.ibb.co/xh6X7f2/avatar-default.jpg',
     });
 
     const navigate = useNavigate();
@@ -60,7 +60,6 @@ const SignUp = () => {
             if (user) {
                 navigate('/');
             }
-            
         } catch (err) {
             console.error('Errore durante la registrazione:', err.message);
         }
@@ -128,7 +127,10 @@ const SignUp = () => {
                 </Label>
                 <UploadImage id='avatar' onUpload={handleImageUpload} />
                 <LabelAvatar htmlFor='avatar'>
-                    <Arrow src='https://icongr.am/fontawesome/arrow-left.svg?size=20&color=78abdc' alt='arrow' ></Arrow>   
+                    <Arrow 
+                        src='https://icongr.am/fontawesome/arrow-left.svg?size=20&color=78abdc' 
+                        alt='arrow' 
+                    />   
                     Carica un avatar
                 </LabelAvatar>
                 <Button type='submit' className='form-button'>Registrati</Button>
