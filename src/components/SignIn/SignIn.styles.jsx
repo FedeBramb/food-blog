@@ -13,8 +13,10 @@ export const SignInContainer = styled.div`
   @media screen and (max-width: 780px) {
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    height: calc(100vh - 10.999rem);
+    width: 98%;
   }
-
 `
 
 export const SignInForm = styled.form`
@@ -29,7 +31,8 @@ export const SignInForm = styled.form`
   @media screen and (max-width: 780px) {
     min-width: 300px;
     padding: 20px 20px;
-    max-height: 250px;
+    width: 98%;
+    height: 40%;
   }
 
   .error-container {

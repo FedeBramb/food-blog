@@ -6,6 +6,7 @@ import {
   Donut,
   Container,
   Title,
+  Hr,
   P,
 } from './WelcomeAuth.styles.jsx';
 
@@ -21,8 +22,10 @@ const WelcomeAuth = ({ className }) => {
     <>
       <Donut src={blueDonuts} alt='blu donut' className='donut'/>
       <Container className='welcome-container'>
-        <Title className='h1-sign-in gradient-text'>{headerText}</Title>
-        <hr className='hr-sign-in hr-blue' />
+        <Title className='h1-sign-in gradient-text'>
+          {headerText}
+          <Hr className='hr-sign-in hr-blue' />
+        </Title>
         <P className='p-sign-in'>{paragraphText}</P>
       </Container>
     </>

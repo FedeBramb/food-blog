@@ -118,6 +118,7 @@ const SignUp = () => {
                     id='marketing' 
                     name='marketing' 
                     type='checkbox'
+                    className='checkbox'
                     value={formSignUp.marketing} 
                     onChange={onChangeHandler}
                     required
@@ -134,10 +135,10 @@ const SignUp = () => {
                     Carica un avatar
                 </LabelAvatar>
                 <Button type='submit' className='form-button'>Registrati</Button>
-                <div className='error-container'>
-                    {error && <p className='error-message'>{error}</p>}
-                </div>
             </Form>
+            <div className='error-container'>
+                    {error && <p className='error-message'>Errore: {error}</p>}
+            </div>
         </FormContainer>
     </SignUpContainer>
   )

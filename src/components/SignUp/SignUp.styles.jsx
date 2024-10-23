@@ -11,13 +11,6 @@ export const SignUpContainer = styled.div`
     margin: auto;
     overflow-y: auto;
 
-    @media screen and (max-width: 780px) {
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        margin-top: 3%;
-    }
-
     .error-container {
         height: 40px;
         text-align: center;
@@ -29,6 +22,15 @@ export const SignUpContainer = styled.div`
         color: #ff4d4d;
         font-size: 14px;
     }
+
+    @media screen and (max-width: 780px) {
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        margin-top: 3%;
+        width: 98%;
+    }
+
 `
 
 export const FormContainer = styled.div`
@@ -36,6 +38,11 @@ export const FormContainer = styled.div`
     background-color: rgba(255, 255, 255, 0.4);
     padding: 3.125rem;
     min-width: 270px;
+    position: relative;
+
+    @media screen and (max-width: 780px) {
+        width: 98%;
+    }
 `
 
 export const Form = styled.form`
@@ -46,6 +53,10 @@ export const Form = styled.form`
 
     @media screen and (max-width: 1050px) {
         display: block;
+    }
+
+    &.checkbox {
+        width: 10px;
     }
 `
 
@@ -58,12 +69,25 @@ export const Label = styled.label`
 export const LabelAvatar = styled.label`
     display: flex;
     align-items: center;
+    margin: 1rem 0;
+
+    @media screen and (max-width: 780px) {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
 `
 
 export const Arrow = styled.img`
     width: 20px;
     height: 20px;
     margin-right: 10px;
+
+    @media screen and (max-width: 780px) {
+        transform: rotate(+90deg); /* Ruota l'immagine di 90 gradi verso l'alto */
+        transform-origin: center;
+    }
+    
 `
 
 export const Input = styled.input`
@@ -78,10 +102,6 @@ export const Input = styled.input`
     &:focus {
         outline: none; /* Rimuove il bordo predefinito */
         border: 2px solid var(--comment-color);
-    }
-
-    &.last-input {
-        height: 2.5rem;            
     }
 `
 

@@ -11,8 +11,14 @@ export const Donut = styled.img`
 `
 
 export const Container = styled.div`
-  width: 30%;
   min-width: 283.1px;
+
+  @media screen and (max-width: 780px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Title = styled.h1`
@@ -21,6 +27,14 @@ export const Title = styled.h1`
   font-size: 3.5rem;
   line-height: 1.1;
   margin-top: 0;
+`
+
+export const Hr = styled.hr`
+  @media screen and (max-width: 780px) {
+    width: 100%;
+    
+  }
+  
 `
 
 export const P = styled.p`
