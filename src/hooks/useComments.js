@@ -49,6 +49,7 @@ const useComments = (recipe_id) => {
       try {
         const updatedComments = await addCommentApi(newComment, recipe_id);
         setComments(updatedComments);
+        setAllComments([...allComments, newComment]);
       } catch (err) {
         console.error("Errore durante l'invio del commento:", err);
       }
