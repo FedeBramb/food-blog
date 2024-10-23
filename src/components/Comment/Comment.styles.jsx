@@ -23,9 +23,8 @@ export const HeaderComment = styled.div`
     align-items: center;
     margin-bottom: 10px;
 
-    @media (max-width: 480px) {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 780px) {
+        width: 100%;
     }
 `
 
