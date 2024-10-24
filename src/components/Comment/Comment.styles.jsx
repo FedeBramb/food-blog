@@ -94,4 +94,5 @@ export const Content = styled.p`
     opacity: 80%;
     color: #333;
     margin: 0;
+    width: 80%;
 `
