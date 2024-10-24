@@ -35,6 +35,7 @@ export const HeaderComment = styled.div`
 export const BodyComment = styled.div`
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     & button {
         background-color: var(--secondary-color);
@@ -114,4 +115,6 @@ export const Content = styled.p`
     color: #333;
     margin: 0;
     width: 80%;
+
+
 `
