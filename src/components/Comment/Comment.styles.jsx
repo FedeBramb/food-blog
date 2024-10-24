@@ -32,6 +32,11 @@ export const HeaderComment = styled.div`
     }
 `
 
+export const BodyComment = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
 export const Avatar = styled.img`
     width: 60px;
     height: 60px;
