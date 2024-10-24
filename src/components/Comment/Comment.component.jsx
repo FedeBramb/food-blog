@@ -56,10 +56,11 @@ const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
             </DateAndRating>
         </HeaderComment>
         <Content>{comment.comment_text}</Content>
-        {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
-        {user.logged_in && user.id === comment.user_id && (
+        {/* Mostra il pulsante di eliminazione solo se l'utente viene passato come props
+          * e se l'utente è loggato  */}
+        {user && user.logged_in && user.id === comment.user_id && (
             <button 
-            onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}
+                onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}
             >
             <img 
                 src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' 
