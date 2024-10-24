@@ -35,6 +35,25 @@ export const HeaderComment = styled.div`
 export const BodyComment = styled.div`
     display: flex;
     justify-content: space-between;
+
+    & button {
+        background-color: var(--secondary-color);
+        border: none;
+        border: 2px solid var(--primary);
+        border-radius: 25%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+        
+        &:hover {
+            background-color: #ff4d4d;
+            border: none;
+        }
+    }
 `
 
 export const Avatar = styled.img`

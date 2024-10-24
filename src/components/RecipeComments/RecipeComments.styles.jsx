@@ -37,25 +37,6 @@ export const CommentContainer = styled.div`
     align-items: center;
     gap: 2rem;
     margin-bottom: 0.7rem;
-
-    & button {
-        background-color: var(--secondary-color);
-        border: none;
-        border: 2px solid var(--primary);
-        border-radius: 25%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-        
-        &:hover {
-            background-color: #ff4d4d;
-            border: none;
-        }
-    }
 `
 
 export const CommentInput = styled.textarea`
