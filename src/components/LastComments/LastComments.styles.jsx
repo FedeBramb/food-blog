@@ -18,7 +18,6 @@ export const Container = styled.div`
     }
 
     @media (max-width: 480px) {
-        padding: 15px;
         padding: 5px 1px 1px 10px;
     }
 `
@@ -35,5 +34,5 @@ export const Title = styled.h2`
 export const List = styled.div`
     max-height: 400px;
     overflow-y: auto;
-    padding-right: 0.8rem;
+    padding-right: 1px;
 `
