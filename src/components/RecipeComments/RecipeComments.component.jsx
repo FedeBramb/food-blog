@@ -64,18 +64,7 @@ const RecipeComments = ({ recipe_id }) => {
           <CommentBox>
             {comments.map((comment, index) => (
               <CommentContainer key={index}>
-                <Comment comment={comment} />
-                {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
-                {user.logged_in && user.id === comment.user_id && (
-                  <button 
-                    onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}
-                  >
-                    <img 
-                      src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' 
-                      alt='Delete comment' 
-                    />
-                  </button>
-                )}
+                <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
               </CommentContainer>
             ))}
           </CommentBox>

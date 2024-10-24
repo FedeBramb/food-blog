@@ -29,7 +29,7 @@ const formatDateString = (dateString) => {
     return `${day}-${month}-${year} ${hour}:${minute}`;
 }
 
-const Comment = ({ isFullWidth, comment }) => {
+const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
     useEffect(() => {
     console.log('Rendering comment:', comment);
     }, [comment]);
@@ -56,6 +56,17 @@ const Comment = ({ isFullWidth, comment }) => {
             </DateAndRating>
         </HeaderComment>
         <Content>{comment.comment_text}</Content>
+        {/* Mostra il pulsante di eliminazione solo se l'utente è loggato */}
+        {user.logged_in && user.id === comment.user_id && (
+            <button 
+            onClick={() => deleteComment(comment.id_comment, recipe_id, user.id)}
+            >
+            <img 
+                src='https://icongr.am/fontawesome/trash.svg?size=16&color=223b4e' 
+                alt='Delete comment' 
+            />
+            </button>
+        )}
     </Container>
   )
 }
