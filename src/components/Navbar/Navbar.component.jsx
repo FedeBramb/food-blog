@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (  
     // Renderizza il nav in base alla risoluzione della view  
-    <NavbarContainer >
+    <NavbarContainer>
       <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
       <NavLink to="/">HOME<Underline/></NavLink>
       <NavLink to="/recipes">RICETTE<Underline/></NavLink>

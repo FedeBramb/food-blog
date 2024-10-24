@@ -8,17 +8,19 @@ export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: max(78%, 342px);
+    width: 78%;
     margin: auto;
     font: 700 1.0em "Montserrat", sans-serif;
     font-optical-sizing: auto;
     border-bottom: 1px solid rgba(176, 175, 175, 0.4);
     height: 122.69px; 
     
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 800px) {
         height: 80%;
-        width: 95%;
-        flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 480px) {
+        width: 98%;
     }
 `
 
@@ -62,6 +64,7 @@ export const Underline = styled.div`
 
 export const LogoBigLink = styled(Link)`
     width: 20%;
+    min-width: 185px;
 
     & img {
         width: 100%;
@@ -74,18 +77,20 @@ export const LogoBigLink = styled(Link)`
 `
 
 export const LinkSmallLogo = styled(Link)`
+    text-align: center;
     display: none;
+    width: 30%;
 
     @media screen and (max-width: 800px){
         display: block;
-        text-align: left;
+
     }
 `
 
 export const LogoSmallView = styled.img`
-    width: 50%;
+    width: 100%;
     min-width: 125px;
-    margin: 0;
+    
 `
 
 export const DropcaseContainer = styled.div`
@@ -97,8 +102,7 @@ export const DropcaseContainer = styled.div`
 
     @media screen and (max-width: 800px){
         display: flex;
-        align-items: center;
-        justify-content: center;
+        justify-content: space-between;
     }
 `
 

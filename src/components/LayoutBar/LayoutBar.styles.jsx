@@ -4,11 +4,9 @@ import styled from "styled-components";
 export const Bar = styled.div`
     background-color: var(--primary);
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10.3rem;
-    align-items: center;
     height: 2.8rem;
+    display: flex;
+    justify-content: center;
 
     &.social-bar-header {
         position: -webkit-sticky; /* Per supporto nei browser Webkit */
@@ -20,9 +18,16 @@ export const Bar = styled.div`
     &.social-bar-footer {
         height: 3.7rem;
     }
+`
 
-    @media screen and (max-width: 768px) {
-        padding: 1rem;
+export const Container = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 78%;
+
+    @media screen and (max-width: 480px) {
+        width: 98%;
     }
 `
 
