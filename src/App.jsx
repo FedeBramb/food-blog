@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Loader from './components/Loader/Loader.component';
 
 import GoToTop from './components/GoToTop/GoToTop.component';
-
+import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton.component';
 import Navigation from './routes/Navigation/Navigation.route';
 import Home from './routes/Home/Home.route';
 
@@ -19,6 +19,7 @@ function App() {
   return (
     <>
       <GoToTop />
+      <ScrollToTopButton />
         <Routes>
           <Route path='/' element={<Navigation />} >
             <Route index element={<Home />} />
