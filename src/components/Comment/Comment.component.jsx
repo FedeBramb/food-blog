@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import {
@@ -25,7 +25,7 @@ const formatDateString = (dateString) => {
     const hour = cleanDateString.slice(11, 13);
     const minute = cleanDateString.slice(14, 16);
     
-    // Ritorna la stringa formattata
+    // Restituisce la stringa formattata
     return `${day}-${month}-${year} ${hour}:${minute}`;
 }
 

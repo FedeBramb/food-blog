@@ -26,7 +26,10 @@ const Recipe = () => {
     cook_time, 
     servings, 
     title,
-    video
+    video,
+    image_carousel,
+    ingredients,
+    instructions
   } = recipe || {};
   
   useEffect(() => {
@@ -64,7 +67,7 @@ const Recipe = () => {
         <IngredientsSection>
           <SectionTitle>Ingredienti</SectionTitle>
           <IngredientsContainer>
-            {recipe.ingredients.map((p, index) => (
+            {ingredients.map((p, index) => (
               <li key={index} className="ingredients-li">{p}</li>
             ))}
           </IngredientsContainer>
@@ -81,7 +84,7 @@ const Recipe = () => {
         <SectionTitle>Procedimento</SectionTitle>
           <img src={image_carousel} alt={title} />
         <div className="instructions">
-          {recipe.instructions.map((p, index) => (
+          {instructions.map((p, index) => (
             <li key={`li-${index}`}>{p}</li>
           ))}
         </div>
