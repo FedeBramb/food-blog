@@ -25,7 +25,8 @@ const Recipe = () => {
     total_time, 
     cook_time, 
     servings, 
-    title 
+    title,
+    video
   } = recipe || {};
   
   useEffect(() => {
