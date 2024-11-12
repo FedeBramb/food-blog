@@ -17,7 +17,6 @@ import {
 } from './Comment.styles';
 
 const formatDateString = (dateString) => {
-
     const cleanDateString = dateString.replace('T', ' ').replace('Z', '');
     
     const year = cleanDateString.slice(0, 4);
@@ -31,9 +30,6 @@ const formatDateString = (dateString) => {
 }
 
 const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
-    useEffect(() => {
-    console.log('Rendering comment:', comment);
-    }, [comment]);
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>

@@ -114,7 +114,6 @@ function Carousel() {
             </MySwiperSlide>
           );
         })}
-        
         {/* Mostra un'icona di overlay se lo stato showIcon è vero */}
         {showIcon && (
         <OverlayContainer>
@@ -122,7 +121,6 @@ function Carousel() {
         </OverlayContainer>
       )}
       </MySwiper>
-      
     </CarouselContainer>
   );
 }

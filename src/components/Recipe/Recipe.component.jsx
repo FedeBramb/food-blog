@@ -19,7 +19,18 @@ import {
 const Recipe = () => {
   const { recipe_id } = useParams();
   const { recipe, loadingRecipe, errorRecipe, getRecipeById } = useContext(RecipeContext);
-
+  const { 
+    ingredients, 
+    difficulty, 
+    prep_time, 
+    total_time, 
+    cook_time, 
+    servings, 
+    instructions,
+    title,
+    video 
+  } = recipe;
+  
   useEffect(() => {
     if (recipe_id) {
       getRecipeById(recipe_id);
@@ -33,12 +44,12 @@ const Recipe = () => {
   return (
     <RecipeContainer>
       <SectionTitle className="gradient-text">
-        {recipe.title}
+        {title}
         <hr className="hr-blue" />
       </SectionTitle>
       <VideoSectionContainer>
         <iframe
-          src={recipe.video}
+          src={video}
           title="YouTube video player"
           allow="accelerometer; 
             autoplay; 
@@ -55,24 +66,24 @@ const Recipe = () => {
         <IngredientsSection>
           <SectionTitle>Ingredienti</SectionTitle>
           <IngredientsContainer>
-            {recipe.ingredients.map((p, index) => (
+            {ingredients.map((p, index) => (
               <li key={index} className="ingredients-li">{p}</li>
             ))}
           </IngredientsContainer>
         </IngredientsSection>
         <DetailsContainer>
-          <p>Difficoltà: {recipe.difficulty}</p>
-          <p>Preparazione: {recipe.prepTime}</p>
-          <p>Cottura: {recipe.cookTime}</p>
-          <p>Tempo totale: {recipe.totalTime}</p>
-          <p>Dosi: {recipe.servings}</p>
+          <p>Difficoltà: {difficulty}</p>
+          <p>Preparazione: {prep_time}</p>
+          <p>Cottura: {cook_time}</p>
+          <p>Tempo totale: {total_time}</p>
+          <p>Dosi: {servings}</p>
         </DetailsContainer>
       </IngredientsAndDetails>
       <InstructionSection>
         <SectionTitle>Procedimento</SectionTitle>
-          <img src={recipe.image_carousel} alt={recipe.title} />
+          <img src={image_carousel} alt={title} />
         <div className="instructions">
-          {recipe.instructions.map((p, index) => (
+          {instructions.map((p, index) => (
             <li key={`li-${index}`}>{p}</li>
           ))}
         </div>

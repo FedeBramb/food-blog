@@ -16,7 +16,6 @@ const RecipeBook = () => {
   return (
     <RecipeBookContainer>
         {recipes.map(({ id, title, images_cookbook }) => {
-          {console.log(recipes)}
             return (
                 <RecipeCard key={id} title={title} image={images_cookbook} id={id}/>
             );

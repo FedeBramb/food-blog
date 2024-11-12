@@ -1,12 +1,10 @@
 import React, { useContext, useState } from 'react';
-
 import { UserContext } from '../../context/user.context.jsx';
 import { useComments } from '../../hooks/useComments.js';
 
 import Loader from '../Loader/Loader.component.jsx';
 import StarRating from '../StarRating/StarRating.component.jsx';
 import Comment from '../Comment/Comment.component.jsx';
-
 
 import {
     RecipeCommentsContainer,
@@ -15,8 +13,6 @@ import {
     CommentContainer,
     CommentInput
 } from './RecipeComments.styles.jsx';
-
-
 
 // Componente per la sezione dei commenti
 const RecipeComments = ({ recipe_id }) => {
