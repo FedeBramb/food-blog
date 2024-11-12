@@ -19,14 +19,6 @@ import {
 const Recipe = () => {
   const { recipe_id } = useParams();
   const { recipe, loadingRecipe, errorRecipe, getRecipeById } = useContext(RecipeContext);
-  const {  
-    difficulty, 
-    prep_time, 
-    total_time, 
-    cook_time, 
-    servings, 
-    title 
-  } = recipe;
   
   useEffect(() => {
     if (recipe_id) {
@@ -37,6 +29,16 @@ const Recipe = () => {
   if (loadingRecipe) return <Loader />; // Mostra loading
   if (errorRecipe) return <div>Errore: {errorRecipe}</div>; // Mostra errore
   if (!recipe) return <div>Nessuna ricetta trovata</div>; // Messaggio di fallback
+  
+  const {  
+    difficulty, 
+    prep_time, 
+    total_time, 
+    cook_time, 
+    servings, 
+    title 
+  } = recipe;
+  
   
   return (
     <RecipeContainer>
