@@ -1,47 +1,46 @@
-import React, { useState } from 'react';
-import { Container, Input, Avatar, Button, Label } from './UploadImage.styles';
+import React, { useState, useRef } from 'react';
+import AvatarEditor from 'react-avatar-editor';
+import { Container, Input, Button, Label } from './UploadImage.styles';
 
 const UploadImage = ({ onUpload }) => {
   const [image, setImage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [scale, setScale] = useState(1);
   const [error, setError] = useState('');
+  const editorRef = useRef(null);
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
     if (selectedImage) {
-      const img = new Image();
-      img.src = URL.createObjectURL(selectedImage);
-      img.onload = () => {
-        if (img.width > 250 || img.height > 250) {
-          setError('L\'immagine non può superare i 250px in larghezza o altezza.');
-          setImage(null);
-        } else {
-          setError('');
-          setImage(selectedImage);
-        }
-      };
+      setError('');
+      setImage(selectedImage);
     }
   };
 
+  const handleScaleChange = (e) => {
+    const scaleValue = parseFloat(e.target.value);
+    setScale(scaleValue);
+  };
 
   const handleUpload = async () => {
-    setLoading(true);
-    if (image) {
+    if (editorRef.current) {
+      const canvas = editorRef.current.getImageScaledToCanvas().toDataURL();
+      const blob = await (await fetch(canvas)).blob();
+      
       const formData = new FormData();
-      formData.append('file', image);
-      formData.append('upload_preset', 'p4uzodz5'); 
+      formData.append('file', blob);
+      formData.append('upload_preset', 'p4uzodz5');
+
       try {
         const response = await fetch(`https://api.cloudinary.com/v1_1/dzm2ylhty/image/upload`, {
           method: 'POST',
           body: formData,
         });
         const data = await response.json();
-        onUpload(data.secure_url); 
+        onUpload(data.secure_url);
       } catch (error) {
         console.error('Error uploading image:', error);
       }
     }
-    setLoading(false);
   };
 
   return (
@@ -50,11 +49,32 @@ const UploadImage = ({ onUpload }) => {
         <Input type="file" accept="image/*" onChange={handleImageChange} />
         Sfoglia
       </Label>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <Button onClick={handleUpload} disabled={loading}>
-        {loading ? 'Caricamento...' : 'Carica Immagine'}
+      {image && (
+        <>
+          <AvatarEditor
+            ref={editorRef}
+            image={image}
+            width={200}
+            height={200}
+            border={50}
+            borderRadius={100}
+            scale={scale}
+            rotate={0}
+          />
+          <input
+            type="range"
+            min="1"
+            max="2"
+            step="0.01"
+            value={scale}
+            onChange={handleScaleChange}
+            style={{ marginTop: '10px' }}
+          />
+        </>
+      )}
+      <Button onClick={handleUpload} disabled={!image}>
+        Carica Immagine
       </Button>
-      {image && <Avatar src={URL.createObjectURL(image)} alt="Avatar" />} {/* Mostra l'avatar */}
     </Container>
   );
 };
