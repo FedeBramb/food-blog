@@ -19,16 +19,13 @@ import {
 const Recipe = () => {
   const { recipe_id } = useParams();
   const { recipe, loadingRecipe, errorRecipe, getRecipeById } = useContext(RecipeContext);
-  const { 
-    ingredients, 
+  const {  
     difficulty, 
     prep_time, 
     total_time, 
     cook_time, 
     servings, 
-    instructions,
-    title,
-    video 
+    title 
   } = recipe;
   
   useEffect(() => {
@@ -66,7 +63,7 @@ const Recipe = () => {
         <IngredientsSection>
           <SectionTitle>Ingredienti</SectionTitle>
           <IngredientsContainer>
-            {ingredients.map((p, index) => (
+            {recipe.ingredients.map((p, index) => (
               <li key={index} className="ingredients-li">{p}</li>
             ))}
           </IngredientsContainer>
@@ -83,7 +80,7 @@ const Recipe = () => {
         <SectionTitle>Procedimento</SectionTitle>
           <img src={image_carousel} alt={title} />
         <div className="instructions">
-          {instructions.map((p, index) => (
+          {recipe.instructions.map((p, index) => (
             <li key={`li-${index}`}>{p}</li>
           ))}
         </div>
