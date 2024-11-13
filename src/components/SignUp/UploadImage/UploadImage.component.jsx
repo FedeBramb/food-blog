@@ -72,7 +72,7 @@ const UploadImage = ({ onUpload }) => {
           />
         </>
       )}
-      <Button onClick={handleUpload} disabled={!image}>
+      <Button onClick={handleUpload} disabled={!image} type="button">
         Carica Immagine
       </Button>
     </Container>
