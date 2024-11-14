@@ -34,6 +34,7 @@ const SignIn = () => {
         console.log(formSignIn);
     }
 
+    // Handler per il submit, naviga in homepage se loggati.
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log('Dati della form:', formSignIn); // Controlla i dati della form

@@ -10,6 +10,7 @@ import {
   List,
 } from './LastComments.styles.jsx';
 
+// Container con gli ultimi commenti delle ricette viene mostrato in homepage
 const LastComments = () => {
   const { allComments, allCommentsLoading, allCommentsErroraddComment} = useComments();
 

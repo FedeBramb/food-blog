@@ -16,9 +16,18 @@ import {
   InstructionSection,
 } from './Recipe.styles.jsx';
 
+
+/* Ricetta che mostra procedimento, ingredienti, video, immagini e commenti 
+ Recupera l'id della ricetta dall'url */
 const Recipe = () => {
   const { recipe_id } = useParams();
-  const { recipe, loadingRecipe, errorRecipe, getRecipeById } = useContext(RecipeContext);
+  const { 
+    recipe, 
+    loadingRecipe, 
+    errorRecipe, 
+    getRecipeById 
+  } = useContext(RecipeContext);
+
   const {  
     difficulty, 
     prep_time, 

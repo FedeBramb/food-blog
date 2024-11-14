@@ -17,7 +17,9 @@ import {
   DropdownContent
 } from './Navbar.styles.jsx';
 
-
+/* Navigatore personalizzato in base alla risoluzione dello schermo
+** nel caso di risoluzioni contenute ci sarà un burger con dropdown
+*/
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   
@@ -26,18 +28,19 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  // Variabili per animazione dropdown
   const dropdownVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, staggerChildren: 0.2 } },
   };
   
+  // Variabili per animazione dei dropdown's link
   const linkVariants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
   }
 
   return (  
-    // Renderizza il nav in base alla risoluzione della view  
     <NavbarContainer>
       <LogoBigLink to="/"><img src={logo} alt='logo' /></LogoBigLink>
       <NavLink to="/">HOME<Underline/></NavLink>

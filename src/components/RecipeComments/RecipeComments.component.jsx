@@ -14,7 +14,11 @@ import {
     CommentInput
 } from './RecipeComments.styles.jsx';
 
-// Componente per la sezione dei commenti
+/* Componente per la sezione dei commenti di ogni ricetta 
+** Recupera i dati dell'utente dal rispettivo contesto,
+** Recupera i commenti relativi alla ricetta corrente tramite hook e id ricetta,
+** Gestisce l'aggiunta di un nuovo commento con il rispettivo rating
+*/
 const RecipeComments = ({ recipe_id }) => {
   const { user } = useContext(UserContext);
   const { comments, commentsLoading, commentsError, addComment, deleteComment } = useComments(recipe_id);

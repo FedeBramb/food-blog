@@ -12,7 +12,7 @@ import {
   DropdownItemContainer,
 } from './Searchbox.styles.jsx';
 
-/* Barra di ricerca */
+/* Barra di ricerca per ricetta o ingrediente */
 const Searchbox = () => {
   const { recipes } = useContext(RecipeContext); 
   const [searchInput, setSearchInput] = useState('');
@@ -54,6 +54,7 @@ const Searchbox = () => {
     setfilteredRecipes([]);
   };
 
+  // Cambia lo stato in base se è visibile oppure no
   const toggleSearchBox =() => {
     setIsVisibile(!isVisible);
   }

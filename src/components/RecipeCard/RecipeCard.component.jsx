@@ -11,7 +11,9 @@ import {
   ReadButton
 } from './RecipeCard.styles.jsx';
 
-// 
+/* Card della ricetta viene mostrata nel route cookbook (ricettario) 
+** Leggera animazione scale con framer-motion su container principale  
+*/
 const RecipeCard = ({ title, image, id }) => {
   return (
     <motion.div animate={{ //

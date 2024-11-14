@@ -6,7 +6,10 @@ import logoIcon from '../../assets/logo-icon.webp';
 
 import { Bar, AuthButtonsContainer, IconsContainer, Span, Container } from "./LayoutBar.styles.jsx";
 
-// Barra header e footer, renderizza dinamicamente i tasti LogIn LogOut in base se l'utente è loggato
+/* Barra renderizzata sia nell'header che footer, il contenuto è renderizzato 
+** dinamicamente in base alla posizione e se l'utente è loggato o meno.
+*/
+ 
 function LayoutBar({ position, children }) {
   const { user, resetUser } = useContext(UserContext);
   const containerClass = position === 'header' ? 'social-bar-header' : 'social-bar-footer';

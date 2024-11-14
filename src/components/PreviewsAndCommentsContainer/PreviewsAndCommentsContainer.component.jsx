@@ -5,7 +5,7 @@ import LastComments from '../LastComments/LastComments.component.jsx';
 
 import { Container } from './PreviewsAndCommentsContainer.styles.jsx';
 
-// Contiene le anteprime delle ricette e il container delle News
+// Container che ospita anteprime delle ricette in home page e ultimi commenti.
 const PreviewsAndCommentsContainer = () => {
   return (
     <Container>

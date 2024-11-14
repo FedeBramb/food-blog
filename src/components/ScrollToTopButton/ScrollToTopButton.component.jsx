@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Container } from './ScrollToTopButton.styles';
 
+/* Componente cliccabile per far tornare in cima alla pagina. */
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 

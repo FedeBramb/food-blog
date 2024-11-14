@@ -29,6 +29,9 @@ const formatDateString = (dateString) => {
     return `${day}-${month}-${year} ${hour}:${minute}`;
 }
 
+/* Commento con Avatar, Autore, Ricetta correlata, Rating e pulsante eliminazione commento
+*/
+
 const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
 
   return (

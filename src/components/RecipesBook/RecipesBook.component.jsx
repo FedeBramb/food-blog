@@ -7,6 +7,9 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard.component';
 
 import { RecipeBookContainer } from './RecipesBook.styles.jsx';
 
+/* Ricettario che mostra le card di tutte le ricette nel DB. 
+** Recupera i dati delle ricette, caricamento ed errore dal rispettivo contesto
+*/
 const RecipeBook = () => {
   const { recipes, loading, error } = useContext(RecipeContext);
 
