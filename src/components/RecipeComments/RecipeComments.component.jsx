@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { CommentsContext } from '../../context/comments.context.jsx';
 
@@ -43,14 +43,15 @@ const RecipeComments = React.memo(({ recipe_id }) => {
   if (commentsError) return <div>Errore: {commentsError}</div>; 
 
   // Handler aggiorna dinamicamente lo stato dell'input
-  const handleInputChange = (event) => {
+  const handleInputChange = useCallback((event) => {
     setInputValue(event.target.value);
-  };
+  }, [])
+  
 
   // Handler aggiorna dinamicamente lo stato rating
-  const handleRatingChange = (newRating) => {
+  const handleRatingChange = useCallback((newRating) => {
     setRating(newRating);
-  };
+  }, []);
 
   // Handeler invio nuovo commento, resetta input e rating
   const handleSubmit = () => {
