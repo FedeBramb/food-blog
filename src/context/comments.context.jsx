@@ -3,7 +3,7 @@ import { useComments } from '../hooks/useComments';
 
 export const CommentsContext = createContext();
 
-const CommentsProvider = ({ children }) => {
+export const CommentsProvider = ({ children }) => {
     const [recipeId, setRecipeId] = useState(null);
 
     const { 

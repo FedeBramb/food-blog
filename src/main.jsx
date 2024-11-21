@@ -6,6 +6,7 @@ import App from './App.jsx'
 
 import { UserProvider } from './context/user.context.jsx';
 import { RecipeProvider } from './context/recipe.context.jsx';
+import { CommentsProvider } from './context/comments.context.jsx';
 
 import './index.css'
 
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <UserProvider>
         <RecipeProvider>
-          <App />
+          <CommentsProvider>
+            <App />
+          </CommentsProvider>
         </RecipeProvider>
       </UserProvider>
     </BrowserRouter>
