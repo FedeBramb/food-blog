@@ -1,5 +1,5 @@
-import React from 'react';
-import { useComments } from '../../hooks/useComments';
+import React, { useContext } from 'react';
+import { CommentsContext } from '../../context/comments.context.jsx';
 
 import Comment from '../Comment/Comment.component.jsx';
 import Loader from '../Loader/Loader.component';
@@ -12,13 +12,13 @@ import {
 
 // Container con gli ultimi commenti delle ricette viene mostrato in homepage
 const LastComments = () => {
-  const { allComments, allCommentsLoading, allCommentsErroraddComment} = useComments();
+  const { allComments, allCommentsLoading, allCommentsError} = useContext(CommentsContext);
 
   // Creiamo una copia dei commenti e invertiamo l'ordine per avere prima l'ultimo commento
   const reverseComments = [...allComments].reverse();
 
   if (allCommentsLoading) return <Loader/>; // Mostra loading
-  if (allCommentsErroraddComment) return <div>Errore: {allCommentsErroraddComment}</div>;
+  if (allCommentsError) return <div>Errore: {allCommentsError}</div>;
 
   return (
     <Container>
