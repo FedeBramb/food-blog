@@ -28,10 +28,6 @@ const RecipeComments = ({ recipe_id }) => {
   if (commentsLoading) return <Loader/>; // Mostra loading
   if (commentsError) return <div>Errore: {commentsError}</div>; 
 
-  const memoizedDeleteComment = useCallback((commentId, recipe_id, userId) => {
-    deleteComment(commentId, recipe_id, userId);
-  }, [deleteComment]);
-
   // Handler aggiorna dinamicamente lo stato dell'input
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
