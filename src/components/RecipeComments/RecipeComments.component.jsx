@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { CommentsContext } from '../../context/comments.context.jsx';
 
@@ -14,11 +14,6 @@ import {
     CommentInput
 } from './RecipeComments.styles.jsx';
 
-/* Componente per la sezione dei commenti di ogni ricetta 
-** Recupera i dati dell'utente dal rispettivo contesto,
-** Recupera i commenti relativi alla ricetta corrente tramite hook e id ricetta,
-** Gestisce l'aggiunta di un nuovo commento con il rispettivo rating
-*/
 const RecipeComments = React.memo(({ recipe_id }) => {
   const { user } = useContext(UserContext);
   const { 
@@ -29,8 +24,8 @@ const RecipeComments = React.memo(({ recipe_id }) => {
     deleteComment, 
     setRecipeId 
   } = useContext(CommentsContext);
-  
-  const inputRef = useRef(null);
+
+  const inputRef = useRef(null); // Ref per l'input
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
@@ -39,20 +34,15 @@ const RecipeComments = React.memo(({ recipe_id }) => {
     }
   }, [recipe_id, setRecipeId]);
 
-  if (commentsLoading) return <Loader/>; // Mostra loading
-  if (commentsError) return <div>Errore: {commentsError}</div>; 
-
-  // Handler aggiorna dinamicamente lo stato dell'input
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  if (commentsLoading) return <Loader />;
+  if (commentsError) return <div>Errore: {commentsError}</div>;
 
   // Handler aggiorna dinamicamente lo stato rating
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
 
-  // Handeler invio nuovo commento, resetta input e rating
+  // Handler invio nuovo commento, resetta input e rating
   const handleSubmit = () => {
     const inputValue = inputRef.current.value; // Ottieni il valore direttamente dal ref
     if (inputValue.trim() !== "" && user.logged_in) {
@@ -70,44 +60,39 @@ const RecipeComments = React.memo(({ recipe_id }) => {
     }
   };
 
-    return (
-      <RecipeCommentsContainer>
-        <AllCommentsTitle>Commenti:</AllCommentsTitle>
-        <hr className='line' />
-        {/* Mostra i commenti esistenti o un messaggio se non ci sono commenti */}
-        {comments.length > 0 ? (
-          <CommentBox>
-            {comments.map((comment, index) => (
-              <CommentContainer key={index}>
-                <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
-              </CommentContainer>
-            ))}
-          </CommentBox>
-        ) : (
-          <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>
-        )}
+  return (
+    <RecipeCommentsContainer>
+      <AllCommentsTitle>Commenti:</AllCommentsTitle>
+      <hr className='line' />
+      {comments.length > 0 ? (
+        <CommentBox>
+          {comments.map((comment, index) => (
+            <CommentContainer key={index}>
+              <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
+            </CommentContainer>
+          ))}
+        </CommentBox>
+      ) : (
+        <p>Non ci sono commenti disponibili. Aggiungi il primo commento!</p>
+      )}
 
-        {/* Se l'utente è loggato, mostra il modulo di inserimento commento */}
-        <div className='comment-input-container'>
-          {user.logged_in ? (
-            <>
-              <label htmlFor="message">Message:</label>
-              <CommentInput
-                placeholder="commento..." 
-                value={inputValue} 
-                onChange={handleInputChange}
-                ref={inputRef}
-              />
-              <StarRating handleRatingChange={handleRatingChange} rating={rating}/>
-              <button className="button-input" onClick={handleSubmit}>Invia</button>
-            </>
-          ) : (
-              <p>Effettua il login per accedere a questa sezione.</p>
-          )}
-        </div>
-      </RecipeCommentsContainer>
-    );
+      <div className='comment-input-container'>
+        {user.logged_in ? (
+          <>
+            <label htmlFor="message">Message:</label>
+            <CommentInput
+              placeholder="commento..." 
+              ref={inputRef} // Usa ref per ottenere il valore
+            />
+            <StarRating handleRatingChange={handleRatingChange} rating={rating}/>
+            <button className="button-input" onClick={handleSubmit}>Invia</button>
+          </>
+        ) : (
+          <p>Effettua il login per accedere a questa sezione.</p>
+        )}
+      </div>
+    </RecipeCommentsContainer>
+  );
 });
 
 export default RecipeComments;
-
