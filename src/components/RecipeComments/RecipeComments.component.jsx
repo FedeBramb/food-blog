@@ -1,4 +1,4 @@
-import React, { useContext, useState, useCallback } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { useComments } from '../../hooks/useComments.js';
 
@@ -69,7 +69,7 @@ const RecipeComments = ({ recipe_id }) => {
           <CommentBox>
             {comments.map((comment, index) => (
               <CommentContainer key={index}>
-                <Comment comment={comment} user={user} deleteComment={memoizedDeleteComment} recipe_id={recipe_id} />
+                <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
               </CommentContainer>
             ))}
           </CommentBox>
