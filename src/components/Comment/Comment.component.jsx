@@ -36,6 +36,7 @@ const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>
+        {console.log("Rendering Comment:", comment.id_comment)}
         <HeaderComment >
             <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} />
             <Info>
