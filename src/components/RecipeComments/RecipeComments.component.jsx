@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { CommentsContext } from '../../context/comments.context.jsx';
 
