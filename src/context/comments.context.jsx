@@ -34,6 +34,4 @@ const CommentsProvider = ({ children }) => {
       {children}
     </CommentsContext.Provider>
   )
-}
-
-export default comments
+};
