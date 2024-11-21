@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { CommentsContext } from '../../context/comments.context.jsx';
 
@@ -29,6 +29,7 @@ const RecipeComments = ({ recipe_id }) => {
     deleteComment, 
     setRecipeId 
   } = useContext(CommentsContext);
+  
   const [inputValue, setInputValue] = useState("");
   const [rating, setRating] = useState(0);
 
