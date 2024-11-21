@@ -11,7 +11,7 @@ import './index.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <RecipeProvider>
@@ -19,5 +19,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </RecipeProvider>
       </UserProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  // </React.StrictMode>
 )
