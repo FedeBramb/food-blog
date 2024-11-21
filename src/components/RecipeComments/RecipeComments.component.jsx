@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { CommentsContext } from '../../context/comments.context.jsx';
 
@@ -30,7 +30,7 @@ const RecipeComments = React.memo(({ recipe_id }) => {
     setRecipeId 
   } = useContext(CommentsContext);
   
-  const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef(null);
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const RecipeComments = React.memo(({ recipe_id }) => {
 
   // Handeler invio nuovo commento, resetta input e rating
   const handleSubmit = () => {
+    const inputValue = inputRef.current.value; // Ottieni il valore direttamente dal ref
     if (inputValue.trim() !== "" && user.logged_in) {
       const newComment = {
-        // id commento SERIAL auto incremento nel DB
         user_id: user.id,
         user_name: user.username,
         recipe_id: recipe_id,
@@ -65,8 +65,8 @@ const RecipeComments = React.memo(({ recipe_id }) => {
         create_at: new Date(),
       };
       addComment(newComment, recipe_id);
-      setInputValue("");
-      setRating(0);
+      inputRef.current.value = ""; // Resetta il valore dell'input
+      setRating(0); // Resetta il rating
     }
   };
 
@@ -95,7 +95,8 @@ const RecipeComments = React.memo(({ recipe_id }) => {
               <CommentInput
                 placeholder="commento..." 
                 value={inputValue} 
-                onChange={handleInputChange} 
+                onChange={handleInputChange}
+                ref={inputRef}
               />
               <StarRating handleRatingChange={handleRatingChange} rating={rating}/>
               <button className="button-input" onClick={handleSubmit}>Invia</button>
