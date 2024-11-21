@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { UserContext } from '../../context/user.context.jsx';
 import { useComments } from '../../hooks/useComments.js';
 
@@ -28,6 +28,10 @@ const RecipeComments = ({ recipe_id }) => {
   if (commentsLoading) return <Loader/>; // Mostra loading
   if (commentsError) return <div>Errore: {commentsError}</div>; 
 
+  const memoizedDeleteComment = useCallback((commentId, recipe_id, userId) => {
+    deleteComment(commentId, recipe_id, userId);
+  }, [deleteComment]);
+
   // Handler aggiorna dinamicamente lo stato dell'input
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -55,6 +59,7 @@ const RecipeComments = ({ recipe_id }) => {
       setRating(0);
     }
   };
+
     return (
       <RecipeCommentsContainer>
         <AllCommentsTitle>Commenti:</AllCommentsTitle>
@@ -64,7 +69,7 @@ const RecipeComments = ({ recipe_id }) => {
           <CommentBox>
             {comments.map((comment, index) => (
               <CommentContainer key={index}>
-                <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
+                <Comment comment={comment} user={user} deleteComment={memoizedDeleteComment} recipe_id={recipe_id} />
               </CommentContainer>
             ))}
           </CommentBox>
