@@ -31,8 +31,7 @@ const formatDateString = (dateString) => {
 
 /* Commento con Avatar, Autore, Ricetta correlata, Rating e pulsante eliminazione commento
 */
-
-const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
+const Comment = React.memo(({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>
@@ -73,6 +72,6 @@ const Comment = ({ isFullWidth, comment, user, deleteComment, recipe_id }) => {
         </BodyComment>
     </Container>
   )
-}
+});
 
-export default React.memo(Comment);
+export default Comment;
