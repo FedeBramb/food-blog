@@ -19,7 +19,7 @@ import {
 ** Recupera i commenti relativi alla ricetta corrente tramite hook e id ricetta,
 ** Gestisce l'aggiunta di un nuovo commento con il rispettivo rating
 */
-const RecipeComments = ({ recipe_id }) => {
+const RecipeComments = React.memo(({ recipe_id }) => {
   const { user } = useContext(UserContext);
   const { 
     comments, 
@@ -106,7 +106,7 @@ const RecipeComments = ({ recipe_id }) => {
         </div>
       </RecipeCommentsContainer>
     );
-};
+});
 
 export default RecipeComments;
 
