@@ -14,6 +14,12 @@ import {
     CommentInput
 } from './RecipeComments.styles.jsx';
 
+/* Container per commenti singola ricetta
+** Utilizza contesto user e comments
+** Render con due ternary operator in base se utente è loggato e
+** se ci sono già commenti nella ricetta.
+*/
+
 const RecipeComments = React.memo(({ recipe_id }) => {
   const { user } = useContext(UserContext);
   const { 
@@ -25,12 +31,14 @@ const RecipeComments = React.memo(({ recipe_id }) => {
     setRecipeId 
   } = useContext(CommentsContext);
 
+  // Utilizziamo ref invece di state per evitare render a ogni carattere
   const inputRef = useRef(null); // Ref per l'input
   const [rating, setRating] = useState(0);
 
+  // Setta id della ricetta 
   useEffect(() => {
     if (recipe_id) {
-      setRecipeId(recipe_id); // Update the recipe_id in the context
+      setRecipeId(recipe_id); 
     }
   }, [recipe_id, setRecipeId]);
 
@@ -43,8 +51,10 @@ const RecipeComments = React.memo(({ recipe_id }) => {
   };
 
   // Handler invio nuovo commento, resetta input e rating
+  // se l'utente è loggato.
   const handleSubmit = () => {
-    const inputValue = inputRef.current.value; // Ottieni il valore direttamente dal ref
+    const inputValue = inputRef.current.value;
+
     if (inputValue.trim() !== "" && user.logged_in) {
       const newComment = {
         user_id: user.id,
@@ -59,7 +69,7 @@ const RecipeComments = React.memo(({ recipe_id }) => {
       setRating(0); // Resetta il rating
     }
   };
-
+  
   return (
     <RecipeCommentsContainer>
       <AllCommentsTitle>Commenti:</AllCommentsTitle>
@@ -68,7 +78,12 @@ const RecipeComments = React.memo(({ recipe_id }) => {
         <CommentBox>
           {comments.map((comment, index) => (
             <CommentContainer key={index}>
-              <Comment comment={comment} user={user} deleteComment={deleteComment} recipe_id={recipe_id} />
+              <Comment 
+                comment={comment} 
+                user={user} 
+                deleteComment={deleteComment} 
+                recipe_id={recipe_id} 
+              />
             </CommentContainer>
           ))}
         </CommentBox>
@@ -85,7 +100,9 @@ const RecipeComments = React.memo(({ recipe_id }) => {
               ref={inputRef} // Usa ref per ottenere il valore
             />
             <StarRating handleRatingChange={handleRatingChange} rating={rating}/>
-            <button className="button-input" onClick={handleSubmit}>Invia</button>
+            <button className="button-input" onClick={handleSubmit}>
+              Invia
+            </button>
           </>
         ) : (
           <p>Effettua il login per accedere a questa sezione.</p>
