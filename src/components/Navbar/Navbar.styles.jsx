@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
-export const NavbarContainer = styled.div`
+export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 78%;
+    height: 122.69px; 
     margin: auto;
+    border-bottom: 1px solid rgba(176, 175, 175, 0.4);
     font: 700 1.0em "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    border-bottom: 1px solid rgba(176, 175, 175, 0.4);
-    height: 122.69px; 
-    
+
     @media screen and (max-width: 800px) {
         height: 80%;
     }

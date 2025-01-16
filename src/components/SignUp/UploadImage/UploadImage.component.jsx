@@ -1,11 +1,12 @@
 import React, { useState, useRef } from 'react';
 import AvatarEditor from 'react-avatar-editor';
-import { Container, Input, Button, Label } from './UploadImage.styles';
+import { Container, Input, Button, Label, SuccessMessage } from './UploadImage.styles';
 
 const UploadImage = ({ onUpload }) => {
   const [image, setImage] = useState(null);
   const [scale, setScale] = useState(1);
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // Stato per il messaggio di conferma
   const editorRef = useRef(null);
 
   const handleImageChange = (e) => {
@@ -25,7 +26,7 @@ const UploadImage = ({ onUpload }) => {
     if (editorRef.current) {
       const canvas = editorRef.current.getImageScaledToCanvas().toDataURL();
       const blob = await (await fetch(canvas)).blob();
-      
+
       const formData = new FormData();
       formData.append('file', blob);
       formData.append('upload_preset', 'p4uzodz5');
@@ -37,6 +38,8 @@ const UploadImage = ({ onUpload }) => {
         });
         const data = await response.json();
         onUpload(data.secure_url);
+        setSuccessMessage('Immagine caricata con successo!'); // Imposta il messaggio di conferma
+        setTimeout(() => setSuccessMessage(''), 5000); // Nasconde il messaggio dopo 5 secondi
       } catch (error) {
         console.error('Error uploading image:', error);
       }
@@ -75,6 +78,7 @@ const UploadImage = ({ onUpload }) => {
       <Button onClick={handleUpload} disabled={!image} type="button">
         Carica Immagine
       </Button>
+      {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>} {/* Mostra il messaggio */}
     </Container>
   );
 };

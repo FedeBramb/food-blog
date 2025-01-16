@@ -35,7 +35,6 @@ const Comment = React.memo(({ isFullWidth, comment, user, deleteComment, recipe_
 
   return (
     <Container className={isFullWidth ? 'full-width' : ''}>
-        {console.log("Rendering Comment:", comment.id_comment)}
         <HeaderComment >
             <Avatar src={comment.avatar_url} alt={`Avatar di ${comment.user_name}`} />
             <Info>

@@ -38,8 +38,13 @@ export const Button = styled.button`
     }
 `
 
-
 export const Avatar = styled.img`
     width: 200px;
     height: auto;
 `
+
+export const SuccessMessage = styled.div`
+  margin-top: 10px;
+  color: green;
+  font-size: 14px;
+`;
